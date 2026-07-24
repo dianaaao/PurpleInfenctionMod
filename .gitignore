@@ -53,6 +53,9 @@ replay_*.log
 
 # Package Files #
 *.jar
+# Не игнорировать Gradle Wrapper
+!gradle/wrapper/gradle-wrapper.jar
+
 *.war
 *.nar
 *.ear
