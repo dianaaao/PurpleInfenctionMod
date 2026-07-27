@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:overworld",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "minecraft:overworld",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "purpleinfenctionmod:infected",
+          "parameters": {
+            "temperature": [0.35, 0.40],
+            "humidity": [0.75, 0.80],
+            "continentalness": [0.55, 1.0],
+            "erosion": [-0.2, 0.1],
+            "weirdness": [0.85, 0.95],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}
