@@ -18,6 +18,9 @@
 		"main": [
 			"com.purpleinfenctionmod.PurpleInfenctionMod"
 		],
+		"terrablender": [
+			"com.purpleinfenctionmod.PurpleInfenctionModTerraBlender"
+		],
 		"client": [
 			"com.purpleinfenctionmod.client.PurpleInfenctionModClient"
 		],

@@ -3,7 +3,8 @@
 	"package": "com.purpleinfenctionmod.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"SurfaceReplacementMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
