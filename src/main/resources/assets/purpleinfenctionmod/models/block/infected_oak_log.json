@@ -1,0 +1,9 @@
+{
+    "parent": "minecraft:block/cube_bottom_top",
+    "textures": {
+        "top": "purpleinfenctionmod:block/infected_oak_log_top",
+        "bottom": "purpleinfenctionmod:block/infected_oak_log_top",
+        "side": "purpleinfenctionmod:block/infected_oak_log"
+    }
+
+}

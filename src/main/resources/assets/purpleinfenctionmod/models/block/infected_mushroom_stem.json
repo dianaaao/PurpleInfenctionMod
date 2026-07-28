@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/cube_bottom_top",
+    "textures": {
+        "top": "purpleinfenctionmod:block/infected_mushroom_block_inside",
+        "bottom": "purpleinfenctionmod:block/infected_mushroom_block_inside",
+        "side": "purpleinfenctionmod:block/infected_mushroom_stem"
+    }
+}

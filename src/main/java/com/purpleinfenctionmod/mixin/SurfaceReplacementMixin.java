@@ -37,7 +37,7 @@ public class SurfaceReplacementMixin {
                     BlockState state = chunk.getBlockState(mutablePos);
 
                     // Пропускаем воздух и камень для оптимизации (их больше всего)
-                    if (state.isAir() || state.isOf(Blocks.STONE)) {
+                    if (state.isAir()) {
                         continue;
                     }
 
@@ -46,6 +46,12 @@ public class SurfaceReplacementMixin {
                         // Проверяем, находится ли этот конкретный блок в твоем биоме
                         if (chunk.getBiomeForNoiseGen(worldX >> 2, y >> 2, worldZ >> 2).matchesKey(ModBiomes.INFECTED_KEY)) {
                             chunk.setBlockState(mutablePos, ModBlocks.INFECTED_GRASS.getDefaultState(), false);
+                        }
+                    } 
+                    else if (state.isOf(Blocks.STONE)) {
+                        // Проверяем, находится ли этот конкретный блок в твоем биоме
+                        if (chunk.getBiomeForNoiseGen(worldX >> 2, y >> 2, worldZ >> 2).matchesKey(ModBiomes.INFECTED_KEY)) {
+                            chunk.setBlockState(mutablePos, ModBlocks.INFECTED_STONE.getDefaultState(), false);
                         }
                     } 
                     // Если нашли ванильную землю
