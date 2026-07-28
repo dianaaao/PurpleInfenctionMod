@@ -1,6 +1,7 @@
 package com.purpleinfenctionmod.block;
 
 import com.purpleinfenctionmod.PurpleInfenctionMod;
+import com.purpleinfenctionmod.item.ModArmorMaterials;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ArmorItem;
@@ -25,6 +26,15 @@ public class ModItems {
     //         new Item.Settings() // настройки предмета
     //     )
     // );
+    public static final Item RESPIRATOR = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("respirator"),
+        new ArmorItem(
+            ModArmorMaterials.RESPIRATOR,
+            ArmorItem.Type.HELMET,
+            new Item.Settings()
+        )
+    );
 
 
     private static Item registerItem(String name, Item item){
@@ -45,6 +55,9 @@ public class ModItems {
         // ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
         // // список обьєктов в группе предметов (ингридиентам), добавляем наш предмет в список
         // .register(entries -> entries.add(GRAVITY_BOOTS));
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
+        .register(entries -> entries.add(RESPIRATOR));
 
         PurpleInfenctionMod.LOGGER.info("Registering Mod Items for " + PurpleInfenctionMod.MOD_ID);
     }

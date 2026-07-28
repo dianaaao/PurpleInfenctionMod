@@ -1,4 +1,6 @@
 {
     "block.purpleinfenctionmod.infected_grass": "Infected Grass",
-    "block.purpleinfenctionmod.infected_dirt": "Infected Dirt"
+    "block.purpleinfenctionmod.infected_dirt": "Infected Dirt",
+
+    "item.purpleinfenctionmod.respirator": "Respirator"
 }
