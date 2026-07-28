@@ -3,7 +3,10 @@ package com.purpleinfenctionmod.block;
 import com.purpleinfenctionmod.PurpleInfenctionMod;
 import com.purpleinfenctionmod.item.ModArmorMaterials;
 
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroups;
 
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
@@ -29,7 +32,7 @@ public class ModItems {
         new ArmorItem(
             ModArmorMaterials.RESPIRATOR,
             ArmorItem.Type.HELMET,
-            new Item.Settings()
+            new Item.Settings().maxDamage(200)
         )
     );
 

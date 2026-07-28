@@ -1,5 +1,7 @@
 package com.purpleinfenctionmod.world;
 
+import com.purpleinfenctionmod.block.ModItems;
+
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -14,20 +16,22 @@ public class BiomeEffectHandler {
         ServerTickEvents.END_WORLD_TICK.register(world -> {
             for (ServerPlayerEntity player : world.getPlayers()) {
                 // Проверка раз в 20 тиков (1 секунда)
-                if (player.age % 20 == 0) {
+                if (player.age % 60 == 0) {
                     if (world.getBiome(player.getBlockPos()).matchesKey(ModBiomes.INFECTED_KEY)) {
                         
                         // Проверяем предмет на голове
                         ItemStack headStack = player.getEquippedStack(EquipmentSlot.HEAD);
                         
-                        // Если на игроке Алмазный Шлем — пропускаем наложение эффекта
-                        if (headStack.isOf(Items.DIAMOND_HELMET)) {
+                        // Если на игроке RESPIRATOR — пропускаем наложение эффекта
+                        if (headStack.isOf(ModItems.RESPIRATOR)) {
+                            headStack.damage(1, player, p ->
+                            p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
                             continue;
                         }
 
                         player.addStatusEffect(new StatusEffectInstance(
                             StatusEffects.POISON,
-                            60,
+                            70,
                             0,
                             false,
                             false
