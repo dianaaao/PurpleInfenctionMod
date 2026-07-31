@@ -1,0 +1,16 @@
+{
+    "multipart": [
+        { "when": { "up": "true" },    "apply": { "model": "purpleinfenctionmod:block/infected_brown_mushroom_block" } },
+        { "when": { "up": "false" },   "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } },
+        { "when": { "down": "true" },  "apply": { "model": "purpleinfenctionmod:block/infected_brown_mushroom_block" } },
+        { "when": { "down": "false" }, "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } },
+        { "when": { "north": "true" }, "apply": { "model": "purpleinfenctionmod:block/infected_brown_mushroom_block" } },
+        { "when": { "north": "false" },"apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } },
+        { "when": { "south": "true" }, "apply": { "model": "purpleinfenctionmod:block/infected_brown_mushroom_block" } },
+        { "when": { "south": "false" },"apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } },
+        { "when": { "east": "true" },  "apply": { "model": "purpleinfenctionmod:block/infected_brown_mushroom_block" } },
+        { "when": { "east": "false" }, "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } },
+        { "when": { "west": "true" },  "apply": { "model": "purpleinfenctionmod:block/infected_brown_mushroom_block" } },
+        { "when": { "west": "false" }, "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } }
+    ]
+}

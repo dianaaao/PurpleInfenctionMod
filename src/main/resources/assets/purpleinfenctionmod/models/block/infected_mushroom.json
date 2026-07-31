@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "purpleinfenctionmod:block/infected_mushroom"
+  }
+}

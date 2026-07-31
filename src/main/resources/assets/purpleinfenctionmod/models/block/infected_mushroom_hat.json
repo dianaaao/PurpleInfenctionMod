@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:block/cube_all",
     "textures": {
-        "all": "purpleinfenctionmod:block/infected_dirt"
+        "all": "purpleinfenctionmod:block/infected_mushroom_hat"
     }
 }
