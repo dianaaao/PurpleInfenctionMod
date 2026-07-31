@@ -3,6 +3,12 @@
   "temperature": 2.0,
   "downfall": 0.0,
   "effects": {
+    "particle": {
+    "options": {
+      "type": "minecraft:white_ash"
+    },
+    "probability": 0.05
+  },
     "sky_color": 8348566,
     "fog_color": 12638432,
     "water_color": 5252725,
@@ -18,18 +24,31 @@
   },
   "spawners": {},
   "spawn_costs": {},
-  "carvers": {},
-  "features":[
-    [],  
-    [], 
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
     [],
     [],
-    [], 
     [],
     [],
-    [], 
-    [], 
     [],
-    [] 
+    [],
+    [],
+    [
+      "minecraft:glow_lichen",
+      "purpleinfenctionmod:underground_mushrooms_ore",
+      "purpleinfenctionmod:underground_mushrooms"
+    ],
+    [],
+    [
+      "purpleinfenctionmod:infected_oak_trees",
+      "purpleinfenctionmod:infected_mushrooms",
+      "purpleinfenctionmod:infected_mushrooms_high"
+    ]
   ]
 }

@@ -1,7 +1,7 @@
 package com.purpleinfenctionmod.client;
 
-import com.purpleinfenctionmod.block.ModItems;
 import com.purpleinfenctionmod.client.model.RespiratorModel;
+import com.purpleinfenctionmod.item.ModItems;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;

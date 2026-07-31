@@ -1,13 +1,12 @@
 package com.purpleinfenctionmod.world;
 
-import com.purpleinfenctionmod.block.ModItems;
+import com.purpleinfenctionmod.item.ModItems;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class BiomeEffectHandler {
