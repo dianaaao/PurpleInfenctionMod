@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "purpleinfenctionmod:infected_stone"
+          "name": "purpleinfenctionmod:infected_cobblestone"
         }
         ],
         "conditions": [

@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 
 import com.purpleinfenctionmod.block.ModBlocks;
-import com.purpleinfenctionmod.block.ModItems;
+import com.purpleinfenctionmod.item.ModItems;
 import com.purpleinfenctionmod.world.BiomeEffectHandler;
 
 public class PurpleInfenctionMod implements ModInitializer {

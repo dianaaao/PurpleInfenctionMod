@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -25,7 +26,7 @@ public class ModBlocks {
     
     public static final Block INFECTED_GRASS = registerBlock(
         "infected_grass", 
-        new Block(
+        new InfectedGrassBlock(
             FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK)
                 .strength(0.5f, 2.5f)
         )
@@ -55,8 +56,8 @@ public class ModBlocks {
 
     public static final Block INFECTED_OAK_LEAVES = registerBlock(
         "infected_oak_leaves",
-        new Block(
-            FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).strength(2.0f, 62.9f)
+        new LeavesBlock(
+            FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).strength(1.0f, 5.0f)
         )
     );
 

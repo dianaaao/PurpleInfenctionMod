@@ -41,14 +41,7 @@ public class SurfaceReplacementMixin {
                         continue;
                     }
 
-                    // Если нашли ванильную траву
-                    if (state.isOf(Blocks.GRASS_BLOCK)) {
-                        // Проверяем, находится ли этот конкретный блок в твоем биоме
-                        if (chunk.getBiomeForNoiseGen(worldX >> 2, y >> 2, worldZ >> 2).matchesKey(ModBiomes.INFECTED_KEY)) {
-                            chunk.setBlockState(mutablePos, ModBlocks.INFECTED_GRASS.getDefaultState(), false);
-                        }
-                    } 
-                    else if (state.isOf(Blocks.STONE)) {
+                    if (state.isOf(Blocks.STONE)) {
                         // Проверяем, находится ли этот конкретный блок в твоем биоме
                         if (chunk.getBiomeForNoiseGen(worldX >> 2, y >> 2, worldZ >> 2).matchesKey(ModBiomes.INFECTED_KEY)) {
                             chunk.setBlockState(mutablePos, ModBlocks.INFECTED_STONE.getDefaultState(), false);
@@ -60,6 +53,14 @@ public class SurfaceReplacementMixin {
                             chunk.setBlockState(mutablePos, ModBlocks.INFECTED_DIRT.getDefaultState(), false);
                         }
                     }
+
+                    // Если нашли ванильную траву
+                    else if (state.isOf(Blocks.GRASS_BLOCK)) {
+                        // Проверяем, находится ли этот конкретный блок в твоем биоме
+                        if (chunk.getBiomeForNoiseGen(worldX >> 2, y >> 2, worldZ >> 2).matchesKey(ModBiomes.INFECTED_KEY)) {
+                            chunk.setBlockState(mutablePos, ModBlocks.INFECTED_GRASS.getDefaultState(), false);
+                        }
+                    } 
                 }
             }
         }

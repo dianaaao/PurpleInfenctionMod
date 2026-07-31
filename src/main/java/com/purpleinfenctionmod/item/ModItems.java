@@ -1,7 +1,6 @@
-package com.purpleinfenctionmod.block;
+package com.purpleinfenctionmod.item;
 
 import com.purpleinfenctionmod.PurpleInfenctionMod;
-import com.purpleinfenctionmod.item.ModArmorMaterials;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ArmorItem;
