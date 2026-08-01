@@ -19,6 +19,20 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+
+	maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        content {
+            includeGroupByRegex("software\\.bernie.*")
+        	includeGroup("com.eliotlash.mclib")
+        }
+    }
+
+	// maven {
+    //     name = 'JitPack'
+    //     url 'https://jitpack.io'
+    // }
 }
 
 loom {
@@ -52,6 +66,9 @@ dependencies {
     modImplementation "com.electronwill.night-config:toml:3.6.6"
     include "com.electronwill.night-config:core:3.6.6"
     include "com.electronwill.night-config:toml:3.6.6"
+
+	modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.1:4.4.9"
+	implementation "com.eliotlash.mclib:mclib:20"
 }
 
 processResources {

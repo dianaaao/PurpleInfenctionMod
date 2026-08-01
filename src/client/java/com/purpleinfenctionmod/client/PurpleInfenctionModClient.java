@@ -1,6 +1,8 @@
 package com.purpleinfenctionmod.client;
 
+import com.purpleinfenctionmod.client.entity.MushroomMobRenderer;
 import com.purpleinfenctionmod.client.model.RespiratorModel;
+import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.item.ModItems;
 
 import net.fabricmc.api.ClientModInitializer;
@@ -16,10 +18,17 @@ import net.minecraft.client.MinecraftClient;
 // import net.minecraft.entity.LivingEntity;
 // import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 
 public class PurpleInfenctionModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+
+        EntityRendererRegistry.register(
+            ModEntities.MUSHROOM_MOB, 
+            MushroomMobRenderer::new
+        );
+
         EntityModelLayerRegistry.registerModelLayer(
             RespiratorModel.LAYER,
             RespiratorModel::getTexturedModelData

@@ -1,13 +1,17 @@
 package com.purpleinfenctionmod;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.util.Identifier;
+import software.bernie.geckolib.GeckoLib;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 import com.purpleinfenctionmod.block.ModBlocks;
+import com.purpleinfenctionmod.entity.ModEntities;
+import com.purpleinfenctionmod.entity.MushroomMobEntity;
 import com.purpleinfenctionmod.item.ModItems;
 import com.purpleinfenctionmod.world.BiomeEffectHandler;
 
@@ -24,11 +28,13 @@ public class PurpleInfenctionMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		
+		GeckoLib.initialize();
 		
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
 		BiomeEffectHandler.register();
+
+		FabricDefaultAttributeRegistry.register(ModEntities.MUSHROOM_MOB, MushroomMobEntity.createAttributes());
 
 		LOGGER.info("Hello Fabric world!");
 	}
