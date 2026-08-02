@@ -78,14 +78,14 @@ public class ModBlocks {
     );
 
     public static final Block INFECTED_BROWN_MUSHROOM = registerBlock(
-        "infected_brown_mushroom",
+        "infected_brown_mushroom_block",
         new MushroomBlock(
             FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f, 62.9f)
         )   
     );
 
     public static final Block INFECTED_SMALL_MUSHROOM = registerBlock(
-        "infected_small_mushroom",
+        "infected_mushroom",
         new MushroomPlantBlock(
             FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM).strength(2.0f, 62.9f), null
         )   
