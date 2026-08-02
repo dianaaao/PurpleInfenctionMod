@@ -12,6 +12,10 @@ import org.slf4j.LoggerFactory;
 import com.purpleinfenctionmod.block.ModBlocks;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.entity.MushroomMobEntity;
+import com.purpleinfenctionmod.entity.infected.InfectedCreeperEntity;
+import com.purpleinfenctionmod.entity.infected.InfectedSkeletonEntity;
+import com.purpleinfenctionmod.entity.infected.InfectedZombieEntity;
+import com.purpleinfenctionmod.entity.infected.InfectionHandler;
 import com.purpleinfenctionmod.item.ModItems;
 import com.purpleinfenctionmod.world.BiomeEffectHandler;
 
@@ -29,6 +33,7 @@ public class PurpleInfenctionMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		GeckoLib.initialize();
+		InfectionHandler.register();
 		
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
@@ -36,6 +41,10 @@ public class PurpleInfenctionMod implements ModInitializer {
 
 		FabricDefaultAttributeRegistry.register(ModEntities.MUSHROOM_MOB, MushroomMobEntity.createAttributes());
 
+		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_ZOMBIE, InfectedZombieEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_SKELETON, InfectedSkeletonEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_CREEPER, InfectedCreeperEntity.createAttributes());
+		
 		LOGGER.info("Hello Fabric world!");
 	}
 

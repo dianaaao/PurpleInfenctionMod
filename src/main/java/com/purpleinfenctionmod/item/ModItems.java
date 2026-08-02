@@ -1,12 +1,13 @@
 package com.purpleinfenctionmod.item;
 
 import com.purpleinfenctionmod.PurpleInfenctionMod;
+import com.purpleinfenctionmod.entity.ModEntities;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
-
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 
@@ -35,6 +36,18 @@ public class ModItems {
         )
     );
 
+    public static final Item MUSHROOM_MOB_SPAWN_EGG = registerItem("mushroom_mob_spawn_egg",
+            new SpawnEggItem(ModEntities.MUSHROOM_MOB, 0x8B5FBF, 0xE1C8E6, new Item.Settings()));
+
+    public static final Item INFECTED_ZOMBIE_SPAWN_EGG = registerItem("infected_zombie_spawn_egg",
+            new SpawnEggItem(ModEntities.INFECTED_ZOMBIE, 0x5A3D7A, 0x2E7D32, new Item.Settings()));
+
+    public static final Item INFECTED_SKELETON_SPAWN_EGG = registerItem("infected_skeleton_spawn_egg",
+            new SpawnEggItem(ModEntities.INFECTED_SKELETON, 0xC0C0C0, 0x7B4FA3, new Item.Settings()));
+
+    public static final Item INFECTED_CREEPER_SPAWN_EGG = registerItem("infected_creeper_spawn_egg",
+            new SpawnEggItem(ModEntities.INFECTED_CREEPER, 0x2E7D32, 0x7B4FA3, new Item.Settings()));
+
 
     private static Item registerItem(String name, Item item){
         return Registry.register(
@@ -56,7 +69,14 @@ public class ModItems {
         // .register(entries -> entries.add(GRAVITY_BOOTS));
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-        .register(entries -> entries.add(RESPIRATOR));
+            .register(entries -> entries.add(RESPIRATOR));
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
+            entries.add(ModItems.MUSHROOM_MOB_SPAWN_EGG);
+            entries.add(ModItems.INFECTED_ZOMBIE_SPAWN_EGG);
+            entries.add(ModItems.INFECTED_SKELETON_SPAWN_EGG);
+            entries.add(ModItems.INFECTED_CREEPER_SPAWN_EGG);
+        });
 
         PurpleInfenctionMod.LOGGER.info("Registering Mod Items for " + PurpleInfenctionMod.MOD_ID);
     }

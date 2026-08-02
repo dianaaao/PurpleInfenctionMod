@@ -1,11 +1,15 @@
 {
-    "block.purpleinfenctionmod.infected_grass": "Infected Grass",
-
     "item.purpleinfenctionmod.respirator": "Respirator",
+    "item.purpleinfenctionmod.mushroom_mob_spawn_egg": "Mushroom Mob Spawn Egg",
+    "item.purpleinfenctionmod.infected_zombie_spawn_egg": "Infected Zombie Spawn Egg",
+    "item.purpleinfenctionmod.infected_skeleton_spawn_egg": "Infected Skeleton Spawn Egg",
+    "item.purpleinfenctionmod.infected_creeper_spawn_egg": "Infected Creeper Spawn Egg",
+    
+    "block.purpleinfenctionmod.infected_grass": "Infected Grass",
     "block.purpleinfenctionmod.infected_dirt": "Infected Dirt",
-    "block.purpleinfenctionmod.infected_oak_log": "Infected Log",
+    "block.purpleinfenctionmod.infected_oak_log": "Infected Oak Log",
     "block.purpleinfenctionmod.infected_cobblestone": "Infected Cobblestone",
     "block.purpleinfenctionmod.infected_stone": "Infected Stone",
-    "block.purpleinfenctionmod.infected_oak_leaves": "Infected Leaves",
+    "block.purpleinfenctionmod.infected_oak_leaves": "Infected Oak Leaves",
     "block.purpleinfenctionmod.infected_mushroom_stem": "Infected Mushroom Stem"
 }

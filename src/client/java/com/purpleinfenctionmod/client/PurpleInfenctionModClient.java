@@ -1,5 +1,8 @@
 package com.purpleinfenctionmod.client;
 
+import com.purpleinfenctionmod.client.entity.InfectedCreeperRenderer;
+import com.purpleinfenctionmod.client.entity.InfectedSkeletonRenderer;
+import com.purpleinfenctionmod.client.entity.InfectedZombieRenderer;
 import com.purpleinfenctionmod.client.entity.MushroomMobRenderer;
 import com.purpleinfenctionmod.client.model.RespiratorModel;
 import com.purpleinfenctionmod.entity.ModEntities;
@@ -33,6 +36,10 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
             RespiratorModel.LAYER,
             RespiratorModel::getTexturedModelData
         );
+
+        EntityRendererRegistry.register(ModEntities.INFECTED_ZOMBIE, InfectedZombieRenderer::new);
+        EntityRendererRegistry.register(ModEntities.INFECTED_SKELETON, InfectedSkeletonRenderer::new);
+        EntityRendererRegistry.register(ModEntities.INFECTED_CREEPER, InfectedCreeperRenderer::new);
 
         ArmorRenderer.register(
             (matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {
