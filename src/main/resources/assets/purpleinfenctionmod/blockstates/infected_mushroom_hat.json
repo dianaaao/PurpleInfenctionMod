@@ -1,16 +1,52 @@
 {
-    "multipart": [
-        { "when": { "up": "true" },    "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat" } },
-        { "when": { "up": "false" },   "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } },
-        { "when": { "down": "true" },  "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat" } },
-        { "when": { "down": "false" }, "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } },
-        { "when": { "north": "true" }, "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat" } },
-        { "when": { "north": "false" },"apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } },
-        { "when": { "south": "true" }, "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat" } },
-        { "when": { "south": "false" },"apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } },
-        { "when": { "east": "true" },  "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat" } },
-        { "when": { "east": "false" }, "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } },
-        { "when": { "west": "true" },  "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat" } },
-        { "when": { "west": "false" }, "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" } }
-    ]
+  "multipart": [
+    {
+      "when": { "up": "true" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat", "x": 270 }
+    },
+    {
+      "when": { "up": "false" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside", "x": 270 }
+    },
+    {
+      "when": { "down": "true" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat", "x": 90 }
+    },
+    {
+      "when": { "down": "false" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside", "x": 90 }
+    },
+    {
+      "when": { "north": "true" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat" }
+    },
+    {
+      "when": { "north": "false" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside" }
+    },
+    {
+      "when": { "south": "true" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat", "y": 180 }
+    },
+    {
+      "when": { "south": "false" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside", "y": 180 }
+    },
+    {
+      "when": { "west": "true" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat", "y": 270 }
+    },
+    {
+      "when": { "west": "false" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside", "y": 270 }
+    },
+    {
+      "when": { "east": "true" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_hat", "y": 90 }
+    },
+    {
+      "when": { "east": "false" },
+      "apply": { "model": "purpleinfenctionmod:block/infected_mushroom_block_inside", "y": 90 }
+    }
+  ]
 }
