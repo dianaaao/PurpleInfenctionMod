@@ -1,32 +1,12 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 64,
-    "xz_spread": 7,
+    "tries": 32,
+    "xz_spread": 5,
     "y_spread": 3,
     "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "purpleinfenctionmod:infected_mushroom"
-            }
-          }
-        }
-      },
-      "placement": [
-        {
-          "type": "minecraft:block_predicate_filter",
-          "predicate": {
-            "type": "minecraft:would_survive",
-            "state": {
-              "Name": "purpleinfenctionmod:infected_mushroom"
-            }
-          }
-        }
-      ]
+      "feature": "purpleinfenctionmod:simple_infected_mushroom",
+      "placement": []
     }
   }
 }

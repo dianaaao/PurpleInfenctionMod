@@ -11,5 +11,9 @@
     "block.purpleinfenctionmod.infected_cobblestone": "Infected Cobblestone",
     "block.purpleinfenctionmod.infected_stone": "Infected Stone",
     "block.purpleinfenctionmod.infected_oak_leaves": "Infected Oak Leaves",
-    "block.purpleinfenctionmod.infected_mushroom_stem": "Infected Mushroom Stem"
+    "block.purpleinfenctionmod.infected_mushroom_stem": "Infected Mushroom Stem",
+    
+    "block.purpleinfenctionmod.infected_mushroom": "Infected Mushroom",
+    "block.purpleinfenctionmod.infected_mushroom_hat": "Infected Mushroom Hat",
+    "block.purpleinfenctionmod.infected_brown_mushroom_block": "Infected Brown Mushroom Block"
 }

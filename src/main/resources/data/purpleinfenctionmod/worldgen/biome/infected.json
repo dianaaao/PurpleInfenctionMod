@@ -40,12 +40,9 @@
     [],
     [],
     [
-      "minecraft:glow_lichen",
-      "purpleinfenctionmod:underground_mushrooms_ore"
+      "minecraft:glow_lichen"
     ],
-    [
-      "purpleinfenctionmod:underground_mushrooms"
-    ],
+    [],
     [
       "purpleinfenctionmod:infected_oak_trees",
       "purpleinfenctionmod:infected_mushrooms",
