@@ -40,14 +40,18 @@
     [],
     [],
     [
-      "minecraft:glow_lichen"
+      "minecraft:glow_lichen",
+      "purpleinfenctionmod:small_mushrooms_undeground",
+      "purpleinfenctionmod:rails"
     ],
-    [],
+    ["minecraft:patch_grass_plain"],
     [
       "purpleinfenctionmod:infected_oak_trees",
       "purpleinfenctionmod:infected_mushrooms",
       "purpleinfenctionmod:infected_mushrooms_high",
-      "purpleinfenctionmod:infected_cave_vines"
+      "purpleinfenctionmod:infected_cave_vines",
+      "purpleinfenctionmod:small_mushrooms"
+
     ]
   ]
 }

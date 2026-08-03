@@ -1,5 +1,6 @@
 package com.purpleinfenctionmod.client;
 
+import com.purpleinfenctionmod.block.ModBlocks;
 import com.purpleinfenctionmod.client.entity.InfectedCreeperRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedSkeletonRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedZombieRenderer;
@@ -9,9 +10,11 @@ import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.item.ModItems;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.RenderLayer;
 // import net.minecraft.client.render.OverlayTexture;
 // import net.minecraft.client.render.VertexConsumer;
 // import net.minecraft.client.render.VertexConsumerProvider;
@@ -26,7 +29,10 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 public class PurpleInfenctionModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.INFECTED_SMALL_MUSHROOM,
+            RenderLayer.getCutout()
+        );
         EntityRendererRegistry.register(
             ModEntities.MUSHROOM_MOB, 
             MushroomMobRenderer::new
