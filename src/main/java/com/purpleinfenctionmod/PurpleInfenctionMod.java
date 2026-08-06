@@ -11,7 +11,7 @@ import software.bernie.geckolib.GeckoLib;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import com.purpleinfenctionmod.block.ModBlocks;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.entity.MushroomMobEntity;
@@ -48,14 +48,17 @@ public class PurpleInfenctionMod implements ModInitializer {
 		
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
-		BiomeEffectHandler.register();
+		// BiomeEffectHandler.register();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.MUSHROOM_MOB, MushroomMobEntity.createAttributes());
 
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_ZOMBIE, InfectedZombieEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_SKELETON, InfectedSkeletonEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_CREEPER, InfectedCreeperEntity.createAttributes());
-		
+		ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+			BiomeEffectHandler.register();
+			LOGGER.info("BiomeEffectHandler registered after server start");
+		});
 		LOGGER.info("Hello Fabric world!");
 	}
 

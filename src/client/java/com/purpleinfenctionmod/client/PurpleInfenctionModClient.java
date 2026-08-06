@@ -5,6 +5,7 @@ import com.purpleinfenctionmod.client.entity.InfectedCreeperRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedSkeletonRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedZombieRenderer;
 import com.purpleinfenctionmod.client.entity.MushroomMobRenderer;
+import com.purpleinfenctionmod.client.gui.DecontrollHudOverlay;
 import com.purpleinfenctionmod.client.model.RespiratorModel;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.item.ModItems;
@@ -25,10 +26,14 @@ import net.minecraft.client.render.RenderLayer;
 // import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 
 public class PurpleInfenctionModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        HudRenderCallback.EVENT.register(new DecontrollHudOverlay());
+        ShaderDiscontrollHandler.register();
+        MouseDiscontrollHandler.register();
         BlockRenderLayerMap.INSTANCE.putBlock(
             ModBlocks.INFECTED_SMALL_MUSHROOM,
             RenderLayer.getCutout()

@@ -28,11 +28,14 @@ repositories {
         	includeGroup("com.eliotlash.mclib")
         }
     }
-
-	// maven {
-    //     name = 'JitPack'
-    //     url 'https://jitpack.io'
-    // }
+	maven {
+		name = "Ladysnake Libs"
+		url = "https://maven.ladysnake.org/releases"
+	}
+	maven {
+        name = 'JitPack'
+        url 'https://jitpack.io'
+    }
 }
 
 loom {
@@ -44,6 +47,7 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
+	accessWidenerPath = file("src/main/resources/purpleinfenctionmod.accesswidener")
 }
 
 fabricApi {
@@ -69,6 +73,18 @@ dependencies {
 
 	modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.1:4.4.9"
 	implementation "com.eliotlash.mclib:mclib:20"
+
+
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:5.2.2"
+    modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:5.2.2"
+    
+    // it chashes game, even if they are not used
+    // implementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:5.2.2"
+    // implementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:5.2.2"
+     
+    // // Include them if you want them bundled
+    // include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:5.2.2"
+    // include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:5.2.2"
 }
 
 processResources {
