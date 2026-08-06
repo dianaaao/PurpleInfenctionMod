@@ -22,6 +22,9 @@ import com.purpleinfenctionmod.entity.infected.InfectionHandler;
 import com.purpleinfenctionmod.item.ModItems;
 import com.purpleinfenctionmod.world.BiomeEffectHandler;
 
+import com.purpleinfenctionmod.world.PlacedBlockDecayHandler;
+
+
 public class PurpleInfenctionMod implements ModInitializer {
 	public static final String MOD_ID = "purpleinfenctionmod";
 
@@ -41,6 +44,7 @@ public class PurpleInfenctionMod implements ModInitializer {
 		// Proceed with mild caution.
 		GeckoLib.initialize();
 		InfectionHandler.register();
+		PlacedBlockDecayHandler.register();
 		
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();

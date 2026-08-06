@@ -17,6 +17,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 
 public class ModBlocks {
+    private static final java.util.Set<Block> INFECTED_BLOCKS = new java.util.HashSet<>();
+
+    public static boolean isInfectedBlock(Block block) {
+        return INFECTED_BLOCKS.contains(block);
+    }
 
     public static final Block INFECTED_DIRT = registerBlock(
         "infected_dirt", 
@@ -99,8 +104,10 @@ public class ModBlocks {
         );
 
         registerBlockItem(name, block);
+        INFECTED_BLOCKS.add(block);
         return block;
     }
+    
 
     private static Item registerBlockItem(String name, Block block){
 
