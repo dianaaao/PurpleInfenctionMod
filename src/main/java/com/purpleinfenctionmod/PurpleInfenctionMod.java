@@ -5,7 +5,6 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.PlacedFeature;
 import software.bernie.geckolib.GeckoLib;
 
 import org.slf4j.Logger;
@@ -35,7 +34,7 @@ public class PurpleInfenctionMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		RegistryKey<PlacedFeature> INFECTED_CAVE_VINES_PLACED = RegistryKey.of(
+		RegistryKey.of(
                 RegistryKeys.PLACED_FEATURE,
                 new Identifier(MOD_ID, "infected_cave_vines")
         );

@@ -11,12 +11,4 @@ public class ModBiomes {
         RegistryKeys.BIOME, 
         new Identifier(PurpleInfenctionMod.MOD_ID, "infected")
     );
-    public static final RegistryKey<Biome> INFECTED_CAVE_KEY = RegistryKey.of(
-        RegistryKeys.BIOME, 
-        new Identifier(PurpleInfenctionMod.MOD_ID, "infected_caves")
-    );
-
-    public static void registerBiomes() {
-        // Никаких Registry.register() здесь быть не должно.
-    }
 }

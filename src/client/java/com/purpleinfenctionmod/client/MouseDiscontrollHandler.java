@@ -2,7 +2,6 @@ package com.purpleinfenctionmod.client;
 
 import com.purpleinfenctionmod.component.ModComponents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.minecraft.client.MinecraftClient;
 
 import java.util.Random;
 
@@ -16,10 +15,11 @@ public class MouseDiscontrollHandler {
 
     public static void register() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (client.player == null || client.world == null) return;
+            var player = client.player;
+            if (player == null || client.world == null) return;
             if (client.currentScreen != null) return; // don't jitter while in a menu/inventory
 
-            float stability = ModComponents.DECONTROLL.maybeGet(client.player)
+            float stability = ModComponents.DECONTROLL.maybeGet(player)
                 .map(c -> c.getStability())
                 .orElse(1.0f);
 

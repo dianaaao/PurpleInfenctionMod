@@ -75,7 +75,6 @@ public class InfectionHandler {
         return entity.getWorld().getBiome(entity.getBlockPos()).matchesKey(ModBiomes.INFECTED_KEY);
     }
 
-    @SuppressWarnings("unchecked")
     private static <T extends MobEntity> void convertAndInfect(ServerWorld world, MobEntity original, EntityType<T> newType) {
         float currentHealth = original.getHealth();
         float maxHealth = original.getMaxHealth();

@@ -78,13 +78,7 @@ dependencies {
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:5.2.2"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:5.2.2"
     
-    // it chashes game, even if they are not used
-    // implementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:5.2.2"
-    // implementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:5.2.2"
-     
-    // // Include them if you want them bundled
-    // include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:5.2.2"
-    // include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:5.2.2"
+    compileOnly 'com.google.code.findbugs:jsr305:3.0.2'
 }
 
 processResources {

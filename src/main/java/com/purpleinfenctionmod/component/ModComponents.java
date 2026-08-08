@@ -6,7 +6,6 @@ import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
 import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
 import net.minecraft.util.Identifier;
-
 public class ModComponents implements EntityComponentInitializer {
     public static final ComponentKey<DecontrollComponent> DECONTROLL =
         ComponentRegistry.getOrCreate(
@@ -15,7 +14,10 @@ public class ModComponents implements EntityComponentInitializer {
         );
 
     @Override
-    public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
-        registry.registerForPlayers(DECONTROLL, PlayerDecontrollComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
+    public void registerEntityComponentFactories(@javax.annotation.Nonnull EntityComponentFactoryRegistry registry) {
+        
+        if (RespawnCopyStrategy.ALWAYS_COPY!=null && DECONTROLL!=null){
+            registry.registerForPlayers(DECONTROLL, PlayerDecontrollComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
+        }
     }
 }

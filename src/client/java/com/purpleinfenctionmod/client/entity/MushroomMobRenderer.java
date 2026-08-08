@@ -1,6 +1,5 @@
 package com.purpleinfenctionmod.client.entity;
 
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import com.purpleinfenctionmod.client.model.MushroomMobModel;
 import com.purpleinfenctionmod.entity.MushroomMobEntity;
