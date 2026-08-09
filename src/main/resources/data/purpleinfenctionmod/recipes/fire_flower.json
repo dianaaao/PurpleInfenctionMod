@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "CFC",
+    " C "
+  ],
+  "key": {
+    "F": { "item": "minecraft:azure_bluet" },
+    "C": { "item": "purpleinfenctionmod:crystal_splinter" }
+  },
+  "result": {
+    "item": "purpleinfenctionmod:fire_flower",
+    "count": 1
+  }
+}

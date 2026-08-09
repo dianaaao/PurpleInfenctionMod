@@ -38,6 +38,10 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
             ModBlocks.INFECTED_SMALL_MUSHROOM,
             RenderLayer.getCutout()
         );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.FIRE_FLOWER,
+            RenderLayer.getCutout()
+        );
         EntityRendererRegistry.register(
             ModEntities.MUSHROOM_MOB, 
             MushroomMobRenderer::new

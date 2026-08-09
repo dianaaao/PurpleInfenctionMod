@@ -1,6 +1,8 @@
 package com.purpleinfenctionmod;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.item.Items;
+import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -38,6 +40,11 @@ public class PurpleInfenctionMod implements ModInitializer {
                 RegistryKeys.PLACED_FEATURE,
                 new Identifier(MOD_ID, "infected_cave_vines")
         );
+		BrewingRecipeRegistry.registerItemRecipe(
+			Items.POTION, // The base item placed in bottom slots (e.g., Water Bottle)
+			ModBlocks.FIRE_FLOWER.asItem(), // The item put in top slot
+			ModItems.DISINFECTANT_POTION // Your registered potion item
+		);
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.

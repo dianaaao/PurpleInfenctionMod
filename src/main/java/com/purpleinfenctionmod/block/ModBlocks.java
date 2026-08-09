@@ -30,6 +30,13 @@ public class ModBlocks {
                 .strength(0.5f, 2.5f)
         )
     );
+    public static final Block FIRE_FLOWER = registerBlock(
+        "fire_flower", 
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.AZURE_BLUET)
+                .strength(0.5f, 2.5f)
+        )
+    );
     
     public static final Block INFECTED_GRASS = registerBlock(
         "infected_grass", 
@@ -43,6 +50,12 @@ public class ModBlocks {
         "infected_cobblestone",
         new Block(
             FabricBlockSettings.copyOf(Blocks.COBBLESTONE).strength(2.0f, 62.9f)
+        )
+    );
+    public static final Block INFECTED_PLANKS = registerBlock(
+        "infected_oak_planks",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2.0f, 62.9f)
         )
     );
 
@@ -67,7 +80,7 @@ public class ModBlocks {
             FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).strength(1.0f, 5.0f)
         )
     );
-
+ 
     public static final Block INFECTED_MUSHROOM_STEM = registerBlock(
         "infected_mushroom_stem",
         new PillarBlock(
@@ -137,6 +150,8 @@ public class ModBlocks {
         
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
             .register(entries -> entries.add(INFECTED_OAK_LOG));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
+            .register(entries -> entries.add(INFECTED_PLANKS));
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
             .register(entries -> entries.add(INFECTED_OAK_LEAVES));
@@ -152,6 +167,9 @@ public class ModBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
             .register(entries -> entries.add(INFECTED_SMALL_MUSHROOM));
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
+            .register(entries -> entries.add(FIRE_FLOWER));
 
         
 

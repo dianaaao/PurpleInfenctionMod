@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.PotionItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
@@ -33,6 +34,20 @@ public class ModItems {
             ModArmorMaterials.RESPIRATOR,
             ArmorItem.Type.HELMET,
             new Item.Settings().maxDamage(200)
+        )
+    );
+    public static final Item CRYSTAL_SPLINTER = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_splinter"),
+        new Item(
+            new Item.Settings()
+        )
+    );
+    public static final Item DISINFECTANT_POTION = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("disinfectant_potion"),
+        new PotionItem(
+            new Item.Settings()
         )
     );
 
@@ -70,6 +85,10 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
             .register(entries -> entries.add(RESPIRATOR));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
+            .register(entries -> entries.add(CRYSTAL_SPLINTER));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
+            .register(entries -> entries.add(DISINFECTANT_POTION));
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
             entries.add(ModItems.MUSHROOM_MOB_SPAWN_EGG);
