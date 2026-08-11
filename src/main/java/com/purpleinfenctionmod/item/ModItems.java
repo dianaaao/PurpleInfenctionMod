@@ -14,19 +14,6 @@ import net.minecraft.registry.Registries;
 
 public class ModItems {
 
-    // public static final Item MARTIAN_INGOT = registerItem(
-    //     "martian_ingot", 
-    //     new Item(new Item.Settings())
-    // );
-
-    // public static final Item GRAVITY_BOOTS = registerItem(
-    //     "gravity_boots", 
-    //     new ArmorItem(
-    //         ModArmorMaterials.MARTIAN, // материал брони
-    //         ArmorItem.Type.BOOTS, // тип брони
-    //         new Item.Settings() // настройки предмета
-    //     )
-    // );
     public static final Item RESPIRATOR = Registry.register(
         Registries.ITEM,
         PurpleInfenctionMod.id("respirator"),
@@ -77,15 +64,6 @@ public class ModItems {
     }
 
     public static void registerModItems() {
-        // // добавляем предмет в группу предметов
-        // ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-        // // список обьєктов в группе предметов (ингридиентам), добавляем наш предмет в список
-        // .register(entries -> entries.add(MARTIAN_INGOT));
-
-        // ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-        // // список обьєктов в группе предметов (ингридиентам), добавляем наш предмет в список
-        // .register(entries -> entries.add(GRAVITY_BOOTS));
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
             .register(entries -> entries.add(RESPIRATOR));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
