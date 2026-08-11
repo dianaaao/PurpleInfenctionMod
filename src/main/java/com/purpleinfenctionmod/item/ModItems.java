@@ -51,7 +51,7 @@ public class ModItems {
             new SpawnEggItem(ModEntities.INFECTED_CREEPER, 0x2E7D32, 0x7B4FA3, new Item.Settings()));
 
     public static final Item ROTTING_SPORE_FUNGUS_SPAWN_EGG = registerItem("rotting_spore_fungus_spawn_egg",
-            new SpawnEggItem(ModEntities.ROTTING_SPORE_FUNGUS, 0x6B4F8A, 0xD4A0E0, new Item.Settings()));
+            new SpawnEggItem(ModEntities.ROTTING_SPORE_FUNGUS, 0xB84D30, 0x3F2F2B, new Item.Settings()));
 
 
     private static Item registerItem(String name, Item item){
