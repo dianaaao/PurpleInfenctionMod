@@ -1,3 +1,4 @@
+package com.purpleinfenctionmod.world.biome;
 // package com.purpleinfenctionmod.world;
 
 // import com.mojang.datafixers.util.Pair;

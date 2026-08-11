@@ -1,7 +1,7 @@
 package com.purpleinfenctionmod;
 
-import com.purpleinfenctionmod.world.InfectedRegion;
-import com.purpleinfenctionmod.world.ModSurfaceRules;
+import com.purpleinfenctionmod.world.biome.InfectedRegion;
+import com.purpleinfenctionmod.world.biome.ModSurfaceRules;
 import com.purpleinfenctionmod.world.feature.ModFeatures;
 
 import net.minecraft.util.Identifier;

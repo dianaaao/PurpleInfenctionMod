@@ -22,9 +22,9 @@ import com.purpleinfenctionmod.entity.infected.InfectedSkeletonEntity;
 import com.purpleinfenctionmod.entity.infected.InfectedZombieEntity;
 import com.purpleinfenctionmod.entity.infected.InfectionHandler;
 import com.purpleinfenctionmod.item.ModItems;
-import com.purpleinfenctionmod.world.BiomeEffectHandler;
-
 import com.purpleinfenctionmod.world.PlacedBlockDecayHandler;
+import com.purpleinfenctionmod.world.biome.BiomeEffectHandler;
+import com.purpleinfenctionmod.world.structure.ModStructures;
 
 
 public class PurpleInfenctionMod implements ModInitializer {
@@ -63,6 +63,8 @@ public class PurpleInfenctionMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_ZOMBIE, InfectedZombieEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_SKELETON, InfectedSkeletonEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_CREEPER, InfectedCreeperEntity.createAttributes());
+
+		ModStructures.registerStructures();
 		ServerLifecycleEvents.SERVER_STARTED.register(server -> {
 			BiomeEffectHandler.register();
 			LOGGER.info("BiomeEffectHandler registered after server start");

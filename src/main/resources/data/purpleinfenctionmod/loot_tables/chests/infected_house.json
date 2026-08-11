@@ -10,7 +10,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "purpleinfenctionmod:infected_mushroom",
+          "name": "minecraft:brown_mushroom",
           "weight": 10,
           "functions": [
             {
@@ -53,7 +53,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_apple",
-          "weight": 9
+          "weight": 1
         }
       ]
     }

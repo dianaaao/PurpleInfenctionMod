@@ -1,4 +1,4 @@
-package com.purpleinfenctionmod.world;
+package com.purpleinfenctionmod.world.biome;
 
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.registry.Registry;

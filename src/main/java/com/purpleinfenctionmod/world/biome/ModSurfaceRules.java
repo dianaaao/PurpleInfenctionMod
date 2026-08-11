@@ -1,4 +1,4 @@
-package com.purpleinfenctionmod.world;
+package com.purpleinfenctionmod.world.biome;
 
 import com.purpleinfenctionmod.block.ModBlocks;
 import net.minecraft.block.Blocks;

@@ -1,4 +1,4 @@
-package com.purpleinfenctionmod.world;
+package com.purpleinfenctionmod.world.biome;
 
 import org.slf4j.LoggerFactory;
 

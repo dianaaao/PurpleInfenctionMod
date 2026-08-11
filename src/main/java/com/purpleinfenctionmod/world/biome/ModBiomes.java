@@ -1,4 +1,4 @@
-package com.purpleinfenctionmod.world;
+package com.purpleinfenctionmod.world.biome;
 
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;

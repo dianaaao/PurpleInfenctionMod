@@ -1,6 +1,8 @@
 package com.purpleinfenctionmod.world;
 
 import com.purpleinfenctionmod.block.ModBlocks;
+import com.purpleinfenctionmod.world.biome.ModBiomes;
+
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
