@@ -63,6 +63,9 @@ public class ModItems {
     public static final Item INFECTED_CREEPER_SPAWN_EGG = registerItem("infected_creeper_spawn_egg",
             new SpawnEggItem(ModEntities.INFECTED_CREEPER, 0x2E7D32, 0x7B4FA3, new Item.Settings()));
 
+    public static final Item ROTTING_SPORE_FUNGUS_SPAWN_EGG = registerItem("rotting_spore_fungus_spawn_egg",
+            new SpawnEggItem(ModEntities.ROTTING_SPORE_FUNGUS, 0x6B4F8A, 0xD4A0E0, new Item.Settings()));
+
 
     private static Item registerItem(String name, Item item){
         return Registry.register(
@@ -92,6 +95,7 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
             entries.add(ModItems.MUSHROOM_MOB_SPAWN_EGG);
+            entries.add(ModItems.ROTTING_SPORE_FUNGUS_SPAWN_EGG);
             entries.add(ModItems.INFECTED_ZOMBIE_SPAWN_EGG);
             entries.add(ModItems.INFECTED_SKELETON_SPAWN_EGG);
             entries.add(ModItems.INFECTED_CREEPER_SPAWN_EGG);

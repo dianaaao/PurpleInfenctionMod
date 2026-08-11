@@ -16,6 +16,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import com.purpleinfenctionmod.block.ModBlocks;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.entity.MushroomMobEntity;
+import com.purpleinfenctionmod.entity.RottingSporeFungusEntity;
 import com.purpleinfenctionmod.entity.infected.InfectedCreeperEntity;
 import com.purpleinfenctionmod.entity.infected.InfectedSkeletonEntity;
 import com.purpleinfenctionmod.entity.infected.InfectedZombieEntity;
@@ -57,6 +58,7 @@ public class PurpleInfenctionMod implements ModInitializer {
 		// BiomeEffectHandler.register();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.MUSHROOM_MOB, MushroomMobEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.ROTTING_SPORE_FUNGUS, RottingSporeFungusEntity.createAttributes());
 
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_ZOMBIE, InfectedZombieEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_SKELETON, InfectedSkeletonEntity.createAttributes());

@@ -22,6 +22,13 @@ public class ModEntities {
                     .build()
     );
 
+    public static final EntityType<RottingSporeFungusEntity> ROTTING_SPORE_FUNGUS = Registry.register(
+        Registries.ENTITY_TYPE,
+        new Identifier(PurpleInfenctionMod.MOD_ID, "rotting_spore_fungus"),
+        FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, RottingSporeFungusEntity::new)
+                .dimensions(EntityDimensions.changing(1.2f, 2.2f)) // подгони под реальный размер модели
+                .build());
+
     public static final EntityType<InfectedZombieEntity> INFECTED_ZOMBIE = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(PurpleInfenctionMod.MOD_ID, "infected_zombie"),
