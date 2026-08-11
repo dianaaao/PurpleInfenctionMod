@@ -1,7 +1,8 @@
 package com.purpleinfenctionmod.mixin;
 
 import com.purpleinfenctionmod.block.ModBlocks;
-import com.purpleinfenctionmod.world.ModBiomes;
+import com.purpleinfenctionmod.world.biome.ModBiomes;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;

@@ -1,7 +1,8 @@
 package com.purpleinfenctionmod.entity.infected;
 
 import com.purpleinfenctionmod.entity.ModEntities;
-import com.purpleinfenctionmod.world.ModBiomes;
+import com.purpleinfenctionmod.world.biome.ModBiomes;
+
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.Entity;
