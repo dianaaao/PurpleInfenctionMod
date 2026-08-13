@@ -14,41 +14,27 @@ import java.util.function.Consumer;
 
 public class InfectedRegion extends Region {
 
-    // Вес задается ОДИН РАЗ на весь регион!
     public InfectedRegion(Identifier name, int weight) {
         super(name, RegionType.OVERWORLD, weight);
     }
 
     @Override
-    public void addBiomes(Registry<Biome> registry, Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> mapper) {
-        
-        // Общие шум-параметры для всей колонки
-        var temp = ParameterUtils.Temperature.FULL_RANGE;
-        var humidity = ParameterUtils.Humidity.FULL_RANGE;
-        var continentalness = ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.INLAND, ParameterUtils.Continentalness.FAR_INLAND);
-        var erosion = ParameterUtils.Erosion.FULL_RANGE;
-        var weirdness = ParameterUtils.Weirdness.FULL_RANGE;
-
-        // 1. Поверхность Заражения
+    public void addBiomes(
+        Registry<Biome> registry,
+        Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> mapper
+    ) {
         new ParameterUtils.ParameterPointListBuilder()
-            .temperature(temp)
-            .humidity(humidity)
-            .continentalness(continentalness)
-            .erosion(erosion)
-            .weirdness(weirdness)
+            .temperature(ParameterUtils.Temperature.NEUTRAL)
+            .humidity(ParameterUtils.Humidity.NEUTRAL)
+            .continentalness(ParameterUtils.Continentalness.INLAND)
+            .erosion(ParameterUtils.Erosion.EROSION_0)
+            .weirdness(ParameterUtils.Weirdness.PEAK_NORMAL)
             .depth(ParameterUtils.Depth.SURFACE)
             .build()
-            .forEach(point -> mapper.accept(Pair.of(point, ModBiomes.INFECTED_KEY)));
-
-        // 2. Пещеры Заражения (Используют ТЕ ЖЕ шумы, но для глубины)
-        new ParameterUtils.ParameterPointListBuilder()
-            .temperature(temp)
-            .humidity(humidity)
-            .continentalness(continentalness)
-            .erosion(erosion)
-            .weirdness(weirdness)
-            .depth(ParameterUtils.Depth.UNDERGROUND)
-            .build()
-            .forEach(point -> mapper.accept(Pair.of(point, ModBiomes.INFECTED_KEY)));
+            .forEach(point ->
+                mapper.accept(
+                    Pair.of(point, ModBiomes.INFECTED_KEY)
+                )
+            );
     }
 }

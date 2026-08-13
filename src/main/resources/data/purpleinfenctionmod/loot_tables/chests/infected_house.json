@@ -8,20 +8,7 @@
       },
       "bonus_rolls": 0.0,
       "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:brown_mushroom",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 8
-              }
-            }
-          ]
-        },
+       
         {
           "type": "minecraft:item",
           "name": "minecraft:rotten_flesh",
@@ -38,7 +25,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_ingot",
+          "name": "purpleinfenctionmod:crystal_splinter",
           "weight": 3,
           "functions": [
             {

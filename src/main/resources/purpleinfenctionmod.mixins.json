@@ -3,9 +3,9 @@
 	"package": "com.purpleinfenctionmod.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin",
 		"SurfaceReplacementMixin",
-		"BlockPlaceMixin"
+		"BlockPlaceMixin",
+		"MultiNoiseBiomeSourceMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 2,
+        "max": 5
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "purpleinfenctionmod:disinfectant_potion",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "purpleinfenctionmod:fire_flower",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "purpleinfenctionmod:respirator",
+          "weight": 5
+        }
+      ]
+    }
+  ]
+}

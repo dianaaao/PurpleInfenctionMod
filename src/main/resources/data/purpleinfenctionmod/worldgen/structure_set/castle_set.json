@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "purpleinfenctionmod:castle",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 4096,
+    "separation": 3072,
+    "salt": 987654321
+  }
+}

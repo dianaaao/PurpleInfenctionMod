@@ -12,7 +12,7 @@ import terrablender.api.TerraBlenderApi;
 public class PurpleInfenctionModTerraBlender implements TerraBlenderApi {
     @Override
     public void onTerraBlenderInitialized() {
-        Regions.register(new InfectedRegion(new Identifier(PurpleInfenctionMod.MOD_ID, "infected"), 10));
+        Regions.register(new InfectedRegion(new Identifier(PurpleInfenctionMod.MOD_ID, "infected"), 1));
         ModFeatures.registerFeatures();
         // Regions.register(new InfectedCaveRegion(new Identifier(PurpleInfenctionMod.MOD_ID, "infected_cave"), 10));
         SurfaceRuleManager.addSurfaceRules(
