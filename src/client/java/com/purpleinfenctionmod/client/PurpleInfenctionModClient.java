@@ -13,25 +13,25 @@ import com.purpleinfenctionmod.item.ModItems;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
+import net.minecraft.entity.EntityType;
+import com.purpleinfenctionmod.client.model.HeadMushroomsModel;
+import com.purpleinfenctionmod.client.feature.HeadMushroomsFeatureRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
-// import net.minecraft.client.render.OverlayTexture;
-// import net.minecraft.client.render.VertexConsumer;
-// import net.minecraft.client.render.VertexConsumerProvider;
-// import net.minecraft.client.render.entity.model.BipedEntityModel;
-// import net.minecraft.client.util.math.MatrixStack;
-// import net.minecraft.entity.EquipmentSlot;
-// import net.minecraft.entity.LivingEntity;
-// import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.minecraft.client.render.entity.PlayerEntityRenderer;
+
+
 
 public class PurpleInfenctionModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+
         HudRenderCallback.EVENT.register(new DecontrollHudOverlay());
         ShaderDiscontrollHandler.register();
         MouseDiscontrollHandler.register();
@@ -77,6 +77,18 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
                 );
             },
             ModItems.RESPIRATOR
+        );
+
+        EntityModelLayerRegistry.registerModelLayer(HeadMushroomsModel.LAYER, HeadMushroomsModel::getTexturedModelData);
+
+        LivingEntityFeatureRendererRegistrationCallback.EVENT.register(
+            (entityType, entityRenderer, registrationHelper, context) -> {
+                if (entityRenderer instanceof PlayerEntityRenderer playerRenderer) {
+                    registrationHelper.register(
+                        new HeadMushroomsFeatureRenderer(playerRenderer)
+                    );
+                }
+            }
         );
     }
 }
