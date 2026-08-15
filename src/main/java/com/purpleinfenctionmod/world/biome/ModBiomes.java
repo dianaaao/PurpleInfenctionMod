@@ -11,4 +11,5 @@ public class ModBiomes {
         RegistryKeys.BIOME, 
         new Identifier(PurpleInfenctionMod.MOD_ID, "infected")
     );
+    
 }

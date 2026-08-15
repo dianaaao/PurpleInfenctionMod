@@ -1,14 +1,17 @@
 package com.purpleinfenctionmod.item;
 
 import com.purpleinfenctionmod.PurpleInfenctionMod;
+import com.purpleinfenctionmod.effect.ModEffects;
+import com.purpleinfenctionmod.effect.ModPotions;
 import com.purpleinfenctionmod.entity.ModEntities;
-
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.PotionItem;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 
@@ -33,8 +36,8 @@ public class ModItems {
     public static final Item DISINFECTANT_POTION = Registry.register(
         Registries.ITEM,
         PurpleInfenctionMod.id("disinfectant_potion"),
-        new PotionItem(
-            new Item.Settings()
+        new DisinfectantPotionItem(
+                new Item.Settings().maxCount(16)
         )
     );
 

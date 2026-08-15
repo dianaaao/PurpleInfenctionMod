@@ -20,5 +20,6 @@
     "block.purpleinfenctionmod.infected_brown_mushroom_block": "Infected Brown Mushroom Block",
     "item.purpleinfenctionmod.crystal_splinter": "Crystal Splinter",
     "block.purpleinfenctionmod.fire_flower": "Fire Flower",
-    "item.purpleinfenctionmod.disinfectant_potion.effect.empty": "Disinfectant Potion"
+    "item.purpleinfenctionmod.disinfectant_potion.effect.empty": "Disinfectant Potion",
+    "effect.purpleinfenctionmod.disinfectant_effect": "Disinfected"
 }

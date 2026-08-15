@@ -1,5 +1,5 @@
 {
-  "type": "purpleinfenctionmod:land_only_jigsaw",
+  "type": "purpleinfenctionmod:one_time_land_only_jigsaw",
   "start_pool": "purpleinfenctionmod:castle_pool",
   "size": 1,
   "max_distance_from_center": 128,
