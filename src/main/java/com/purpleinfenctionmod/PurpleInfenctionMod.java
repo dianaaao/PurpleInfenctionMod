@@ -3,6 +3,7 @@ package com.purpleinfenctionmod;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.BrewingRecipeRegistry;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -13,7 +14,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+
 import com.purpleinfenctionmod.block.ModBlocks;
+import net.minecraft.registry.Registry;
+import com.purpleinfenctionmod.effect.ModEffects;
+import com.purpleinfenctionmod.effect.ModPotions;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.entity.MushroomMobEntity;
 import com.purpleinfenctionmod.entity.RottingSporeFungusEntity;
@@ -24,6 +29,8 @@ import com.purpleinfenctionmod.entity.infected.InfectionHandler;
 import com.purpleinfenctionmod.item.ModItems;
 import com.purpleinfenctionmod.world.PlacedBlockDecayHandler;
 import com.purpleinfenctionmod.world.biome.BiomeEffectHandler;
+import com.purpleinfenctionmod.world.biome.RingBiomeSource;
+import com.purpleinfenctionmod.world.feature.ModFeatures;
 import com.purpleinfenctionmod.world.structure.ModStructures;
 
 
@@ -41,11 +48,15 @@ public class PurpleInfenctionMod implements ModInitializer {
                 RegistryKeys.PLACED_FEATURE,
                 new Identifier(MOD_ID, "infected_cave_vines")
         );
+		Registry.register(Registries.BIOME_SOURCE, new Identifier(MOD_ID, "ring_biome_source"), RingBiomeSource.CODEC);
+		ModEffects.registerEffects();
+        ModFeatures.registerFeatures();
 		BrewingRecipeRegistry.registerItemRecipe(
 			Items.POTION, // The base item placed in bottom slots (e.g., Water Bottle)
 			ModBlocks.FIRE_FLOWER.asItem(), // The item put in top slot
 			ModItems.DISINFECTANT_POTION // Your registered potion item
 		);
+		ModPotions.registerPotions();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
@@ -68,6 +79,9 @@ public class PurpleInfenctionMod implements ModInitializer {
 		ServerLifecycleEvents.SERVER_STARTED.register(server -> {
 			BiomeEffectHandler.register();
 			LOGGER.info("BiomeEffectHandler registered after server start");
+			var world = server.getOverworld();
+			var biomeSource = world.getChunkManager().getChunkGenerator().getBiomeSource();
+			PurpleInfenctionMod.LOGGER.info("[InfectedDiag] Real biome source class: " + biomeSource.getClass().getName());
 		});
 		LOGGER.info("Hello Fabric world!");
 	}

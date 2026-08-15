@@ -2,21 +2,19 @@ package com.purpleinfenctionmod.world.biome;
 
 public class InfectedBiomeFilter {
 
-    private static final long MIN_RADIUS = 1000L;
-    private static final long MAX_RADIUS = 3000L;
+    private static final int CENTER_X = 0;
+    private static final int CENTER_Z = 0;
 
-    private static final long MIN_RADIUS_SQUARED =
-            MIN_RADIUS * MIN_RADIUS;
+    private static final long INNER_RADIUS_SQ = 1_000_000L;
+    private static final long OUTER_RADIUS_SQ = 9_000_000L;
 
-    private static final long MAX_RADIUS_SQUARED =
-            MAX_RADIUS * MAX_RADIUS;
+    public static boolean isWithinInfectedZone(int blockX, int blockZ) {
+        long dx = (long) blockX - CENTER_X;
+        long dz = (long) blockZ - CENTER_Z;
 
-    public static boolean isWithinInfectedZone(int x, int z) {
-        long distanceSquared =
-                (long) x * x +
-                (long) z * z;
+        long distanceSquared = dx * dx + dz * dz;
 
-        return distanceSquared >= MIN_RADIUS_SQUARED
-            && distanceSquared <= MAX_RADIUS_SQUARED;
+        return distanceSquared >= INNER_RADIUS_SQ
+            && distanceSquared <= OUTER_RADIUS_SQ;
     }
 }

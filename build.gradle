@@ -40,7 +40,6 @@ repositories {
 
 loom {
 	splitEnvironmentSourceSets()
-
 	mods {
 		"purpleinfenctionmod" {
 			sourceSet sourceSets.main

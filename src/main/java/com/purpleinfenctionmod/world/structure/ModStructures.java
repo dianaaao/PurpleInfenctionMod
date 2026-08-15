@@ -8,14 +8,29 @@ import net.minecraft.world.gen.structure.StructureType;
 
 public class ModStructures {
 
-    public static final StructureType<LandOnlyJigsawStructure> LAND_ONLY_JIGSAW = 
+    public static final StructureType<LandOnlyJigsawStructure> LAND_ONLY_JIGSAW =
             Registry.register(
-                    Registries.STRUCTURE_TYPE, 
-                    new Identifier(PurpleInfenctionMod.MOD_ID, "land_only_jigsaw"), 
+                    Registries.STRUCTURE_TYPE,
+                    new Identifier(
+                            PurpleInfenctionMod.MOD_ID,
+                            "land_only_jigsaw"
+                    ),
                     () -> LandOnlyJigsawStructure.CODEC
             );
 
+    public static final StructureType<OneTimeLandOnlyJigsawStructure> ONE_TIME_LAND_ONLY_JIGSAW =
+            Registry.register(
+                    Registries.STRUCTURE_TYPE,
+                    new Identifier(
+                            PurpleInfenctionMod.MOD_ID,
+                            "one_time_land_only_jigsaw"
+                    ),
+                    () -> OneTimeLandOnlyJigsawStructure.CODEC
+            );
+
     public static void registerStructures() {
-        PurpleInfenctionMod.LOGGER.info("Registering structures for " + PurpleInfenctionMod.MOD_ID);
+        PurpleInfenctionMod.LOGGER.info(
+                "Registering structures for " + PurpleInfenctionMod.MOD_ID
+        );
     }
 }

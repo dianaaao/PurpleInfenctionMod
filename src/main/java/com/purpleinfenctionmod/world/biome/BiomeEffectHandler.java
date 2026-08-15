@@ -3,6 +3,7 @@ package com.purpleinfenctionmod.world.biome;
 import org.slf4j.LoggerFactory;
 
 import com.purpleinfenctionmod.component.ModComponents;
+import com.purpleinfenctionmod.effect.ModEffects;
 // import com.purpleinfenctionmod.component.DecontrollComponent;
 // import com.purpleinfenctionmod.component.PlayerDecontrollComponent; // only if you want to reuse KEY
 import com.purpleinfenctionmod.item.ModItems;
@@ -31,6 +32,11 @@ public class BiomeEffectHandler {
                 ModComponents.DECONTROLL.maybeGet(player).ifPresent(comp -> {
 
                     if (world.getBiome(player.getBlockPos()).matchesKey(ModBiomes.INFECTED_KEY)) {
+                        if (player.hasStatusEffect(ModEffects.DISINFECTANT_EFFECT)){
+                            
+                            comp.addStability(0.05f);
+                            return;
+                        }
                         ItemStack headStack = player.getEquippedStack(EquipmentSlot.HEAD);
                         if (headStack.isOf(ModItems.RESPIRATOR)) {
                             headStack.damage(1, player, p -> p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
@@ -42,7 +48,11 @@ public class BiomeEffectHandler {
                             player.damage(player.getDamageSources().magic(), 1.0f);
                         }
                     } else {
-                        comp.addStability(0.01f);
+                        if (player.hasStatusEffect(ModEffects.DISINFECTANT_EFFECT)){
+                            comp.addStability(0.1f);
+                        }else{
+                            comp.addStability(0.01f);
+                        }
                     }
                 });
                 
