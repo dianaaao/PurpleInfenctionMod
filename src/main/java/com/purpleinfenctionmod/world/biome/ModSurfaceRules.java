@@ -6,45 +6,42 @@ import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 
 public class ModSurfaceRules {
-    private static final MaterialRules.MaterialRule INFECTED_GRASS = MaterialRules.block(ModBlocks.INFECTED_GRASS.getDefaultState());
-    private static final MaterialRules.MaterialRule GRAVEL = MaterialRules.block(Blocks.GRAVEL.getDefaultState());
+    private static final MaterialRules.MaterialRule INFECTED_GRASS =
+        MaterialRules.block(ModBlocks.INFECTED_GRASS.getDefaultState());
 
-    public static MaterialRules.MaterialRule makeRules() {
-        // 1. Строго первый верхний блок поверхности (глубина 0, без расширения шумом)
-        MaterialRules.MaterialCondition topBlock = MaterialRules.stoneDepth(0, false, 0, VerticalSurfaceType.FLOOR);
-        
-        // 2. Слой грунта под первым блоком (отступ 1 блок вниз, расширение шумом включено, толщина до 3 блоков)
-        // MaterialRules.MaterialCondition dirtLayer = MaterialRules.stoneDepth(1, true, 3, VerticalSurfaceType.FLOOR);
+private static final MaterialRules.MaterialRule INFECTED_DIRT =
+        MaterialRules.block(ModBlocks.INFECTED_DIRT.getDefaultState());
 
-        // 3. Блокировка не пещер: hole() проверяет наличие блоков (потолка) над текущей точкой. 
-        // not(hole()) гарантирует, что мы находимся под открытым небом.
-        // MaterialRules.MaterialCondition inCave = MaterialRules.hole(1);
+private static final MaterialRules.MaterialRule GRAVEL =
+        MaterialRules.block(Blocks.GRAVEL.getDefaultState());
 
-        // 4. Проверка на сушу (уровень выше воды)
-        MaterialRules.MaterialCondition isAboveWater = MaterialRules.water(-1, 0);
+public static MaterialRules.MaterialRule makeRules() {
 
-        // Логика сборки слоев для суши
-        MaterialRules.MaterialRule landRule = MaterialRules.sequence(
-            MaterialRules.condition(topBlock, INFECTED_GRASS)
-            // MaterialRules.condition(dirtLayer, INFECTED_DIRT) 
-        );
+    MaterialRules.MaterialCondition topBlock =
+            MaterialRules.stoneDepth(0, false, 0, VerticalSurfaceType.FLOOR);
 
-    //     // Логика сборки слоев для водоемов
-        MaterialRules.MaterialRule underwaterRule = MaterialRules.sequence(
+    MaterialRules.MaterialCondition dirtLayer =
+            MaterialRules.stoneDepth(1, true, 4, VerticalSurfaceType.FLOOR);
+
+    MaterialRules.MaterialCondition isAboveWater =
+            MaterialRules.water(-1, 0);
+
+    MaterialRules.MaterialRule landRule = MaterialRules.sequence(
+            MaterialRules.condition(topBlock, INFECTED_GRASS),
+            MaterialRules.condition(dirtLayer, INFECTED_DIRT)
+    );
+
+    MaterialRules.MaterialRule underwaterRule = MaterialRules.sequence(
             MaterialRules.condition(topBlock, GRAVEL)
-            // MaterialRules.condition(dirtLayer, GRAVEL)
-        );
+    );
 
-    //     // Финальное правило
-        return MaterialRules.condition(
-            MaterialRules.biome(ModBiomes.INFECTED_KEY), // Применяем только в вашем биоме
-            // MaterialRules.condition(
-            //     inCave, 
-                MaterialRules.sequence(
-                    MaterialRules.condition(isAboveWater, landRule), // Если суша -> используем landRule
-                    underwaterRule // Если вода -> используем underwaterRule
-                )
-            // )
-        );
-    }
+    return MaterialRules.condition(
+            MaterialRules.biome(ModBiomes.INFECTED_KEY),
+            MaterialRules.sequence(
+                    MaterialRules.condition(isAboveWater, landRule),
+                    underwaterRule
+            )
+    );
+}
+    
 }

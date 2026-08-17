@@ -6,6 +6,7 @@ import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.GeckoLib;
@@ -14,9 +15,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 import com.purpleinfenctionmod.block.ModBlocks;
 import net.minecraft.registry.Registry;
+
+import com.purpleinfenctionmod.effect.InfectedLookEffect;
 import com.purpleinfenctionmod.effect.ModEffects;
 import com.purpleinfenctionmod.effect.ModPotions;
 import com.purpleinfenctionmod.entity.ModEntities;
@@ -82,6 +86,16 @@ public class PurpleInfenctionMod implements ModInitializer {
 			var world = server.getOverworld();
 			var biomeSource = world.getChunkManager().getChunkGenerator().getBiomeSource();
 			PurpleInfenctionMod.LOGGER.info("[InfectedDiag] Real biome source class: " + biomeSource.getClass().getName());
+		});
+		ServerTickEvents.END_SERVER_TICK.register(server -> {
+
+			for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
+
+				if (!player.hasStatusEffect(ModEffects.INFECTED_LOOK)) {
+
+					InfectedLookEffect.removeTarget(player);
+				}
+			}
 		});
 		LOGGER.info("Hello Fabric world!");
 	}

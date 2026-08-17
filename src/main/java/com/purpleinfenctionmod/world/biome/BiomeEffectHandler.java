@@ -30,7 +30,10 @@ public class BiomeEffectHandler {
                 if (player.age % 20 != 0) continue;
 
                 ModComponents.DECONTROLL.maybeGet(player).ifPresent(comp -> {
-
+                    if (player.isOnFire()){
+                        comp.addStability(0.05f);
+                        return;
+                    }
                     if (world.getBiome(player.getBlockPos()).matchesKey(ModBiomes.INFECTED_KEY)) {
                         if (player.hasStatusEffect(ModEffects.DISINFECTANT_EFFECT)){
                             

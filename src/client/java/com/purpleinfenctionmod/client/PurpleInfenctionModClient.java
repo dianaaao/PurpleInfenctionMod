@@ -10,6 +10,7 @@ import com.purpleinfenctionmod.client.gui.DecontrollHudOverlay;
 import com.purpleinfenctionmod.client.model.RespiratorModel;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.item.ModItems;
+import com.purpleinfenctionmod.network.InfectedLookNetworking;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -17,11 +18,14 @@ import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRe
 import net.minecraft.entity.EntityType;
 import com.purpleinfenctionmod.client.model.HeadMushroomsModel;
 import com.purpleinfenctionmod.client.feature.HeadMushroomsFeatureRenderer;
+
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.RotationAxis;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
@@ -60,24 +64,40 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.ROTTING_SPORE_FUNGUS, RottingSporeFungusRenderer::new);
 
         ArmorRenderer.register(
-            (matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {
-                RespiratorModel model = new RespiratorModel(
-                    MinecraftClient.getInstance().getEntityModelLoader().getModelPart(RespiratorModel.LAYER)
-                );
+	(matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {
 
-                model.setAngles(contextModel.head.yaw, contextModel.head.pitch);
+		RespiratorModel model = new RespiratorModel(
+			MinecraftClient.getInstance()
+				.getEntityModelLoader()
+				.getModelPart(RespiratorModel.LAYER)
+		);
 
-                ArmorRenderer.renderPart(
-                    matrices,
-                    vertexConsumers,
-                    light,
-                    stack,
-                    model,
-                    new Identifier("purpleinfenctionmod", "textures/models/armor/respirator.png")
-                );
-            },
-            ModItems.RESPIRATOR
-        );
+		matrices.push();
+
+		// Position and rotate the model with the player's head.
+		contextModel.head.rotate(matrices);
+
+		// Correct the model's static 90° orientation.
+		matrices.multiply(
+			RotationAxis.POSITIVE_Y.rotationDegrees(-90.0F)
+		);
+
+		ArmorRenderer.renderPart(
+			matrices,
+			vertexConsumers,
+			light,
+			stack,
+			model,
+			new Identifier(
+				"purpleinfenctionmod",
+				"textures/models/armor/respirator.png"
+			)
+		);
+
+		matrices.pop();
+	},
+	ModItems.RESPIRATOR
+);
 
         EntityModelLayerRegistry.registerModelLayer(HeadMushroomsModel.LAYER, HeadMushroomsModel::getTexturedModelData);
 
@@ -90,5 +110,27 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
                 }
             }
         );
+        InfectedLookClient.initialize();
+
+        ClientPlayNetworking.registerGlobalReceiver(
+                InfectedLookNetworking.CASTLE_TARGET,
+                (client, handler, buf, responseSender) -> {
+
+                    var castlePos = buf.readBlockPos();
+
+                    client.execute(() -> {
+                        InfectedLookClient.setCastleTarget(castlePos);
+                    });
+                }
+        );
+        ClientPlayNetworking.registerGlobalReceiver(
+        InfectedLookNetworking.CLEAR_CASTLE_TARGET,
+        (client, handler, buf, responseSender) -> {
+
+            client.execute(() -> {
+                InfectedLookClient.clearCastleTarget();
+            });
+        }
+);
     }
 }

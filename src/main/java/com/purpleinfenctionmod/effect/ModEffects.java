@@ -13,6 +13,15 @@ public class ModEffects {
             new Identifier(PurpleInfenctionMod.MOD_ID, "disinfectant_effect"),
             new DisinfectantEffect()
     );
+    public static final StatusEffect INFECTED_LOOK =
+            Registry.register(
+                    Registries.STATUS_EFFECT,
+                    new Identifier(
+                            "purpleinfenctionmod",
+                            "infected_look"
+                    ),
+                    new InfectedLookEffect()
+            );
 
     public static void registerEffects() {
         PurpleInfenctionMod.LOGGER.info("Registering custom effects for " + PurpleInfenctionMod.MOD_ID);

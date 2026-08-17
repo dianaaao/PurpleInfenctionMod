@@ -11,7 +11,6 @@ import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 import java.util.stream.Stream;
 
 public class RingBiomeSource extends BiomeSource {
-
     public static final Codec<RingBiomeSource> CODEC = RecordCodecBuilder.create(instance ->
         instance.group(
             MultiNoiseBiomeSource.CODEC
@@ -49,24 +48,24 @@ public class RingBiomeSource extends BiomeSource {
     }
 
     @Override
-    public RegistryEntry<Biome> getBiome(
-        int x,
-        int y,
-        int z,
-        MultiNoiseUtil.MultiNoiseSampler noiseSampler
-    ) {
-        RegistryEntry<Biome> original =
-            wrapped.getBiome(x, y, z, noiseSampler);
+public RegistryEntry<Biome> getBiome(
+    int x,
+    int y,
+    int z,
+    MultiNoiseUtil.MultiNoiseSampler noiseSampler
+) {
+    RegistryEntry<Biome> original =
+        wrapped.getBiome(x, y, z, noiseSampler);
 
-        // BiomeSource coordinates are quart coordinates.
-        // 1 quart = 4 blocks.
-        int blockX = x * 4;
-        int blockZ = z * 4;
+    // Convert quart coordinates to block coordinates.
+    // Use the center of the 4x4 quart area.
+    double blockX = x * 4.0 + 2.0;
+    double blockZ = z * 4.0 + 2.0;
 
-        if (InfectedBiomeFilter.isWithinInfectedZone(blockX, blockZ)) {
-            return infected;
-        }
-
-        return original;
+    if (InfectedBiomeFilter.isWithinInfectedZone(blockX, blockZ)) {
+        return infected;
     }
+
+    return original;
+}
 }
