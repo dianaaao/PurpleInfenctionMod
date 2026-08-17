@@ -6,6 +6,7 @@ import com.purpleinfenctionmod.client.entity.InfectedSkeletonRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedZombieRenderer;
 import com.purpleinfenctionmod.client.entity.MushroomMobRenderer;
 import com.purpleinfenctionmod.client.entity.RottingSporeFungusRenderer;
+import com.purpleinfenctionmod.client.entity.SporeCreatureRenderer;
 import com.purpleinfenctionmod.client.gui.DecontrollHudOverlay;
 import com.purpleinfenctionmod.client.model.RespiratorModel;
 import com.purpleinfenctionmod.entity.ModEntities;
@@ -58,6 +59,7 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.INFECTED_CREEPER, InfectedCreeperRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.ROTTING_SPORE_FUNGUS, RottingSporeFungusRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SPORE_CREATURE, SporeCreatureRenderer::new);
 
         ArmorRenderer.register(
             (matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {

@@ -21,12 +21,15 @@ import com.purpleinfenctionmod.effect.ModEffects;
 import com.purpleinfenctionmod.effect.ModPotions;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.entity.MushroomMobEntity;
+import com.purpleinfenctionmod.entity.PoisonCloudManager;
 import com.purpleinfenctionmod.entity.RottingSporeFungusEntity;
+import com.purpleinfenctionmod.entity.SporeCreatureEntity;
 import com.purpleinfenctionmod.entity.infected.InfectedCreeperEntity;
 import com.purpleinfenctionmod.entity.infected.InfectedSkeletonEntity;
 import com.purpleinfenctionmod.entity.infected.InfectedZombieEntity;
 import com.purpleinfenctionmod.entity.infected.InfectionHandler;
 import com.purpleinfenctionmod.item.ModItems;
+import com.purpleinfenctionmod.world.MushroomBreakHandler;
 import com.purpleinfenctionmod.world.PlacedBlockDecayHandler;
 import com.purpleinfenctionmod.world.biome.BiomeEffectHandler;
 import com.purpleinfenctionmod.world.biome.RingBiomeSource;
@@ -63,6 +66,8 @@ public class PurpleInfenctionMod implements ModInitializer {
 		GeckoLib.initialize();
 		InfectionHandler.register();
 		PlacedBlockDecayHandler.register();
+		MushroomBreakHandler.register();
+		PoisonCloudManager.register();
 		
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
@@ -70,6 +75,7 @@ public class PurpleInfenctionMod implements ModInitializer {
 
 		FabricDefaultAttributeRegistry.register(ModEntities.MUSHROOM_MOB, MushroomMobEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.ROTTING_SPORE_FUNGUS, RottingSporeFungusEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.SPORE_CREATURE, SporeCreatureEntity.createAttributes());
 
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_ZOMBIE, InfectedZombieEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_SKELETON, InfectedSkeletonEntity.createAttributes());

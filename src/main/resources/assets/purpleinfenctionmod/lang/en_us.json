@@ -5,6 +5,8 @@
     "item.purpleinfenctionmod.infected_skeleton_spawn_egg": "Infected Skeleton Spawn Egg",
     "item.purpleinfenctionmod.infected_creeper_spawn_egg": "Infected Creeper Spawn Egg",
     "item.purpleinfenctionmod.rotting_spore_fungus_spawn_egg": "Rotting Spore Fungus Spawn Egg",
+    "item.purpleinfenctionmod.crystal_splinter": "Crystal Splinter",
+    "item.purpleinfenctionmod.disinfectant_potion.effect.empty": "Disinfectant Potion",
     
     "block.purpleinfenctionmod.infected_grass": "Infected Grass",
     "block.purpleinfenctionmod.infected_dirt": "Infected Dirt",
@@ -14,12 +16,17 @@
     "block.purpleinfenctionmod.infected_oak_leaves": "Infected Oak Leaves",
     "block.purpleinfenctionmod.infected_oak_plancks": "Infected Oak Planks",
     "block.purpleinfenctionmod.infected_mushroom_stem": "Infected Mushroom Stem",
-    
     "block.purpleinfenctionmod.infected_mushroom": "Infected Mushroom",
     "block.purpleinfenctionmod.infected_mushroom_hat": "Infected Mushroom Hat",
     "block.purpleinfenctionmod.infected_brown_mushroom_block": "Infected Brown Mushroom Block",
-    "item.purpleinfenctionmod.crystal_splinter": "Crystal Splinter",
     "block.purpleinfenctionmod.fire_flower": "Fire Flower",
-    "item.purpleinfenctionmod.disinfectant_potion.effect.empty": "Disinfectant Potion",
+
+    "entity.purpleinfenctionmod.spore_creature": "Spore Creature",
+    "entity.purpleinfenctionmod.rotting_spore_fungus": "Rotting Spore Fungus",
+    "entity.purpleinfenctionmod.mushroom_mob": "Mushroom Mob",
+    "entity.purpleinfenctionmod.infected_zombie": "Infected Zombie",
+    "entity.purpleinfenctionmod.infected_skeleton": "Infected Skeleton",
+    "entity.purpleinfenctionmod.infected_creeper": "Infected Creeper",
+
     "effect.purpleinfenctionmod.disinfectant_effect": "Disinfected"
 }

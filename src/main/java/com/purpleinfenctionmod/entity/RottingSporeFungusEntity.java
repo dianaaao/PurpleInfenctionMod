@@ -26,6 +26,12 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import net.minecraft.util.math.Box;
 import java.util.List;
 
+import net.minecraft.entity.boss.ServerBossBar;
+import net.minecraft.entity.boss.BossBar;
+import net.minecraft.text.Text;
+
+
+
 public class RottingSporeFungusEntity extends PathAwareEntity implements GeoEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
@@ -34,7 +40,7 @@ public class RottingSporeFungusEntity extends PathAwareEntity implements GeoEnti
     private static final RawAnimation SUMMON = RawAnimation.begin().thenPlay("animation.spore-fungus.attack");
 
     private static final double DETECTION_RANGE = 5.0;
-    private static final int SUMMON_COOLDOWN_TICKS = 200; // 10 секунд
+    private static final int SUMMON_COOLDOWN_TICKS = 100; // 5 секунд
     private int summonCooldown = 0;
 
     public RottingSporeFungusEntity(EntityType<? extends PathAwareEntity> type, World world) {
@@ -43,11 +49,17 @@ public class RottingSporeFungusEntity extends PathAwareEntity implements GeoEnti
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 60.0)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 150.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.18)
-                .add(EntityAttributes.GENERIC_ARMOR, 4.0)
+                .add(EntityAttributes.GENERIC_ARMOR, 6.0)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20.0);
     }
+
+    private final ServerBossBar bossBar = new ServerBossBar(
+        Text.literal("Rotting Spore Fungus"),
+        BossBar.Color.PURPLE,
+        BossBar.Style.PROGRESS
+    );
 
     @Override
     protected void initGoals() {
@@ -74,38 +86,52 @@ public class RottingSporeFungusEntity extends PathAwareEntity implements GeoEnti
         if (summonCooldown > 0) {
             summonCooldown--;
         }
+
+        bossBar.setPercent(this.getHealth() / this.getMaxHealth());
+    }
+
+    @Override
+    public void onStartedTrackingBy(net.minecraft.server.network.ServerPlayerEntity player) {
+        super.onStartedTrackingBy(player);
+        bossBar.addPlayer(player);
+    }
+
+    @Override
+    public void onStoppedTrackingBy(net.minecraft.server.network.ServerPlayerEntity player) {
+        super.onStoppedTrackingBy(player);
+        bossBar.removePlayer(player);
     }
 
     private void performSummon() {
         summonCooldown = SUMMON_COOLDOWN_TICKS;
         this.triggerAnim("summonController", "summon");
 
-        // if (!(this.getWorld() instanceof ServerWorld serverWorld)) return;
+        if (!(this.getWorld() instanceof ServerWorld serverWorld)) return;
 
-        // int count = 3 + this.random.nextInt(3); // от 3 до 5
-        // for (int i = 0; i < count; i++) {
-        //     double offsetX = (this.random.nextDouble() - 0.5) * 4.0;
-        //     double offsetZ = (this.random.nextDouble() - 0.5) * 4.0;
+        int count = 3 + this.random.nextInt(3); // от 3 до 5
+        for (int i = 0; i < count; i++) {
+            double offsetX = (this.random.nextDouble() - 0.5) * 4.0;
+            double offsetZ = (this.random.nextDouble() - 0.5) * 4.0;
 
-        //     SporeCreatureEntity minion = ModEntities.SPORE_CREATURE.create(serverWorld);
-        //     if (minion == null) continue;
+            SporeCreatureEntity minion = ModEntities.SPORE_CREATURE.create(serverWorld);
+            if (minion == null) continue;
 
-        //     minion.refreshPositionAndAngles(
-        //             this.getX() + offsetX, this.getY(), this.getZ() + offsetZ,
-        //             this.getYaw(), 0
-        //     );
+            minion.refreshPositionAndAngles(
+                    this.getX() + offsetX, this.getY(), this.getZ() + offsetZ,
+                    this.getYaw(), 0
+            );
 
-        //     List<PlayerEntity> nearby = serverWorld.getEntitiesByClass(
-        //             PlayerEntity.class,
-        //             new Box(this.getBlockPos()).expand(DETECTION_RANGE + 5),
-        //             p -> true
-        //     );
-        //     if (!nearby.isEmpty()) {
-        //         minion.setTarget(nearby.get(0));
-        //     }
+            List<PlayerEntity> nearby = serverWorld.getEntitiesByClass(
+                    PlayerEntity.class,
+                    new Box(this.getBlockPos()).expand(DETECTION_RANGE + 5),
+                    p -> true
+            );
+            if (!nearby.isEmpty()) {
+                minion.setTarget(nearby.get(0));
+            }
 
-        //     serverWorld.spawnEntity(minion);
-        // }
+            serverWorld.spawnEntity(minion);
+        }
     }
 
     // Кастомный Goal — следит за приближением игрока
