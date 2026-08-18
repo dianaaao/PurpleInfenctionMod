@@ -31,12 +31,6 @@
         "maxCount": 3
       },
       {
-        "type": "purpleinfenctionmod:rotting_spore_fungus",
-        "weight": 100,
-        "minCount": 1,
-        "maxCount": 3
-      },
-      {
         "type": "purpleinfenctionmod:infected_zombie",
         "weight": 100,
         "minCount": 1,

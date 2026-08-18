@@ -1,6 +1,7 @@
 package com.purpleinfenctionmod.entity;
 
 import java.util.EnumSet;
+import java.util.List;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.Goal;
@@ -24,9 +25,11 @@ import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.Box;
 
 
 

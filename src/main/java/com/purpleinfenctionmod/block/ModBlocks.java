@@ -109,6 +109,13 @@ public class ModBlocks {
         )   
     );
 
+    public static final Block INFECTED_GLOW_LICHEN = registerBlock(
+        "infected_glow_lichen",
+        new MushroomPlantBlock(
+            FabricBlockSettings.copyOf(Blocks.GLOW_LICHEN).strength(2.0f, 62.9f), null
+        )   
+    );
+
     private static Block registerBlock(String name, Block block){
         Registry.register(
             Registries.BLOCK,
@@ -171,8 +178,10 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
             .register(entries -> entries.add(FIRE_FLOWER));
 
-        
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
+            .register(entries -> entries.add(INFECTED_GLOW_LICHEN));
 
+            
         PurpleInfenctionMod.LOGGER.info("Registering Mod Blocks for " + PurpleInfenctionMod.MOD_ID);
     }
 

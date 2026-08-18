@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:block/flat_block",
+  "textures": {
+    "texture": "minecraft:block/infected_glow_lichen",
+    "particle": "minecraft:block/infected_glow_lichen"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0.2],
+      "to": [16, 16, 0.2],
+      "shade": false,
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+        "south": {"uv": [16, 0, 0, 16], "texture": "#texture"}
+      }
+    }
+  ]
+}

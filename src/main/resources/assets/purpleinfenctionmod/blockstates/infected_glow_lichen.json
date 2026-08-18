@@ -1,0 +1,28 @@
+{
+  "multipart": [
+    {
+      "when": { "up": "true" },
+      "apply": { "model": "minecraft:block/infected_glow_lichen", "x": 270, "glow": true }
+    },
+    {
+      "when": { "down": "true" },
+      "apply": { "model": "minecraft:block/infected_glow_lichen", "x": 90, "glow": true }
+    },
+    {
+      "when": { "north": "true" },
+      "apply": { "model": "minecraft:block/infected_glow_lichen", "glow": true }
+    },
+    {
+      "when": { "south": "true" },
+      "apply": { "model": "minecraft:block/infected_glow_lichen", "y": 180, "glow": true }
+    },
+    {
+      "when": { "west": "true" },
+      "apply": { "model": "minecraft:block/infected_glow_lichen", "y": 270, "glow": true }
+    },
+    {
+      "when": { "east": "true" },
+      "apply": { "model": "minecraft:block/infected_glow_lichen", "y": 90, "glow": true }
+    }
+  ]
+}
