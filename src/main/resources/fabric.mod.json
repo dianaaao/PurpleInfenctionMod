@@ -25,6 +25,7 @@
 		"client": [
 			"com.purpleinfenctionmod.client.PurpleInfenctionModClient"
 		],
+		
 		"cardinal-components-entity": [
 			"com.purpleinfenctionmod.component.ModComponents"
 		]

@@ -22,7 +22,40 @@
       "offset": 2.0
     }
   },
-  "spawners": {},
+  "spawners": {
+    "monster": [
+      {
+        "type": "purpleinfenctionmod:mushroom_mob",
+        "weight": 100,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "purpleinfenctionmod:rotting_spore_fungus",
+        "weight": 100,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "purpleinfenctionmod:infected_zombie",
+        "weight": 100,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "purpleinfenctionmod:infected_skeleton",
+        "weight": 100,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "purpleinfenctionmod:infected_creeper",
+        "weight": 100,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ]
+  },
   "spawn_costs": {},
   "carvers": {
     "air": [

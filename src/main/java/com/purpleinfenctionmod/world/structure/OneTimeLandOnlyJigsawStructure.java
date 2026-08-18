@@ -10,7 +10,6 @@ import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
-import net.minecraft.world.PersistentStateManager;
 import net.minecraft.world.gen.heightprovider.HeightProvider;
 import net.minecraft.world.gen.structure.Structure;
 import net.minecraft.world.gen.structure.StructureType;
@@ -21,8 +20,6 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.StructureAccessor;
 // import java.util.Random;/
 import java.util.Optional;
-
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.random.Random;
 public class OneTimeLandOnlyJigsawStructure extends Structure {
     
