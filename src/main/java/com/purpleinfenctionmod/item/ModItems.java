@@ -10,6 +10,11 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 
+import net.minecraft.item.BowlFoodItem;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import com.purpleinfenctionmod.effect.ModEffects;
+
 public class ModItems {
 
     public static final Item RESPIRATOR = Registry.register(
@@ -33,6 +38,26 @@ public class ModItems {
         PurpleInfenctionMod.id("disinfectant_potion"),
         new DisinfectantPotionItem(
                 new Item.Settings().maxCount(16)
+        )
+    );
+    public static final Item INFECTED_BOWL = registerItem(
+        "infected_bowl",
+        new Item(new Item.Settings())
+    );
+        
+    public static final Item INFECTED_STEW = registerItem(
+        "infected_stew",
+        new BowlFoodItem(
+            new Item.Settings()
+                .maxCount(1)
+                .food(
+                    new FoodComponent.Builder()
+                        .hunger(6)
+                        .saturationModifier(0.6f)
+                        // тематическая фишка: 30% шанс словить "заражённый взгляд" на 10 сек
+                        .statusEffect(new StatusEffectInstance(ModEffects.INFECTED_LOOK, 200, 0), 0.3f)
+                        .build()
+                )
         )
     );
 
@@ -68,6 +93,11 @@ public class ModItems {
             .register(entries -> entries.add(CRYSTAL_SPLINTER));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
             .register(entries -> entries.add(DISINFECTANT_POTION));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
+            .register(entries -> {
+                entries.add(INFECTED_BOWL);
+                entries.add(INFECTED_STEW);
+            });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
             entries.add(ModItems.MUSHROOM_MOB_SPAWN_EGG);
