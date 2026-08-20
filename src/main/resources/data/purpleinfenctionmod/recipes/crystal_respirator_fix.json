@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "purpleinfenctionmod:crystal_splinter"
+    },
+    {
+      "item": "purpleinfenctionmod:crystal_respirator"
+    }
+  ],
+  "result": {
+    "item": "purpleinfenctionmod:crystal_respirator",
+    "count": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CSC",
+    "CPC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "purpleinfenctionmod:crystal_splinter"
+    },
+    "P": {
+      "item": "purpleinfenctionmod:infected_cobblestone"
+    },
+    "S": {
+      "item": "purpleinfenctionmod:crystal_upgrade_template"
+    }
+  },
+  "result": {
+    "item": "purpleinfenctionmod:crystal_upgrade_template",
+    "count": 2
+  }
+}

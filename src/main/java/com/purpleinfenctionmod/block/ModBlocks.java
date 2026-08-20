@@ -4,8 +4,10 @@ import com.purpleinfenctionmod.PurpleInfenctionMod;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.GlowLichenBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.MushroomBlock;
 import net.minecraft.block.MushroomPlantBlock;
@@ -72,6 +74,27 @@ public class ModBlocks {
             FabricBlockSettings.copyOf(Blocks.STONE).strength(2.0f, 62.9f)
         )
     );
+    public static final Block INFECTED_DEEPSLATE = registerBlock(
+        "infected_deepslate",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.DEEPSLATE).strength(2.0f, 62.9f)
+        )
+    );
+    public static final InfectedCaveVinesBlock INFECTED_CAVE_VINES = Registry.register(
+        Registries.BLOCK,
+        PurpleInfenctionMod.id("infected_cave_vines"),
+        new InfectedCaveVinesBlock(
+                AbstractBlock.Settings.copy(Blocks.CAVE_VINES)
+        )
+);
+
+    public static final InfectedCaveVinesPlantBlock INFECTED_CAVE_VINES_PLANT = Registry.register(
+        Registries.BLOCK,
+        PurpleInfenctionMod.id("infected_cave_vines_plant"),
+        new InfectedCaveVinesPlantBlock(
+                AbstractBlock.Settings.copy(Blocks.CAVE_VINES_PLANT)
+        )
+);
         
 
     public static final Block INFECTED_OAK_LEAVES = registerBlock(
@@ -111,10 +134,11 @@ public class ModBlocks {
 
     public static final Block INFECTED_GLOW_LICHEN = registerBlock(
         "infected_glow_lichen",
-        new MushroomPlantBlock(
-            FabricBlockSettings.copyOf(Blocks.GLOW_LICHEN).strength(2.0f, 62.9f), null
-        )   
+        new GlowLichenBlock(
+            FabricBlockSettings.copyOf(Blocks.GLOW_LICHEN)
+        )
     );
+
 
     private static Block registerBlock(String name, Block block){
         Registry.register(

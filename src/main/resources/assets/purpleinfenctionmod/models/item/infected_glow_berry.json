@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0": "purpleinfenctionmod:block/infected_glow_lichen"
+        "layer0": "purpleinfenctionmod:item/infected_glow_berries"
     }
 }

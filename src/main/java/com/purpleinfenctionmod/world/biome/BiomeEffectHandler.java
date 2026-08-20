@@ -45,6 +45,12 @@ public class BiomeEffectHandler {
                             headStack.damage(1, player, p -> p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
                             return;
                         }
+                        if (headStack.isOf(ModItems.CRYSTAL_RESPIRATOR)) {
+                            comp.addStability(0.01f);
+                            if (player.age % 30 != 0) return;
+                            headStack.damage(1, player, p -> p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
+                            return;
+                        }
                         if (player.getHealth() <= player.getMaxHealth()/2) {
                             comp.reduceStability(0.01f);
                         } else {

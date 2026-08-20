@@ -1,8 +1,11 @@
 package com.purpleinfenctionmod.item;
 
 import com.purpleinfenctionmod.PurpleInfenctionMod;
+import com.purpleinfenctionmod.block.ModBlocks;
 import com.purpleinfenctionmod.entity.ModEntities;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -18,12 +21,28 @@ public class ModItems {
         new ArmorItem(
             ModArmorMaterials.RESPIRATOR,
             ArmorItem.Type.HELMET,
-            new Item.Settings().maxDamage(200)
+            new Item.Settings().maxDamage(300)
+        )
+    );
+    public static final Item CRYSTAL_RESPIRATOR = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_respirator"),
+        new ArmorItem(
+            ModArmorMaterials.CRYSTAL_RESPIRATOR,
+            ArmorItem.Type.HELMET,
+            new Item.Settings().maxDamage(1000)
         )
     );
     public static final Item CRYSTAL_SPLINTER = Registry.register(
         Registries.ITEM,
         PurpleInfenctionMod.id("crystal_splinter"),
+        new Item(
+            new Item.Settings()
+        )
+    );
+    public static final Item CRYSTAL_UPGRADE_TEMPLATE = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_upgrade_template"),
         new Item(
             new Item.Settings()
         )
@@ -35,6 +54,14 @@ public class ModItems {
                 new Item.Settings().maxCount(16)
         )
     );
+    public static final Item INFECTED_GLOW_BERRY = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("infected_glow_berry"),
+        new InfectedGlowBerryItem(
+                new Item.Settings().maxCount(64)
+        )
+);
+    
 
     public static final Item MUSHROOM_MOB_SPAWN_EGG = registerItem("mushroom_mob_spawn_egg",
             new SpawnEggItem(ModEntities.MUSHROOM_MOB, 0x8B5FBF, 0xE1C8E6, new Item.Settings()));
@@ -64,11 +91,17 @@ public class ModItems {
     public static void registerModItems() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
             .register(entries -> entries.add(RESPIRATOR));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
+            .register(entries -> entries.add(CRYSTAL_RESPIRATOR));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
             .register(entries -> entries.add(CRYSTAL_SPLINTER));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
             .register(entries -> entries.add(DISINFECTANT_POTION));
-
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
+            .register(entries -> entries.add(INFECTED_GLOW_BERRY));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
+            .register(entries -> entries.add(CRYSTAL_UPGRADE_TEMPLATE));
+        // CRYSTAL_RESPIRATOR
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
             entries.add(ModItems.MUSHROOM_MOB_SPAWN_EGG);
             entries.add(ModItems.ROTTING_SPORE_FUNGUS_SPAWN_EGG);

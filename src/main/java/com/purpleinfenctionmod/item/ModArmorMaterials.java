@@ -23,7 +23,7 @@ public class ModArmorMaterials {
             map.put(ArmorItem.Type.LEGGINGS, 15);
             map.put(ArmorItem.Type.BOOTS, 13);
         });
-
+        
         @Override
         public int getDurability(ArmorItem.Type type) {
             return BASE_DURABILITY.get(type) * 15;
@@ -51,12 +51,66 @@ public class ModArmorMaterials {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return Ingredient.ofItems(Items.LEATHER);
+            return Ingredient.ofItems(Items.COAL_BLOCK);
         }
 
         @Override
         public String getName() {
-            return "purpleinfenctionmod:respirator";
+            return "purpleinfenctionmod:coal";
+        }
+
+        @Override
+        public float getToughness() {
+            return 0.0F;
+        }
+
+        @Override
+        public float getKnockbackResistance() {
+            return 0.0F;
+        }
+        
+    };
+    public static final ArmorMaterial CRYSTAL_RESPIRATOR = new ArmorMaterial() {
+        private static final EnumMap<ArmorItem.Type, Integer> BASE_DURABILITY = Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+            map.put(ArmorItem.Type.HELMET, 11);
+            map.put(ArmorItem.Type.CHESTPLATE, 16);
+            map.put(ArmorItem.Type.LEGGINGS, 15);
+            map.put(ArmorItem.Type.BOOTS, 13);
+        });
+
+        @Override
+        public int getDurability(ArmorItem.Type type) {
+            return BASE_DURABILITY.get(type) * 15;
+        }
+
+        @Override
+        public int getProtection(ArmorItem.Type type) {
+            return switch (type) {
+                case HELMET -> 3;
+                case CHESTPLATE -> 8;
+                case LEGGINGS -> 6;
+                case BOOTS -> 4;
+            };
+        }
+
+        @Override
+        public int getEnchantability() {
+            return 13;
+        }
+
+        @Override
+        public SoundEvent getEquipSound() {
+            return SoundEvents.ITEM_ARMOR_EQUIP_LEATHER;
+        }
+
+        @Override
+        public Ingredient getRepairIngredient() {
+            return Ingredient.ofItems(ModItems.CRYSTAL_SPLINTER);
+        }
+
+        @Override
+        public String getName() {
+            return "purpleinfenctionmod:crystal_respirator";
         }
 
         @Override

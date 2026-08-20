@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "purpleinfenctionmod:crystal_upgrade_template"
+  },
+  "base": {
+    "item": "purpleinfenctionmod:respirator"
+  },
+  "addition": {
+    "item": "purpleinfenctionmod:crystal_splinter"
+  },
+  "result": {
+    "item": "purpleinfenctionmod:crystal_respirator"
+  }
+}
