@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "berries=false": {
+      "model": "purpleinfenctionmod:block/infected_cave_vines"
+    },
+    "berries=true": {
+      "model": "purpleinfenctionmod:block/infected_cave_vines_lit"
+    }
+  }
+}

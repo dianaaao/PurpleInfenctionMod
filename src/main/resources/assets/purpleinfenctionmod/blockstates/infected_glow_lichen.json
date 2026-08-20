@@ -2,27 +2,44 @@
   "multipart": [
     {
       "when": { "up": "true" },
-      "apply": { "model": "minecraft:block/infected_glow_lichen", "x": 270, "glow": true }
+      "apply": {
+        "model": "purpleinfenctionmod:block/infected_glow_lichen",
+        "x": 270
+      }
     },
     {
       "when": { "down": "true" },
-      "apply": { "model": "minecraft:block/infected_glow_lichen", "x": 90, "glow": true }
+      "apply": {
+        "model": "purpleinfenctionmod:block/infected_glow_lichen",
+        "x": 90
+      }
     },
     {
       "when": { "north": "true" },
-      "apply": { "model": "minecraft:block/infected_glow_lichen", "glow": true }
+      "apply": {
+        "model": "purpleinfenctionmod:block/infected_glow_lichen"
+      }
     },
     {
       "when": { "south": "true" },
-      "apply": { "model": "minecraft:block/infected_glow_lichen", "y": 180, "glow": true }
+      "apply": {
+        "model": "purpleinfenctionmod:block/infected_glow_lichen",
+        "y": 180
+      }
     },
     {
       "when": { "west": "true" },
-      "apply": { "model": "minecraft:block/infected_glow_lichen", "y": 270, "glow": true }
+      "apply": {
+        "model": "purpleinfenctionmod:block/infected_glow_lichen",
+        "y": 270
+      }
     },
     {
       "when": { "east": "true" },
-      "apply": { "model": "minecraft:block/infected_glow_lichen", "y": 90, "glow": true }
+      "apply": {
+        "model": "purpleinfenctionmod:block/infected_glow_lichen",
+        "y": 90
+      }
     }
   ]
 }

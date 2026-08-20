@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "purpleinfenctionmod:block/infected_cave_vines_lit"
+  }
+}

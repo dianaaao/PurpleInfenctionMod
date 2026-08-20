@@ -1,5 +1,6 @@
 {
     "item.purpleinfenctionmod.respirator": "Respirator",
+    "item.purpleinfenctionmod.crystal_respirator": "Crystal Respirator",
     "item.purpleinfenctionmod.mushroom_mob_spawn_egg": "Mushroom Mob Spawn Egg",
     "item.purpleinfenctionmod.infected_zombie_spawn_egg": "Infected Zombie Spawn Egg",
     "item.purpleinfenctionmod.infected_skeleton_spawn_egg": "Infected Skeleton Spawn Egg",
@@ -7,6 +8,8 @@
     "item.purpleinfenctionmod.rotting_spore_fungus_spawn_egg": "Rotting Spore Fungus Spawn Egg",
     "item.purpleinfenctionmod.crystal_splinter": "Crystal Splinter",
     "item.purpleinfenctionmod.disinfectant_potion.effect.empty": "Disinfectant Potion",
+    "item.purpleinfenctionmod.infected_glow_berry": "Infected Glow Berries",
+    "item.purpleinfenctionmod.crystal_upgrade_template": "Crystal Upgrade Template",
     "item.purpleinfenctionmod.infected_bowl": "Infected Bowl",
     "item.purpleinfenctionmod.infected_stew": "Infected Stew",
     

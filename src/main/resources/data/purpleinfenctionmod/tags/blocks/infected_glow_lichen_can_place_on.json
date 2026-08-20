@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:stone",
+    "minecraft:deepslate",
+    "minecraft:dirt",
+    "minecraft:granite",
+    "minecraft:diorite",
+    "minecraft:andesite",
+
+    "purpleinfenctionmod:infected_dirt",
+    "purpleinfenctionmod:infected_grass",
+    "purpleinfenctionmod:infected_cobblestone",
+    "purpleinfenctionmod:infected_planks",
+    "purpleinfenctionmod:infected_oak_log",
+    "purpleinfenctionmod:infected_stone",
+    "purpleinfenctionmod:infected_oak_leaves",
+    "purpleinfenctionmod:infected_mushroom_stem",
+    "purpleinfenctionmod:infected_mushroom_hat",
+    "purpleinfenctionmod:infected_brown_mushroom_block"
+  ]
+}

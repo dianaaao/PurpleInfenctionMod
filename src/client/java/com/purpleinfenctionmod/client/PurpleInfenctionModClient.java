@@ -48,6 +48,18 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
             ModBlocks.FIRE_FLOWER,
             RenderLayer.getCutout()
         );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.INFECTED_GLOW_LICHEN,
+            RenderLayer.getCutout()
+        );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.INFECTED_CAVE_VINES_PLANT,
+            RenderLayer.getCutout()
+        );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.INFECTED_CAVE_VINES,
+            RenderLayer.getCutout()
+        );
         EntityRendererRegistry.register(
             ModEntities.MUSHROOM_MOB, 
             MushroomMobRenderer::new
@@ -66,40 +78,77 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SPORE_CREATURE, SporeCreatureRenderer::new);
 
         ArmorRenderer.register(
-	(matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {
+            (matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {
 
-		RespiratorModel model = new RespiratorModel(
-			MinecraftClient.getInstance()
-				.getEntityModelLoader()
-				.getModelPart(RespiratorModel.LAYER)
-		);
+                RespiratorModel model = new RespiratorModel(
+                    MinecraftClient.getInstance()
+                        .getEntityModelLoader()
+                        .getModelPart(RespiratorModel.LAYER)
+                );
 
-		matrices.push();
+                matrices.push();
 
-		// Position and rotate the model with the player's head.
-		contextModel.head.rotate(matrices);
+                // Position and rotate the model with the player's head.
+                contextModel.head.rotate(matrices);
 
-		// Correct the model's static 90° orientation.
-		matrices.multiply(
-			RotationAxis.POSITIVE_Y.rotationDegrees(-90.0F)
-		);
+                // Correct the model's static 90° orientation.
+                matrices.multiply(
+                    RotationAxis.POSITIVE_Y.rotationDegrees(-90.0F)
+                );
 
-		ArmorRenderer.renderPart(
-			matrices,
-			vertexConsumers,
-			light,
-			stack,
-			model,
-			new Identifier(
-				"purpleinfenctionmod",
-				"textures/models/armor/respirator.png"
-			)
-		);
+                ArmorRenderer.renderPart(
+                    matrices,
+                    vertexConsumers,
+                    light,
+                    stack,
+                    model,
+                    new Identifier(
+                        "purpleinfenctionmod",
+                        "textures/models/armor/respirator.png"
+                    )
+                );
+                
 
-		matrices.pop();
-	},
-	ModItems.RESPIRATOR
-);
+                matrices.pop();
+            },
+            ModItems.RESPIRATOR
+        );
+        ArmorRenderer.register(
+            (matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {
+
+                RespiratorModel model = new RespiratorModel(
+                    MinecraftClient.getInstance()
+                        .getEntityModelLoader()
+                        .getModelPart(RespiratorModel.LAYER)
+                );
+
+                matrices.push();
+
+                // Position and rotate the model with the player's head.
+                contextModel.head.rotate(matrices);
+
+                // Correct the model's static 90° orientation.
+                matrices.multiply(
+                    RotationAxis.POSITIVE_Y.rotationDegrees(-90.0F)
+                );
+
+                ArmorRenderer.renderPart(
+                    matrices,
+                    vertexConsumers,
+                    light,
+                    stack,
+                    model,
+                    new Identifier(
+                        "purpleinfenctionmod",
+                        "textures/models/armor/respirator.png"
+                    )
+                );
+                
+
+                matrices.pop();
+            },
+            ModItems.CRYSTAL_RESPIRATOR
+        );
 
         EntityModelLayerRegistry.registerModelLayer(HeadMushroomsModel.LAYER, HeadMushroomsModel::getTexturedModelData);
 

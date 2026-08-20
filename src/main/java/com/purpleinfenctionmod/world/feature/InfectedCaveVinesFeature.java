@@ -1,8 +1,9 @@
 package com.purpleinfenctionmod.world.feature;
 
 import com.mojang.serialization.Codec;
+import com.purpleinfenctionmod.block.ModBlocks;
+
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.CaveVines;
 import net.minecraft.block.CaveVinesHeadBlock;
 import net.minecraft.util.math.BlockPos;
@@ -43,10 +44,10 @@ public class InfectedCaveVinesFeature extends Feature<InfectedCaveVinesFeatureCo
 
                 BlockState state;
                 if (isTip) {
-                    state = Blocks.CAVE_VINES.getDefaultState()
+                    state = ModBlocks.INFECTED_CAVE_VINES.getDefaultState()
                             .with(CaveVinesHeadBlock.BERRIES, hasBerries);
                 } else {
-                    state = Blocks.CAVE_VINES_PLANT.getDefaultState()
+                    state = ModBlocks.INFECTED_CAVE_VINES_PLANT.getDefaultState()
                             .with(CaveVines.BERRIES, hasBerries);
                 }
 

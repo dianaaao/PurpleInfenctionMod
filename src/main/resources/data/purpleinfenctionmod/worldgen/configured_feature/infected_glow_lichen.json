@@ -1,0 +1,12 @@
+{
+  "type": "purpleinfenctionmod:infected_glow_lichen",
+  "config": {
+    "lichen": "purpleinfenctionmod:infected_glow_lichen",
+    "search_range": 10,
+    "can_place_on_floor": true,
+    "can_place_on_ceiling": true,
+    "can_place_on_walls": true,
+    "spread_chance": 0.5,
+    "can_be_placed_on": "#purpleinfenctionmod:infected_glow_lichen_can_place_on"
+  }
+}

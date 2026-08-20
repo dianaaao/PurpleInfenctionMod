@@ -47,6 +47,11 @@ public class SurfaceReplacementMixin {
                         if (chunk.getBiomeForNoiseGen(worldX >> 2, y >> 2, worldZ >> 2).matchesKey(ModBiomes.INFECTED_KEY)) {
                             chunk.setBlockState(mutablePos, ModBlocks.INFECTED_STONE.getDefaultState(), false);
                         }
+                    } else if (state.isOf(Blocks.DEEPSLATE)) {
+                        // Проверяем, находится ли этот конкретный блок в твоем биоме
+                        if (chunk.getBiomeForNoiseGen(worldX >> 2, y >> 2, worldZ >> 2).matchesKey(ModBiomes.INFECTED_KEY)) {
+                            chunk.setBlockState(mutablePos, ModBlocks.INFECTED_DEEPSLATE.getDefaultState(), false);
+                        }
                     } 
                     // Если нашли ванильную землю
                     else if (state.isOf(Blocks.DIRT)) {
