@@ -6,11 +6,12 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.Items;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 
-import net.minecraft.item.BowlFoodItem;
+// import net.minecraft.item.BowlFoodItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import com.purpleinfenctionmod.effect.ModEffects;
@@ -47,17 +48,24 @@ public class ModItems {
         
     public static final Item INFECTED_STEW = registerItem(
         "infected_stew",
-        new BowlFoodItem(
+        new Item(
             new Item.Settings()
                 .maxCount(1)
                 .food(
                     new FoodComponent.Builder()
                         .hunger(6)
                         .saturationModifier(0.6f)
-                        // тематическая фишка: 30% шанс словить "заражённый взгляд" на 10 сек
-                        .statusEffect(new StatusEffectInstance(ModEffects.INFECTED_LOOK, 200, 0), 0.3f)
+                        .statusEffect(
+                            new StatusEffectInstance(
+                                ModEffects.INFECTED_LOOK,
+                                200,
+                                0
+                            ),
+                            0.3f
+                        )
                         .build()
                 )
+                .recipeRemainder(Items.BOWL)
         )
     );
 

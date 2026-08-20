@@ -32,6 +32,7 @@ import com.purpleinfenctionmod.entity.infected.InfectedCreeperEntity;
 import com.purpleinfenctionmod.entity.infected.InfectedSkeletonEntity;
 import com.purpleinfenctionmod.entity.infected.InfectedZombieEntity;
 import com.purpleinfenctionmod.entity.infected.InfectionHandler;
+import com.purpleinfenctionmod.item.ModItemGroups;
 import com.purpleinfenctionmod.item.ModItems;
 import com.purpleinfenctionmod.world.MushroomBreakHandler;
 import com.purpleinfenctionmod.world.PlacedBlockDecayHandler;
@@ -74,6 +75,7 @@ public class PurpleInfenctionMod implements ModInitializer {
 		PoisonCloudManager.register();
 		
 		ModBlocks.registerModBlocks();
+		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		// BiomeEffectHandler.register();
 

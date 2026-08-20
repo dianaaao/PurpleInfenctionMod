@@ -31,5 +31,7 @@
     "entity.purpleinfenctionmod.infected_skeleton": "Infected Skeleton",
     "entity.purpleinfenctionmod.infected_creeper": "Infected Creeper",
 
-    "effect.purpleinfenctionmod.disinfectant_effect": "Disinfected"
+    "effect.purpleinfenctionmod.disinfectant_effect": "Disinfected",
+
+    "itemGroup.purpleinfenctionmod.purple_infection": "Purple Infection"
 }
