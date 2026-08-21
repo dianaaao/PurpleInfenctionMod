@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0": "purpleinfenctionmod:item/crystal_respirator"
+        "layer0": "purpleinfenctionmod:item/infected_bowl"
     }
 }

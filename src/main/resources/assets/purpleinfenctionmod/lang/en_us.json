@@ -10,6 +10,8 @@
     "item.purpleinfenctionmod.disinfectant_potion.effect.empty": "Disinfectant Potion",
     "item.purpleinfenctionmod.infected_glow_berry": "Infected Glow Berries",
     "item.purpleinfenctionmod.crystal_upgrade_template": "Crystal Upgrade Template",
+    "item.purpleinfenctionmod.infected_bowl": "Infected Bowl",
+    "item.purpleinfenctionmod.infected_stew": "Infected Stew",
     
     "block.purpleinfenctionmod.infected_grass": "Infected Grass",
     "block.purpleinfenctionmod.infected_dirt": "Infected Dirt",
@@ -32,5 +34,6 @@
     "entity.purpleinfenctionmod.infected_skeleton": "Infected Skeleton",
     "entity.purpleinfenctionmod.infected_creeper": "Infected Creeper",
 
-    "effect.purpleinfenctionmod.disinfectant_effect": "Disinfected"
+    "effect.purpleinfenctionmod.disinfectant_effect": "Disinfected",
+    "itemGroup.purpleinfenctionmod.purple_infection": "Purple Infection"
 }

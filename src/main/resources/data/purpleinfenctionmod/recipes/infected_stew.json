@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    { "item": "purpleinfenctionmod:infected_bowl" },
+    { "item": "purpleinfenctionmod:infected_mushroom" },
+    { "item": "purpleinfenctionmod:infected_mushroom" },
+    { "item": "purpleinfenctionmod:infected_mushroom" },
+    { "item": "purpleinfenctionmod:infected_mushroom" }
+  ],
+  "result": {
+    "item": "purpleinfenctionmod:infected_stew",
+    "count": 1
+  }
+}
