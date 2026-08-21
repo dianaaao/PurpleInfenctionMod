@@ -1,7 +1,6 @@
 package com.purpleinfenctionmod.world.feature;
 
 import com.purpleinfenctionmod.PurpleInfenctionMod;
-import com.purpleinfenctionmod.block.ModBlocks;
 
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

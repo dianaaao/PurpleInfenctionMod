@@ -18,14 +18,14 @@ public class ModStructures {
                     () -> LandOnlyJigsawStructure.CODEC
             );
 
-    public static final StructureType<OneTimeLandOnlyJigsawStructure> ONE_TIME_LAND_ONLY_JIGSAW =
+    public static final StructureType<NightOnlyJigsawStructure> NIGHT_ONLY_JINSAW_STRUCTURE =
             Registry.register(
                     Registries.STRUCTURE_TYPE,
                     new Identifier(
                             PurpleInfenctionMod.MOD_ID,
-                            "one_time_land_only_jigsaw"
+                            "night_only_jinsaw_structure"
                     ),
-                    () -> OneTimeLandOnlyJigsawStructure.CODEC
+                    () -> NightOnlyJigsawStructure.CODEC
             );
 
     public static void registerStructures() {
