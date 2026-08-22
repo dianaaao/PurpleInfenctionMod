@@ -2,12 +2,10 @@ package com.purpleinfenctionmod.item;
 
 import com.purpleinfenctionmod.PurpleInfenctionMod;
 import com.purpleinfenctionmod.block.ModBlocks;
-import com.purpleinfenctionmod.entity.ModEntities;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -25,7 +23,9 @@ public class ModItemGroups {
 
                 entries.add(ModItems.RESPIRATOR);
                 entries.add(ModItems.CRYSTAL_RESPIRATOR);
+                entries.add(ModItems.CRYSTAL_UPGRADE_TEMPLATE);
                 entries.add(ModItems.CRYSTAL_SPLINTER);
+                entries.add(ModItems.INFECTED_GLOW_BERRY);
                 entries.add(ModItems.DISINFECTANT_POTION);
                 entries.add(ModItems.INFECTED_BOWL);
                 entries.add(ModItems.INFECTED_STEW);
@@ -44,6 +44,7 @@ public class ModItemGroups {
                 entries.add(ModBlocks.INFECTED_OAK_LEAVES);
                 entries.add(ModBlocks.INFECTED_PLANKS);
                 entries.add(ModBlocks.INFECTED_STONE);
+                entries.add(ModBlocks.INFECTED_OAK_LOG);
 
                 // ===== СПАВН-ЯЙЦА =====
 

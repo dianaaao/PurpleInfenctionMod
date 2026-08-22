@@ -9,22 +9,27 @@ import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.heightprovider.HeightProvider;
 import net.minecraft.world.gen.structure.Structure;
 import net.minecraft.world.gen.structure.StructureType;
+import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.StructurePiecesList;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.StructureAccessor;
+
+import java.util.ArrayList;
+import java.util.List;
 // import java.util.Random;/
 import java.util.Optional;
 import net.minecraft.util.math.random.Random;
-public class OneTimeLandOnlyJigsawStructure extends Structure {
+public class NightOnlyJigsawStructure extends Structure{
     
-    public static final Codec<OneTimeLandOnlyJigsawStructure> CODEC =
-            RecordCodecBuilder.<OneTimeLandOnlyJigsawStructure>mapCodec(instance ->
+    public static final Codec<NightOnlyJigsawStructure> CODEC =
+            RecordCodecBuilder.<NightOnlyJigsawStructure>mapCodec(instance ->
                     instance.group(
                             Structure.configCodecBuilder(instance),
 
@@ -56,7 +61,7 @@ public class OneTimeLandOnlyJigsawStructure extends Structure {
                                     .fieldOf("max_distance_from_center")
                                     .forGetter(structure -> structure.maxDistanceFromCenter)
 
-                    ).apply(instance, OneTimeLandOnlyJigsawStructure::new)
+                    ).apply(instance, NightOnlyJigsawStructure::new)
             ).codec();
 
     private final RegistryEntry<StructurePool> startPool;
@@ -67,7 +72,7 @@ public class OneTimeLandOnlyJigsawStructure extends Structure {
     private final Optional<Heightmap.Type> projectStartToHeightmap;
     private final int maxDistanceFromCenter;
 
-    public OneTimeLandOnlyJigsawStructure(
+    public NightOnlyJigsawStructure(
             Structure.Config config,
             RegistryEntry<StructurePool> startPool,
             Optional<Identifier> startJigsawName,
@@ -129,34 +134,44 @@ public class OneTimeLandOnlyJigsawStructure extends Structure {
                 this.projectStartToHeightmap,
                 this.maxDistanceFromCenter
         );
-    }
-    @Override
-    public void postPlace(
+    }// NEW:
+@Override
+public void postPlace(
         StructureWorldAccess world,
         StructureAccessor structureAccessor,
         ChunkGenerator chunkGenerator,
         Random random,
         BlockBox box,
-        net.minecraft.util.math.ChunkPos chunkPos,
+        ChunkPos chunkPos,
         StructurePiecesList pieces
-    ) {
-        if (world instanceof net.minecraft.server.world.ServerWorld serverWorld) {
-            CastleWorldState state = CastleWorldState.get(serverWorld);
+) {
 
-            if (!state.isGenerated()) {
-                state.setGenerated();
+    System.out.println(
+            "[PurpleInfenctionMod] "
+                    + "NightOnlyJigsawStructure.postPlace() "
+                    + "chunk="
+                    + chunkPos.x
+                    + ","
+                    + chunkPos.z
+                    + " box="
+                    + box
+    );
 
-                System.out.println(
-                        "[PurpleInfenctionMod] Castle generated at "
-                                + box.getMinX() + ", "
-                                + box.getMinY() + ", "
-                                + box.getMinZ()
-                );
-            }
+    // NEW:
+        List<BlockBox> pieceBoxes = new ArrayList<>();
+
+        for (StructurePiece piece : pieces.pieces()) {
+        pieceBoxes.add(piece.getBoundingBox());
         }
-    }
+
+    CastleNightManager.queueCastle(
+            box,
+            pieceBoxes,
+            world.getSeed()
+    );
+}
     @Override
     public StructureType<?> getType() {
-        return ModStructures.ONE_TIME_LAND_ONLY_JIGSAW;
+        return ModStructures.NIGHT_ONLY_JINSAW_STRUCTURE;
     }
 }

@@ -167,44 +167,21 @@ public class ModBlocks {
     }
 
     public static void registerModBlocks() {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_DIRT));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_GRASS));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_COBBLESTONE));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_STONE));          
-        
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_OAK_LOG));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_PLANKS));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_OAK_LEAVES));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_MUSHROOM_STEM));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_MUSHROOM_HAT));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_BROWN_MUSHROOM));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_SMALL_MUSHROOM));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(FIRE_FLOWER));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(INFECTED_GLOW_LICHEN));
-
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
+            entries.add(INFECTED_DIRT);
+            entries.add(INFECTED_GRASS);
+            entries.add(INFECTED_COBBLESTONE);
+            entries.add(INFECTED_STONE);
+            entries.add(INFECTED_OAK_LOG);
+            entries.add(INFECTED_PLANKS);
+            entries.add(INFECTED_OAK_LEAVES);
+            entries.add(INFECTED_MUSHROOM_STEM);
+            entries.add(INFECTED_MUSHROOM_HAT);
+            entries.add(INFECTED_BROWN_MUSHROOM);
+            entries.add(INFECTED_SMALL_MUSHROOM);
+            entries.add(FIRE_FLOWER);
+            entries.add(INFECTED_GLOW_LICHEN);
+        });
             
         PurpleInfenctionMod.LOGGER.info("Registering Mod Blocks for " + PurpleInfenctionMod.MOD_ID);
     }

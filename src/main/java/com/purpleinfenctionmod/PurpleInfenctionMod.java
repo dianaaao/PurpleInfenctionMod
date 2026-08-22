@@ -39,6 +39,7 @@ import com.purpleinfenctionmod.world.PlacedBlockDecayHandler;
 import com.purpleinfenctionmod.world.biome.BiomeEffectHandler;
 import com.purpleinfenctionmod.world.biome.RingBiomeSource;
 import com.purpleinfenctionmod.world.feature.ModFeatures;
+import com.purpleinfenctionmod.world.structure.CastleNightManager;
 import com.purpleinfenctionmod.world.structure.ModStructures;
 
 
@@ -104,7 +105,11 @@ public class PurpleInfenctionMod implements ModInitializer {
 					InfectedLookEffect.removeTarget(player);
 				}
 			}
+			
 		});
+		ServerTickEvents.END_WORLD_TICK.register(
+				CastleNightManager::tick
+		);
 		LOGGER.info("Hello Fabric world!");
 	}
 

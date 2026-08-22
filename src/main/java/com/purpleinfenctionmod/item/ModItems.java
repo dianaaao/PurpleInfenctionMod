@@ -1,11 +1,8 @@
 package com.purpleinfenctionmod.item;
 
 import com.purpleinfenctionmod.PurpleInfenctionMod;
-import com.purpleinfenctionmod.block.ModBlocks;
 import com.purpleinfenctionmod.entity.ModEntities;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -133,25 +130,6 @@ public class ModItems {
     }
 
     public static void registerModItems() {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-            .register(entries -> entries.add(RESPIRATOR));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT)
-            .register(entries -> entries.add(CRYSTAL_RESPIRATOR));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-            .register(entries -> entries.add(CRYSTAL_SPLINTER));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
-            .register(entries -> entries.add(DISINFECTANT_POTION));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
-            .register(entries -> entries.add(INFECTED_GLOW_BERRY));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-            .register(entries -> entries.add(CRYSTAL_UPGRADE_TEMPLATE));
-        // CRYSTAL_RESPIRATOR
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
-            .register(entries -> {
-                entries.add(INFECTED_BOWL);
-                entries.add(INFECTED_STEW);
-            });
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
             entries.add(ModItems.MUSHROOM_MOB_SPAWN_EGG);
             entries.add(ModItems.ROTTING_SPORE_FUNGUS_SPAWN_EGG);
@@ -159,6 +137,21 @@ public class ModItems {
             entries.add(ModItems.INFECTED_SKELETON_SPAWN_EGG);
             entries.add(ModItems.INFECTED_CREEPER_SPAWN_EGG);
         });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
+            .register(entries -> {
+                entries.add(INFECTED_BOWL);
+                entries.add(INFECTED_STEW);
+                entries.add(INFECTED_GLOW_BERRY);
+                entries.add(DISINFECTANT_POTION);            
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+            entries.add(RESPIRATOR);
+            entries.add(CRYSTAL_RESPIRATOR);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
+            .register(entries -> entries.add(CRYSTAL_UPGRADE_TEMPLATE));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
+            .register(entries -> entries.add(CRYSTAL_SPLINTER));
 
         PurpleInfenctionMod.LOGGER.info("Registering Mod Items for " + PurpleInfenctionMod.MOD_ID);
     }
