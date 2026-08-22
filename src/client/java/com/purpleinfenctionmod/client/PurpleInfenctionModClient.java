@@ -9,6 +9,7 @@ import com.purpleinfenctionmod.client.entity.RottingSporeFungusRenderer;
 import com.purpleinfenctionmod.client.entity.SporeCreatureRenderer;
 import com.purpleinfenctionmod.client.gui.DecontrollHudOverlay;
 import com.purpleinfenctionmod.client.model.RespiratorModel;
+import com.purpleinfenctionmod.client.model.UpgradedRespiratorModel;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.item.ModItems;
 import com.purpleinfenctionmod.network.InfectedLookNetworking;
@@ -70,6 +71,11 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
             RespiratorModel::getTexturedModelData
         );
 
+        EntityModelLayerRegistry.registerModelLayer(
+            UpgradedRespiratorModel.LAYER,
+            UpgradedRespiratorModel::getTexturedModelData
+        );
+
         EntityRendererRegistry.register(ModEntities.INFECTED_ZOMBIE, InfectedZombieRenderer::new);
         EntityRendererRegistry.register(ModEntities.INFECTED_SKELETON, InfectedSkeletonRenderer::new);
         EntityRendererRegistry.register(ModEntities.INFECTED_CREEPER, InfectedCreeperRenderer::new);
@@ -116,21 +122,17 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         ArmorRenderer.register(
             (matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {
 
-                RespiratorModel model = new RespiratorModel(
+                UpgradedRespiratorModel model = new UpgradedRespiratorModel(
                     MinecraftClient.getInstance()
                         .getEntityModelLoader()
-                        .getModelPart(RespiratorModel.LAYER)
+                        .getModelPart(UpgradedRespiratorModel.LAYER)
                 );
 
                 matrices.push();
 
-                // Position and rotate the model with the player's head.
                 contextModel.head.rotate(matrices);
-
-                // Correct the model's static 90° orientation.
-                matrices.multiply(
-                    RotationAxis.POSITIVE_Y.rotationDegrees(-90.0F)
-                );
+                // matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90.0F));
+                matrices.translate(0.0, -0.3, 0.0);
 
                 ArmorRenderer.renderPart(
                     matrices,
@@ -140,10 +142,9 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
                     model,
                     new Identifier(
                         "purpleinfenctionmod",
-                        "textures/models/armor/respirator.png"
+                        "textures/models/armor/upgraded_respirator.png"
                     )
                 );
-                
 
                 matrices.pop();
             },

@@ -30,6 +30,17 @@ public class ModItems {
             new Item.Settings().maxDamage(300)
         )
     );
+
+    // public static final Item UPGRADED_RESPIRATOR = Registry.register(
+    //     Registries.ITEM,
+    //     PurpleInfenctionMod.id("upgraded_respirator"),
+    //     new ArmorItem(
+    //         ModArmorMaterials.RESPIRATOR,
+    //         ArmorItem.Type.HELMET,
+    //         new Item.Settings().maxDamage(450)
+    //     )
+    // );
+
     public static final Item CRYSTAL_RESPIRATOR = Registry.register(
         Registries.ITEM,
         PurpleInfenctionMod.id("crystal_respirator"),

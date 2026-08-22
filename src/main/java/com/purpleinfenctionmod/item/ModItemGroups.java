@@ -24,6 +24,7 @@ public class ModItemGroups {
                 // ===== ПРЕДМЕТЫ =====
 
                 entries.add(ModItems.RESPIRATOR);
+                entries.add(ModItems.CRYSTAL_RESPIRATOR);
                 entries.add(ModItems.CRYSTAL_SPLINTER);
                 entries.add(ModItems.DISINFECTANT_POTION);
                 entries.add(ModItems.INFECTED_BOWL);
