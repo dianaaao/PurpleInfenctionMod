@@ -32,7 +32,6 @@ public class CastleWorldState extends PersistentState {
     // NEW:
 public void addCastle(BlockBox identityBox, List<BlockBox> pieceBoxes, ServerWorld world) {
 
-    // Prevent duplicates.
     for (CastleData existing : castles) {
         if (existing.getBox().equals(identityBox)) {
             return;
@@ -45,54 +44,66 @@ public void addCastle(BlockBox identityBox, List<BlockBox> pieceBoxes, ServerWor
     BlockPos.Mutable pos = new BlockPos.Mutable();
 
     for (BlockBox box : pieceBoxes) {
+
+        // Сначала находим реальный диапазон Y, где физически есть непустые блоки
+        int realMinY = box.getMaxY();
+        int realMaxY = box.getMinY();
+        boolean foundAny = false;
+
+        for (int y = box.getMinY(); y <= box.getMaxY(); y++) {
+            boolean layerHasBlocks = false;
+
+            // Проверяем только несколько точек в слое для быстрой проверки "пуст ли весь срез"
+            outer:
+            for (int x = box.getMinX(); x <= box.getMaxX(); x++) {
+                for (int z = box.getMinZ(); z <= box.getMaxZ(); z++) {
+                    pos.set(x, y, z);
+                    if (!world.getBlockState(pos).isAir()) {
+                        layerHasBlocks = true;
+                        break outer;
+                    }
+                }
+            }
+
+            if (layerHasBlocks) {
+                if (!foundAny) {
+                    realMinY = y;
+                    foundAny = true;
+                }
+                realMaxY = y;
+            }
+        }
+
+        if (!foundAny) continue; // весь box оказался пустым — пропускаем целиком
+
+        // Теперь сохраняем блоки только в реально урезанном диапазоне
         for (int x = box.getMinX(); x <= box.getMaxX(); x++) {
-            for (int y = box.getMinY(); y <= box.getMaxY(); y++) {
+            for (int y = realMinY; y <= realMaxY; y++) {
                 for (int z = box.getMinZ(); z <= box.getMaxZ(); z++) {
 
                     BlockPos immutable = new BlockPos(x, y, z);
-
-                    if (!seen.add(immutable)) {
-                        continue;
-                    }
+                    if (!seen.add(immutable)) continue;
 
                     pos.set(x, y, z);
-
                     BlockState state = world.getBlockState(pos);
+                    if (state.isAir()) continue;
 
-                    if (state.isAir()) {
-                        continue;
-                    }
+                    BlockEntity blockEntity = world.getBlockEntity(pos);
+                    NbtCompound blockEntityNbt = blockEntity != null ? blockEntity.createNbt() : null;
 
-                    BlockEntity blockEntity =
-                            world.getBlockEntity(pos);
-
-                    NbtCompound blockEntityNbt = null;
-
-                    if (blockEntity != null) {
-                        blockEntityNbt = blockEntity.createNbt();
-                    }
-
-                    castle.addBlock(
-                            immutable,
-                            state,
-                            blockEntityNbt
-                    );
+                    castle.addBlock(immutable, state, blockEntityNbt);
                 }
             }
         }
     }
 
     castles.add(castle);
-
     markDirty();
 
-    System.out.println(
-            "[PurpleInfenctionMod] Saved castle: "
-                    + identityBox
-                    + " blocks="
-                    + castle.getBlocks().size()
-    );
+    System.out.println("[PurpleInfenctionMod] Saved castle: " + identityBox + " blocks=" + castle.getBlocks().size());
 }
+
+
 public static CastleWorldState get(ServerWorld world) {
 
     PersistentStateManager manager =
