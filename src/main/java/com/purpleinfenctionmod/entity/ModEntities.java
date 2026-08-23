@@ -57,7 +57,22 @@ public class ModEntities {
                 .build());
 
 
+	public static final EntityType<CrystalEntity> OLD_FIRE_CRYSTAL = Registry.register(
+        Registries.ENTITY_TYPE,
+        new Identifier(PurpleInfenctionMod.MOD_ID, "old_fire_crystal"),
+        FabricEntityTypeBuilder.<CrystalEntity>create(SpawnGroup.MISC, CrystalEntity::new)
+                .dimensions(EntityDimensions.fixed(4.0f, 6.0f))
+                .build());
 				
+	public static final EntityType<BrokenFireCrystalEntity> BROKEN_FIRE_CRYSTAL = Registry.register(
+        Registries.ENTITY_TYPE,
+        new Identifier(PurpleInfenctionMod.MOD_ID, "broken_fire_crystal"),
+        FabricEntityTypeBuilder.<BrokenFireCrystalEntity>create(SpawnGroup.MISC, BrokenFireCrystalEntity::new)
+                .dimensions(EntityDimensions.fixed(4.0f, 6.0f))
+                .build());	
+
+
+
     public static void register() {
         // регистрация выполняется через статические поля выше
     }

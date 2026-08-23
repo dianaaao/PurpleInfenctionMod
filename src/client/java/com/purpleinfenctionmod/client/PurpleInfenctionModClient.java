@@ -1,6 +1,8 @@
 package com.purpleinfenctionmod.client;
 
 import com.purpleinfenctionmod.block.ModBlocks;
+import com.purpleinfenctionmod.client.entity.BrokenCrystalRenderer;
+import com.purpleinfenctionmod.client.entity.CrystalRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedCreeperRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedSkeletonRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedZombieRenderer;
@@ -151,6 +153,8 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         );
 
         EntityModelLayerRegistry.registerModelLayer(HeadMushroomsModel.LAYER, HeadMushroomsModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.OLD_FIRE_CRYSTAL, CrystalRenderer::new);
+        EntityRendererRegistry.register(ModEntities.BROKEN_FIRE_CRYSTAL, BrokenCrystalRenderer::new);
 
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register(
             (entityType, entityRenderer, registrationHelper, context) -> {
