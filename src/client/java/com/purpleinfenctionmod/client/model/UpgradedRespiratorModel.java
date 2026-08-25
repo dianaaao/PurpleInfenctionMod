@@ -16,7 +16,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.client.model.*;
 
 public class UpgradedRespiratorModel extends Model {
-
+    
     public static final EntityModelLayer LAYER =
         new EntityModelLayer(new Identifier("purpleinfenctionmod", "crystal_respirator"), "main");
 
@@ -34,12 +34,12 @@ public class UpgradedRespiratorModel extends Model {
         ModelPartData head = partdefinition.addChild("head",
             ModelPartBuilder.create()
                 .uv(0, 0).cuboid(-2.0F, 3.225F, -7.0F, 4.0F, 4.0F, 4.0F, new Dilation(0.0F))
-                .uv(9, 27).cuboid(-2.0F, 3.25F, -2.5F, 4.0F, 1.0F, 0.075F, new Dilation(0.0F))
-                .uv(17, 12).cuboid(-4.0F, 0.25F, -2.5F, 8.0F, 3.0F, 0.075F, new Dilation(0.0F))
-                .uv(13, 23).cuboid(-4.0F, 3.175F, -2.575F, 8.0F, 0.075F, 0.075F, new Dilation(0.0F))
-                .uv(13, 23).cuboid(-4.0F, 0.25F, -2.575F, 8.0F, 0.075F, 0.075F, new Dilation(0.0F))
-                .uv(13, 18).cuboid(4.0F, 0.325F, -2.575F, 0.075F, 2.85F, 0.075F, new Dilation(0.0F))
-                .uv(13, 18).cuboid(-4.075F, 0.325F, -2.575F, 0.075F, 2.85F, 0.075F, new Dilation(0.0F)),
+                .uv(0, 24).cuboid(-2.0F, 3.25F, -2.5F, 4.0F, 1.0F, 0.075F, new Dilation(0.0F))
+                .uv(16, 2).cuboid(-4.0F, 0.25F, -4.425F, 8.0F, 3.0F, 0.075F, new Dilation(0.0F))
+                .uv(0, 0).cuboid(-4.0F, 3.175F, -4.5F, 8.0F, 0.075F, 0.075F, new Dilation(0.0F))
+                .uv(0, 0).cuboid(-4.0F, 0.25F, -4.5F, 8.0F, 0.075F, 0.075F, new Dilation(0.0F))
+                .uv(0, 0).cuboid(4.0F, 0.325F, -4.5F, 0.075F, 2.85F, 0.075F, new Dilation(0.0F))
+                .uv(0, 0).cuboid(-4.075F, 0.325F, -4.5F, 0.075F, 2.85F, 0.075F, new Dilation(0.0F)),
             ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
         ModelPartData group2 = head.addChild("group2",
@@ -47,22 +47,22 @@ public class UpgradedRespiratorModel extends Model {
 
         group2.addChild("cube_r1",
             ModelPartBuilder.create()
-                .uv(0, 18).cuboid(-13.0F, -5.35F, 3.75F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F))
-                .uv(17, 16).cuboid(-6.0F, -5.35F, 3.75F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)),
+                .uv(16, 11).cuboid(-13.0F, -5.35F, 3.75F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F))
+                .uv(16, 5).cuboid(-6.0F, -5.35F, 3.75F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)),
             ModelTransform.of(8.0F, 11.175F, -6.4F, 0.3927F, 0.0F, 0.0F));
 
         group2.addChild("cube_r2",
             ModelPartBuilder.create()
-                .uv(0, 25).cuboid(-12.75F, -4.125F, 5.75F, 2.0F, 2.0F, 2.0F, new Dilation(0.0F))
-                .uv(24, 24).cuboid(-5.25F, -4.125F, 5.75F, 2.0F, 2.0F, 2.0F, new Dilation(0.0F)),
+                .uv(16, 23).cuboid(-12.75F, -4.125F, 5.75F, 2.0F, 2.0F, 2.0F, new Dilation(0.0F))
+                .uv(16, 19).cuboid(-5.25F, -4.125F, 5.75F, 2.0F, 2.0F, 2.0F, new Dilation(0.0F)),
             ModelTransform.of(8.0F, 9.95F, -5.9F, 0.3927F, 0.0F, 0.0F));
 
         ModelPartData group3 = head.addChild("group3",
             ModelPartBuilder.create()
-                .uv(13, 24).cuboid(-2.0F, 4.225F, -3.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F))
-                .uv(17, 9).cuboid(-4.0F, 4.225F, 3.975F, 8.0F, 1.0F, 1.0F, new Dilation(0.0F))
-                .uv(0, 9).cuboid(3.0F, 4.225F, -2.25F, 1.0F, 1.0F, 7.0F, new Dilation(0.0F))
-                .uv(17, 0).cuboid(-4.0F, 4.225F, -2.25F, 1.0F, 1.0F, 7.0F, new Dilation(0.0F)),
+                .uv(16, 17).cuboid(-2.0F, 4.225F, -3.0F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F))
+                .uv(16, 0).cuboid(-4.0F, 4.225F, 3.975F, 8.0F, 1.0F, 1.0F, new Dilation(0.0F))
+                .uv(0, 8).cuboid(3.0F, 4.225F, -2.25F, 1.0F, 1.0F, 7.0F, new Dilation(0.0F))
+                .uv(0, 16).cuboid(-4.0F, 4.225F, -2.25F, 1.0F, 1.0F, 7.0F, new Dilation(0.0F)),
             ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
         return TexturedModelData.of(modelData, 64, 64);
