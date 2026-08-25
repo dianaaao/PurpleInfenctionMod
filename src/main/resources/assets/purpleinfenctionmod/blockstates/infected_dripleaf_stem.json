@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,waterlogged=false": {
+      "model": "purpleinfenctionmod:block/infected_dripleaf_stem",
+      "y": 90
+    },
+    "facing=east,waterlogged=true": {
+      "model": "purpleinfenctionmod:block/infected_dripleaf_stem",
+      "y": 90
+    },
+    "facing=north,waterlogged=false": {
+      "model": "purpleinfenctionmod:block/infected_dripleaf_stem"
+    },
+    "facing=north,waterlogged=true": {
+      "model": "purpleinfenctionmod:block/infected_dripleaf_stem"
+    },
+    "facing=south,waterlogged=false": {
+      "model": "purpleinfenctionmod:block/infected_dripleaf_stem",
+      "y": 180
+    },
+    "facing=south,waterlogged=true": {
+      "model": "purpleinfenctionmod:block/infected_dripleaf_stem",
+      "y": 180
+    },
+    "facing=west,waterlogged=false": {
+      "model": "purpleinfenctionmod:block/infected_dripleaf_stem",
+      "y": 270
+    },
+    "facing=west,waterlogged=true": {
+      "model": "purpleinfenctionmod:block/infected_dripleaf_stem",
+      "y": 270
+    }
+  }
+}

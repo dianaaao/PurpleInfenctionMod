@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/big_dripleaf_stem",
+  "textures": {
+    "stem": "purpleinfenctionmod:block/big_dripleaf_stem_top",
+    "particle": "purpleinfenctionmod:block/big_dripleaf_stem_top"
+  }
+}
