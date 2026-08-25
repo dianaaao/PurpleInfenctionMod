@@ -47,6 +47,18 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
             RenderLayer.getCutout()
         );
         BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.INFECTED_DRIPLEAF,
+            RenderLayer.getCutout()
+        );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.INFECTED_SMALL_DRIPLEAF,
+            RenderLayer.getCutout()
+        );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.INFECTED_DRIPLEAF_STEM,
+            RenderLayer.getCutout()
+        );
+        BlockRenderLayerMap.INSTANCE.putBlock(
             ModBlocks.FIRE_FLOWER,
             RenderLayer.getCutout()
         );

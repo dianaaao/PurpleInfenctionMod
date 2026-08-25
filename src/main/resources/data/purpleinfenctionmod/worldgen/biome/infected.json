@@ -69,7 +69,9 @@
     [
       "purpleinfenctionmod:infected_glow_lichen",
       "purpleinfenctionmod:small_mushrooms_undeground",
-      "purpleinfenctionmod:rails"
+      "purpleinfenctionmod:rails",
+      "purpleinfenctionmod:infected_big_dripleaf",
+      "purpleinfenctionmod:infected_small_dripleaf"
     ],
     [
       "minecraft:patch_grass_plain"

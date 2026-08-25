@@ -5,6 +5,8 @@ import com.purpleinfenctionmod.PurpleInfenctionMod;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.BigDripleafBlock;
+import net.minecraft.block.BigDripleafStemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.GlowLichenBlock;
@@ -12,10 +14,12 @@ import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.MushroomBlock;
 import net.minecraft.block.MushroomPlantBlock;
 import net.minecraft.block.PillarBlock;
+import net.minecraft.block.SmallDripleafBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registries;
 
 public class ModBlocks {
@@ -95,6 +99,12 @@ public class ModBlocks {
                 AbstractBlock.Settings.copy(Blocks.CAVE_VINES_PLANT)
         )
 );
+public static final Block INFECTED_SMALL_DRIPLEAF = registerBlock(
+    "infected_small_dripleaf",
+    new SmallDripleafBlock(
+        FabricBlockSettings.copyOf(Blocks.SMALL_DRIPLEAF)
+    )
+);
         
 
     public static final Block INFECTED_OAK_LEAVES = registerBlock(
@@ -130,6 +140,19 @@ public class ModBlocks {
         new MushroomPlantBlock(
             FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM).strength(2.0f, 62.9f), null
         )   
+    );
+    public static final Block INFECTED_DRIPLEAF = registerBlock(
+        "infected_dripleaf",
+        new BigDripleafBlock(
+            FabricBlockSettings.copyOf(Blocks.BIG_DRIPLEAF)
+        )
+    );
+
+    public static final Block INFECTED_DRIPLEAF_STEM = registerBlock(
+        "infected_dripleaf_stem",
+        new BigDripleafStemBlock(
+            FabricBlockSettings.copyOf(Blocks.BIG_DRIPLEAF_STEM)
+        )
     );
 
     public static final Block INFECTED_GLOW_LICHEN = registerBlock(
@@ -181,6 +204,9 @@ public class ModBlocks {
             entries.add(INFECTED_SMALL_MUSHROOM);
             entries.add(FIRE_FLOWER);
             entries.add(INFECTED_GLOW_LICHEN);
+            entries.add(INFECTED_DRIPLEAF);
+            entries.add(INFECTED_DRIPLEAF_STEM);
+            entries.add(INFECTED_SMALL_DRIPLEAF);
         });
             
         PurpleInfenctionMod.LOGGER.info("Registering Mod Blocks for " + PurpleInfenctionMod.MOD_ID);
