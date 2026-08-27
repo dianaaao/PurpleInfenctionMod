@@ -32,7 +32,8 @@
 	},
 	"custom": {
 		"cardinal-components": [
-			"purpleinfenctionmod:decontroll"
+			"purpleinfenctionmod:decontroll",
+			"purpleinfenctionmod:infected_power"
 		]
 	},
 	"mixins": [

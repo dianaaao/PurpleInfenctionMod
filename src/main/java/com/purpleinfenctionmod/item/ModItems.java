@@ -82,6 +82,10 @@ public class ModItems {
         "infected_bowl",
         new Item(new Item.Settings())
     );
+    public static final Item RESPIRATOR_FIX = registerItem(
+        "respirator_fix",
+        new Item(new Item.Settings())
+    );
         
     public static final Item INFECTED_STEW = registerItem(
         "infected_stew",
@@ -95,7 +99,7 @@ public class ModItems {
                         .statusEffect(
                             new StatusEffectInstance(
                                 ModEffects.INFECTED_LOOK,
-                                200,
+                                1000,
                                 0
                             ),
                             0.3f
@@ -236,8 +240,10 @@ public class ModItems {
             entries.add(CRYSTAL_SABER);
             entries.add(CRYSTAL_MAGIC_STAFF);
         });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-            .register(entries -> entries.add(CRYSTAL_UPGRADE_TEMPLATE));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+            entries.add(CRYSTAL_UPGRADE_TEMPLATE);
+            entries.add(RESPIRATOR_FIX);
+        });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
             .register(entries -> entries.add(CRYSTAL_SPLINTER));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
