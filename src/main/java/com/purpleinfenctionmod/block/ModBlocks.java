@@ -19,7 +19,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registries;
 
 public class ModBlocks {
@@ -205,7 +204,6 @@ public static final Block INFECTED_SMALL_DRIPLEAF = registerBlock(
             entries.add(FIRE_FLOWER);
             entries.add(INFECTED_GLOW_LICHEN);
             entries.add(INFECTED_DRIPLEAF);
-            entries.add(INFECTED_DRIPLEAF_STEM);
             entries.add(INFECTED_SMALL_DRIPLEAF);
         });
             

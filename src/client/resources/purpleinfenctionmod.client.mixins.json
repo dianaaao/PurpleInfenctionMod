@@ -3,7 +3,7 @@
 	"package": "com.purpleinfenctionmod.client.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"client": [
-		"ExampleClientMixin"
+		"InfectedFogMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

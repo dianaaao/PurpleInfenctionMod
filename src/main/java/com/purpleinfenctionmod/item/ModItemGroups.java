@@ -29,22 +29,25 @@ public class ModItemGroups {
                 entries.add(ModItems.DISINFECTANT_POTION);
                 entries.add(ModItems.INFECTED_BOWL);
                 entries.add(ModItems.INFECTED_STEW);
+                entries.add(ModItems.RESPIRATOR_FIX);
                 
                 // ===== БЛОКИ =====
                 
-                entries.add(ModBlocks.INFECTED_MUSHROOM_HAT);
                 entries.add(ModBlocks.INFECTED_DIRT);
                 entries.add(ModBlocks.INFECTED_GRASS);
                 entries.add(ModBlocks.INFECTED_COBBLESTONE);
-                entries.add(ModBlocks.FIRE_FLOWER);
-                entries.add(ModBlocks.INFECTED_BROWN_MUSHROOM);
-                entries.add(ModBlocks.INFECTED_GLOW_LICHEN);
-                entries.add(ModBlocks.INFECTED_MUSHROOM_STEM);
-                entries.add(ModBlocks.INFECTED_SMALL_MUSHROOM);
-                entries.add(ModBlocks.INFECTED_OAK_LEAVES);
-                entries.add(ModBlocks.INFECTED_PLANKS);
                 entries.add(ModBlocks.INFECTED_STONE);
                 entries.add(ModBlocks.INFECTED_OAK_LOG);
+                entries.add(ModBlocks.INFECTED_PLANKS);
+                entries.add(ModBlocks.INFECTED_OAK_LEAVES);
+                entries.add(ModBlocks.INFECTED_MUSHROOM_STEM);
+                entries.add(ModBlocks.INFECTED_MUSHROOM_HAT);
+                entries.add(ModBlocks.INFECTED_BROWN_MUSHROOM);
+                entries.add(ModBlocks.INFECTED_SMALL_MUSHROOM);
+                entries.add(ModBlocks.FIRE_FLOWER);
+                entries.add(ModBlocks.INFECTED_GLOW_LICHEN);
+                entries.add(ModBlocks.INFECTED_DRIPLEAF);
+                
 
                 // ===== СПАВН-ЯЙЦА =====
 

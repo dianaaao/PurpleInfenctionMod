@@ -2,7 +2,6 @@ package com.purpleinfenctionmod.item;
 
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 // import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundEvent;
@@ -51,12 +50,12 @@ public class ModArmorMaterials {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return Ingredient.ofItems(Items.COAL_BLOCK);
+            return Ingredient.ofItems(ModItems.RESPIRATOR_FIX);
         }
 
         @Override
         public String getName() {
-            return "purpleinfenctionmod:coal";
+            return "purpleinfenctionmod:respirator";
         }
 
         @Override

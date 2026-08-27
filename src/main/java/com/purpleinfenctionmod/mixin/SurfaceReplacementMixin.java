@@ -43,14 +43,16 @@ public class SurfaceReplacementMixin {
                     }
 
                     if (state.isOf(Blocks.STONE)) {
-                        // Проверяем, находится ли этот конкретный блок в твоем биоме
+                        // Проверяем, находится ли этот конкретный блок в биоме
                         if (chunk.getBiomeForNoiseGen(worldX >> 2, y >> 2, worldZ >> 2).matchesKey(ModBiomes.INFECTED_KEY)) {
                             chunk.setBlockState(mutablePos, ModBlocks.INFECTED_STONE.getDefaultState(), false);
+                            // chunk.setBlockState(mutablePos, Blocks.AIR.getDefaultState(), false);
                         }
                     } else if (state.isOf(Blocks.DEEPSLATE)) {
-                        // Проверяем, находится ли этот конкретный блок в твоем биоме
+                        // Проверяем, находится ли этот конкретный блок в биоме
                         if (chunk.getBiomeForNoiseGen(worldX >> 2, y >> 2, worldZ >> 2).matchesKey(ModBiomes.INFECTED_KEY)) {
                             chunk.setBlockState(mutablePos, ModBlocks.INFECTED_DEEPSLATE.getDefaultState(), false);
+                            // chunk.setBlockState(mutablePos, Blocks.AIR.getDefaultState(), false);
                         }
                     } 
                     // Если нашли ванильную землю
