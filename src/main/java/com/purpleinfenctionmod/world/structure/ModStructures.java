@@ -28,6 +28,7 @@ public class ModStructures {
                     () -> NightOnlyJigsawStructure.CODEC
             );
 
+
     public static void registerStructures() {
         PurpleInfenctionMod.LOGGER.info(
                 "Registering structures for " + PurpleInfenctionMod.MOD_ID
