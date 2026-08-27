@@ -7,12 +7,15 @@ import com.purpleinfenctionmod.client.entity.InfectedCreeperRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedSkeletonRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedZombieRenderer;
 import com.purpleinfenctionmod.client.entity.MushroomMobRenderer;
+import com.purpleinfenctionmod.client.entity.MushroomPetRenderer;
 import com.purpleinfenctionmod.client.entity.RottingSporeFungusRenderer;
 import com.purpleinfenctionmod.client.entity.SporeCreatureRenderer;
+import com.purpleinfenctionmod.client.entity.SporeProjectileRenderer;
 import com.purpleinfenctionmod.client.gui.DecontrollHudOverlay;
 import com.purpleinfenctionmod.client.model.RespiratorModel;
 import com.purpleinfenctionmod.client.model.UpgradedRespiratorModel;
 import com.purpleinfenctionmod.entity.ModEntities;
+import com.purpleinfenctionmod.entity.SporeProjectileEntity;
 import com.purpleinfenctionmod.item.ModItems;
 import com.purpleinfenctionmod.network.InfectedLookNetworking;
 
@@ -94,6 +97,7 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.INFECTED_CREEPER, InfectedCreeperRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.ROTTING_SPORE_FUNGUS, RottingSporeFungusRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SPORE_PROJECTILE, SporeProjectileRenderer::new);
         EntityRendererRegistry.register(ModEntities.SPORE_CREATURE, SporeCreatureRenderer::new);
 
         ArmorRenderer.register(
@@ -167,6 +171,8 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(HeadMushroomsModel.LAYER, HeadMushroomsModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.OLD_FIRE_CRYSTAL, CrystalRenderer::new);
         EntityRendererRegistry.register(ModEntities.BROKEN_FIRE_CRYSTAL, BrokenCrystalRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.MUSHROOM_PET, MushroomPetRenderer::new);
 
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register(
             (entityType, entityRenderer, registrationHelper, context) -> {

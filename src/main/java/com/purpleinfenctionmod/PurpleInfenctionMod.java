@@ -25,6 +25,7 @@ import com.purpleinfenctionmod.effect.ModEffects;
 import com.purpleinfenctionmod.effect.ModPotions;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.entity.MushroomMobEntity;
+import com.purpleinfenctionmod.entity.MushroomPetEntity;
 import com.purpleinfenctionmod.entity.PoisonCloudManager;
 import com.purpleinfenctionmod.entity.RottingSporeFungusEntity;
 import com.purpleinfenctionmod.entity.SporeCreatureEntity;
@@ -87,6 +88,8 @@ public class PurpleInfenctionMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_ZOMBIE, InfectedZombieEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_SKELETON, InfectedSkeletonEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_CREEPER, InfectedCreeperEntity.createAttributes());
+
+		FabricDefaultAttributeRegistry.register(ModEntities.MUSHROOM_PET, MushroomPetEntity.createAttributes());
 
 		ModStructures.registerStructures();
 		ServerLifecycleEvents.SERVER_STARTED.register(server -> {

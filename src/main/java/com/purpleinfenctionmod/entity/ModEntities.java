@@ -71,7 +71,21 @@ public class ModEntities {
                 .dimensions(EntityDimensions.fixed(4.0f, 6.0f))
                 .build());	
 
+	public static final EntityType<MushroomPetEntity> MUSHROOM_PET = Registry.register(
+        Registries.ENTITY_TYPE,
+        new Identifier(PurpleInfenctionMod.MOD_ID, "mushroom_pet"),
+        FabricEntityTypeBuilder.create(SpawnGroup.MISC, MushroomPetEntity::new)
+                .dimensions(EntityDimensions.changing(0.5f, 0.6f))
+                .build());	
 
+	public static final EntityType<SporeProjectileEntity> SPORE_PROJECTILE = Registry.register(
+        Registries.ENTITY_TYPE,
+        new Identifier(PurpleInfenctionMod.MOD_ID, "spore_projectile"),
+        FabricEntityTypeBuilder.<SporeProjectileEntity>create(SpawnGroup.MISC, SporeProjectileEntity::new)
+                .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+                .trackRangeChunks(4)
+                .trackedUpdateRate(10)
+                .build());
 
     public static void register() {
         // регистрация выполняется через статические поля выше

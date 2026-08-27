@@ -1,5 +1,7 @@
 package com.purpleinfenctionmod.entity;
 
+import com.purpleinfenctionmod.item.ModItems;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -63,7 +65,7 @@ public class BrokenFireCrystalEntity extends Entity implements GeoEntity {
 
         ItemStack heldItem = player.getStackInHand(hand);
 
-        if (!heldItem.isOf(net.minecraft.item.Items.DIAMOND)) {
+        if (!heldItem.isOf(ModItems.FRAGMENT_OF_OLD_CRYSTAL)) {
             return ActionResult.PASS;
         }
 

@@ -29,6 +29,15 @@ public class ModItemGroups {
                 entries.add(ModItems.DISINFECTANT_POTION);
                 entries.add(ModItems.INFECTED_BOWL);
                 entries.add(ModItems.INFECTED_STEW);
+                entries.add(ModItems.FRAGMENT_OF_OLD_CRYSTAL);
+                
+                entries.add(ModItems.CRYSTAL_HELMET);
+                entries.add(ModItems.CRYSTAL_BIB);
+                entries.add(ModItems.CRYSTAL_TROUSERS);
+                entries.add(ModItems.CRYSTAL_BOOTS);
+                entries.add(ModItems.CRYSTAL_SWORD);
+                entries.add(ModItems.CRYSTAL_SABER);
+                entries.add(ModItems.CRYSTAL_MAGIC_STAFF);
                 
                 // ===== БЛОКИ =====
                 
