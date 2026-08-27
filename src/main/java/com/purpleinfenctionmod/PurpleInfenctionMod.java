@@ -133,9 +133,14 @@ public class PurpleInfenctionMod implements ModInitializer {
         );
 
         FabricDefaultAttributeRegistry.register(
-                ModEntities.INFECTED_CREEPER,
-                InfectedCreeperEntity.createAttributes()
+			ModEntities.INFECTED_CREEPER,
+			InfectedCreeperEntity.createAttributes()
         );
+
+		FabricDefaultAttributeRegistry.register(
+			ModEntities.MUSHROOM_PET, 
+			MushroomPetEntity.createAttributes()
+		);
     }
 
 
@@ -167,21 +172,6 @@ public class PurpleInfenctionMod implements ModInitializer {
         /*
          * Player infection-look effect
          */
-        ServerTickEvents.END_SERVER_TICK.register(server -> {
-		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_ZOMBIE, InfectedZombieEntity.createAttributes());
-		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_SKELETON, InfectedSkeletonEntity.createAttributes());
-		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_CREEPER, InfectedCreeperEntity.createAttributes());
-
-		FabricDefaultAttributeRegistry.register(ModEntities.MUSHROOM_PET, MushroomPetEntity.createAttributes());
-
-		ModStructures.registerStructures();
-		ServerLifecycleEvents.SERVER_STARTED.register(server -> {
-			BiomeEffectHandler.register();
-			LOGGER.info("BiomeEffectHandler registered after server start");
-			var world = server.getOverworld();
-			var biomeSource = world.getChunkManager().getChunkGenerator().getBiomeSource();
-			PurpleInfenctionMod.LOGGER.info("[InfectedDiag] Real biome source class: " + biomeSource.getClass().getName());
-		});
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 
             for (ServerPlayerEntity player :
