@@ -5,7 +5,6 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.ToolMaterials;
 
 public class CrystalSwordAndSaber {
     public static class ModSwordItem extends SwordItem {
@@ -19,15 +18,13 @@ public class CrystalSwordAndSaber {
             }
         }
 
-
-    public static final Item CRYSTAL_SWORD = new ModSwordItem(
-        ToolMaterials.DIAMOND, 5, -2.4f, new Item.Settings()
-    );
-
-    public static final Item CRYSTAL_SABER = new ModSwordItem(
-        ToolMaterials.NETHERITE, 12, -2.0f, new Item.Settings()
-    );
-
+    // НОВОЕ: убраны CRYSTAL_SWORD и CRYSTAL_SABER, которые тут создавались
+    // через "new ModSwordItem(...)" БЕЗ Registry.register(). Это были
+    // предметы-дубли, не привязанные ни к какому Identifier - "мёртвые"
+    // объекты, никогда не появляющиеся в игре нормально, при этом с ДРУГИМИ
+    // характеристиками (урон меча 5 вместо 3), чем реально зарегистрированные
+    // версии в ModItems.java. Единственный источник правды по этим предметам -
+    // ModItems.CRYSTAL_SWORD и ModItems.CRYSTAL_SABER.
 
     public static ItemStack getEnchantedSword() {
         ItemStack stack = new ItemStack(ModItems.CRYSTAL_SWORD);
@@ -42,8 +39,8 @@ public class CrystalSwordAndSaber {
         stack.addEnchantment(Enchantments.FIRE_ASPECT, 2);
         stack.addEnchantment(Enchantments.SWEEPING, 3);
         stack.addEnchantment(Enchantments.UNBREAKING, 3);
-        stack.addEnchantment(Enchantments.SHARPNESS, 5); 
-        stack.addEnchantment(Enchantments.LOOTING, 2); 
+        stack.addEnchantment(Enchantments.SHARPNESS, 5);
+        stack.addEnchantment(Enchantments.LOOTING, 2);
         return stack;
     }
 }
