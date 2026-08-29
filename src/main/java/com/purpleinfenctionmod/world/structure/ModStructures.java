@@ -3,7 +3,10 @@ package com.purpleinfenctionmod.world.structure;
 import com.purpleinfenctionmod.PurpleInfenctionMod;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.gen.structure.Structure;
 import net.minecraft.world.gen.structure.StructureType;
 
 public class ModStructures {
@@ -26,6 +29,12 @@ public class ModStructures {
                             "night_only_jinsaw_structure"
                     ),
                     () -> NightOnlyJigsawStructure.CODEC
+            );
+
+    public static final RegistryKey<Structure> ARENA =
+            RegistryKey.of(
+                    RegistryKeys.STRUCTURE,
+                    new Identifier(PurpleInfenctionMod.MOD_ID, "arena")
             );
 
     public static void registerStructures() {
