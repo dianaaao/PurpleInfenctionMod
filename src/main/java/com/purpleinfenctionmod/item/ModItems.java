@@ -164,14 +164,14 @@ public class ModItems {
         )
     );
 
-    public static Item CRYSTAL_SABER = Registry.register(
+    public static final Item CRYSTAL_SABER = Registry.register(
         Registries.ITEM,
         PurpleInfenctionMod.id("crystal_saber"),
-        new SwordItem(
-                ToolMaterials.DIAMOND, //TODO: передать оружия, добавить функционал
-                3,
-                -2.4F,
-                new Item.Settings().maxDamage(1561)
+        new CrystalSwordAndSaber.ModSwordItem(
+            ToolMaterials.NETHERITE,
+            12,
+            -2.0F,
+            new Item.Settings()
         )
     );
 
@@ -183,14 +183,14 @@ public class ModItems {
     //     )
     // );
 
-    public static Item CRYSTAL_SWORD = Registry.register(
+    public static final Item CRYSTAL_SWORD = Registry.register(
         Registries.ITEM,
         PurpleInfenctionMod.id("crystal_sword"),
-        new SwordItem(
-                ToolMaterials.DIAMOND,
-                3,
-                -2.4F,
-                new Item.Settings().maxDamage(1561)
+        new CrystalSwordAndSaber.ModSwordItem(
+            ToolMaterials.DIAMOND,
+            3,
+            -2.4F,
+            new Item.Settings()
         )
     );
 
