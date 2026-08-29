@@ -160,9 +160,22 @@ public void postPlace(
         maxZ = Math.max(maxZ, b.getMaxZ());
     }
 
-    BlockBox tightBox = (minX <= maxX)
-            ? new BlockBox(minX, minY, minZ, maxX, maxY, maxZ)
-            : box; // fallback, shouldn't normally happen
+    // НОВОЕ: если по какой-то причине кусков нет (пустой pieces),
+    // раньше сюда подставлялся "рыхлый" box генерации, который может
+    // растянуться на всю высоту мира и до max_distance_from_center в
+    // стороны. Это гигантский объём, и попытка сохранить его как шаблон
+    // в captureCastle() вешала/крашила игру. Теперь просто пропускаем
+    // постановку в очередь вместо использования такого box.
+    if (minX > maxX) {
+        System.out.println(
+                "[PurpleInfenctionMod] NightOnlyJigsawStructure.postPlace() "
+                        + "got no pieces for chunk " + chunkPos
+                        + " - skipping castle registration (loose box was " + box + ")"
+        );
+        return;
+    }
+
+    BlockBox tightBox = new BlockBox(minX, minY, minZ, maxX, maxY, maxZ);
 
     System.out.println(
             "[PurpleInfenctionMod] "

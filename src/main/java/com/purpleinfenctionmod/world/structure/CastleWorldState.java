@@ -20,6 +20,13 @@ import java.util.List;
 
 public class CastleWorldState extends PersistentState {
 
+    // НОВОЕ: защита от случайно огромного бокса (например, если где-то
+    // ещё передадут "рыхлый" box вместо точного). saveFromWorld() на
+    // объёме в миллионы блоков может подвесить сервер на сохранении/записи
+    // NBT. Порог подберите под реальный размер ваших замков (castle_1/2/3) -
+    // 500000 блоков с запасом хватает на замок примерно 60x60x140.
+    private static final long MAX_CAPTURE_VOLUME = 500_000L;
+
     private final List<CastleData> castles = new ArrayList<>();
 
     public List<CastleData> getCastles() {
@@ -38,16 +45,27 @@ public class CastleWorldState extends PersistentState {
             }
         }
 
-        BlockPos start = new BlockPos(
-                identityBox.getMinX(),
-                identityBox.getMinY(),
-                identityBox.getMinZ()
-        );
-
         Vec3i size = new Vec3i(
                 identityBox.getMaxX() - identityBox.getMinX() + 1,
                 identityBox.getMaxY() - identityBox.getMinY() + 1,
                 identityBox.getMaxZ() - identityBox.getMinZ() + 1
+        );
+
+        // НОВОЕ: проверка объёма перед тем, как делать дорогой saveFromWorld().
+        long volume = (long) size.getX() * (long) size.getY() * (long) size.getZ();
+        if (volume > MAX_CAPTURE_VOLUME) {
+            System.out.println(
+                    "[PurpleInfenctionMod] Castle box too large to capture ("
+                            + volume + " blocks, box=" + identityBox
+                            + ") - skipping to avoid freeze."
+            );
+            return;
+        }
+
+        BlockPos start = new BlockPos(
+                identityBox.getMinX(),
+                identityBox.getMinY(),
+                identityBox.getMinZ()
         );
 
         StructureTemplate template = new StructureTemplate();
@@ -183,23 +201,23 @@ public class CastleWorldState extends PersistentState {
          */
         public StructureTemplate getTemplate(ServerWorld world) {
 
-    if (cachedTemplate != null) {
-        return cachedTemplate;
-    }
+            if (cachedTemplate != null) {
+                return cachedTemplate;
+            }
 
-    if (templateNbt == null) {
-        return null;
-    }
+            if (templateNbt == null) {
+                return null;
+            }
 
-    StructureTemplate template = new StructureTemplate();
+            StructureTemplate template = new StructureTemplate();
 
-    Registry<Block> blockRegistry =
-            world.getRegistryManager().get(RegistryKeys.BLOCK);
+            Registry<Block> blockRegistry =
+                    world.getRegistryManager().get(RegistryKeys.BLOCK);
 
-    template.readNbt(blockRegistry.getReadOnlyWrapper(), templateNbt);
+            template.readNbt(blockRegistry.getReadOnlyWrapper(), templateNbt);
 
-    cachedTemplate = template;
-    return cachedTemplate;
-}
+            cachedTemplate = template;
+            return cachedTemplate;
+        }
     }
 }
