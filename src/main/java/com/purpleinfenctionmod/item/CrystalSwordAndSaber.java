@@ -28,7 +28,7 @@ public class CrystalSwordAndSaber {
         ToolMaterials.NETHERITE, 12, -2.0f, new Item.Settings()
     );
 
-    // 3. Фабричные методы для получения предметов с зачарованиями
+
     public static ItemStack getEnchantedSword() {
         ItemStack stack = new ItemStack(ModItems.CRYSTAL_SWORD);
         stack.addEnchantment(Enchantments.SHARPNESS, 3);
