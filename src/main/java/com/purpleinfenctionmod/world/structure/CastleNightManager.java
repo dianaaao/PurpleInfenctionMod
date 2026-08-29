@@ -1,11 +1,14 @@
 package com.purpleinfenctionmod.world.structure;
 
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.structure.StructurePlacementData;
+import net.minecraft.structure.StructureTemplate;
+import net.minecraft.util.math.BlockBox;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockBox;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.inventory.Inventory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,48 +18,37 @@ public class CastleNightManager {
     private static final List<PendingCastle> PENDING =
             new ArrayList<>();
 
-    // NEW:
-private static class PendingCastle {
+    private static class PendingCastle {
 
-    final BlockBox identityBox;
-    final List<BlockBox> pieceBoxes;
-    final long seed;
+        final BlockBox identityBox;
+        final long seed;
 
-    PendingCastle(BlockBox identityBox, List<BlockBox> pieceBoxes, long seed) {
-        this.identityBox = identityBox;
-        this.pieceBoxes = pieceBoxes;
-        this.seed = seed;
-    }
-}
-
-    /**
-     * Called from NightOnlyJigsawStructure.postPlace().
-     *
-     * This is safe even when the world is a ChunkRegion.
-     */
-    // NEW:
-public static synchronized void queueCastle(
-        BlockBox identityBox,
-        List<BlockBox> pieceBoxes,
-        long seed
-) {
-
-    for (PendingCastle pending : PENDING) {
-
-        if (pending.identityBox.equals(identityBox)) {
-            return;
+        PendingCastle(BlockBox identityBox, long seed) {
+            this.identityBox = identityBox;
+            this.seed = seed;
         }
     }
 
-    PENDING.add(
-            new PendingCastle(identityBox, pieceBoxes, seed)
-    );
+    /**
+     * Called from NightOnlyJigsawStructure.postPlace().
+     */
+    public static synchronized void queueCastle(
+            BlockBox identityBox,
+            long seed
+    ) {
 
-    System.out.println(
-            "[PurpleInfenctionMod] Queued castle "
-                    + identityBox
-    );
-}
+        for (PendingCastle pending : PENDING) {
+            if (pending.identityBox.equals(identityBox)) {
+                return;
+            }
+        }
+
+        PENDING.add(new PendingCastle(identityBox, seed));
+
+        System.out.println(
+                "[PurpleInfenctionMod] Queued castle " + identityBox
+        );
+    }
 
     /**
      * Runs on the actual ServerWorld.
@@ -65,224 +57,197 @@ public static synchronized void queueCastle(
 
         processPending(world);
 
-        long time =
-                world.getTimeOfDay() % 24000L;
+        long time = world.getTimeOfDay() % 24000L;
 
-        boolean night =
-                time >= 13000L &&
-                time < 23000L;
+        boolean night = time >= 13000L && time < 23000L;
 
-        CastleWorldState state =
-                CastleWorldState.get(world);
+        CastleWorldState state = CastleWorldState.get(world);
 
-        for (CastleWorldState.CastleData castle :
-                state.getCastles()) {
+        for (CastleWorldState.CastleData castle : state.getCastles()) {
 
             if (night && castle.isHidden()) {
 
-                showCastle(
-                        world,
-                        castle
-                );
-
+                showCastle(world, castle);
                 castle.setHidden(false);
-
                 state.markDirty();
 
                 System.out.println(
-                        "[PurpleInfenctionMod] "
-                                + "Castle appeared at night: "
+                        "[PurpleInfenctionMod] Castle appeared at night: "
                                 + castle.getBox()
                 );
-            }
 
-            else if (!night && !castle.isHidden()) {
+            } else if (!night && !castle.isHidden()) {
 
-                hideCastle(
-                        world,
-                        castle
-                );
-
+                hideCastle(world, castle);
                 castle.setHidden(true);
-
                 state.markDirty();
 
                 System.out.println(
-                        "[PurpleInfenctionMod] "
-                                + "Castle disappeared during day: "
+                        "[PurpleInfenctionMod] Castle disappeared during day: "
                                 + castle.getBox()
                 );
             }
         }
     }
 
-    private static void processPending(
-            ServerWorld world
-    ) {
+    private static void processPending(ServerWorld world) {
 
-        if (PENDING.isEmpty()) {
-            return;
-        }
+    if (PENDING.isEmpty()) {
+        return;
+    }
 
-        synchronized (CastleNightManager.class) {
+    synchronized (CastleNightManager.class) {
 
-            for (PendingCastle pending :
-                    new ArrayList<>(PENDING)) {
+        for (PendingCastle pending : new ArrayList<>(PENDING)) {
 
-                /*
-                 * Only process castles belonging
-                 * to this world seed.
-                 */
-                if (pending.seed != world.getSeed()) {
-                    continue;
+            if (pending.seed != world.getSeed()) {
+                continue;
+            }
+
+            // Don't touch the world until every chunk the box spans
+            // is fully generated/loaded, otherwise reading blocks
+            // here can force synchronous chunk gen and deadlock.
+            if (!isBoxFullyLoaded(world, pending.identityBox)) {
+                continue; // leave it queued, try again next tick
+            }
+
+            CastleWorldState state = CastleWorldState.get(world);
+
+            boolean exists = false;
+            for (CastleWorldState.CastleData castle : state.getCastles()) {
+                if (castle.getBox().equals(pending.identityBox)) {
+                    exists = true;
+                    break;
                 }
+            }
 
-                CastleWorldState state =
-                        CastleWorldState.get(world);
+            if (!exists) {
 
-                boolean exists = false;
+                state.captureCastle(pending.identityBox, world);
 
-                // NEW:
-for (CastleWorldState.CastleData castle :
-        state.getCastles()) {
+                CastleWorldState.CastleData castle =
+                        findCastle(state, pending.identityBox);
 
-    if (castle.getBox().equals(
-            pending.identityBox
-    )) {
+                if (castle != null) {
 
-        exists = true;
-        break;
+                    long time = world.getTimeOfDay() % 24000L;
+                    boolean night = time >= 13000L && time < 23000L;
+
+                    if (!night) {
+                        hideCastle(world, castle);
+                        castle.setHidden(true);
+                        state.markDirty();
+                    }
+                }
+            }
+
+            PENDING.remove(pending);
+        }
     }
 }
 
-if (!exists) {
+/**
+ * Checks that every chunk overlapping the box is fully generated,
+ * not just present in memory. Prevents deadlocks from forcing
+ * chunk generation synchronously while inside worldgen/tick code.
+ */
+private static boolean isBoxFullyLoaded(ServerWorld world, BlockBox box) {
 
-    state.addCastle(
-            pending.identityBox,
-            pending.pieceBoxes,
-            world
-    );
+    int minChunkX = box.getMinX() >> 4;
+    int maxChunkX = box.getMaxX() >> 4;
+    int minChunkZ = box.getMinZ() >> 4;
+    int maxChunkZ = box.getMaxZ() >> 4;
 
-    CastleWorldState.CastleData castle =
-            findCastle(
-                    state,
-                    pending.identityBox
-            );
+    for (int cx = minChunkX; cx <= maxChunkX; cx++) {
+        for (int cz = minChunkZ; cz <= maxChunkZ; cz++) {
 
-                    if (castle != null) {
+            net.minecraft.world.chunk.Chunk chunk =
+                    world.getChunkManager().getChunk(cx, cz, net.minecraft.world.chunk.ChunkStatus.FULL, false);
 
-                        /*
-                         * If currently daytime,
-                         * immediately hide it.
-                         */
-                        long time =
-                                world.getTimeOfDay()
-                                        % 24000L;
-
-                        boolean night =
-                                time >= 13000L &&
-                                time < 23000L;
-
-                        if (!night) {
-
-                            hideCastle(
-                                    world,
-                                    castle
-                            );
-
-                            castle.setHidden(true);
-
-                            state.markDirty();
-                        }
-                    }
-                }
-
-                PENDING.remove(pending);
+            if (chunk == null) {
+                return false;
             }
         }
     }
+
+    return true;
+}
 
     private static CastleWorldState.CastleData findCastle(
             CastleWorldState state,
             BlockBox box
     ) {
-
-        for (CastleWorldState.CastleData castle :
-                state.getCastles()) {
-
+        for (CastleWorldState.CastleData castle : state.getCastles()) {
             if (castle.getBox().equals(box)) {
                 return castle;
             }
         }
-
         return null;
     }
 
     private static void hideCastle(
-            ServerWorld world,
-            CastleWorldState.CastleData castle
-    ) {
+        ServerWorld world,
+        CastleWorldState.CastleData castle
+) {
 
-        for (CastleWorldState.SavedBlock block :
-                castle.getBlocks()) {
+    BlockBox box = castle.getBox();
+    BlockPos.Mutable pos = new BlockPos.Mutable();
 
-            BlockPos pos =
-                    block.getPos();
+    for (int x = box.getMinX(); x <= box.getMaxX(); x++) {
+        for (int y = box.getMinY(); y <= box.getMaxY(); y++) {
+            for (int z = box.getMinZ(); z <= box.getMaxZ(); z++) {
 
-            /*
-             * Remove block entity first.
-             */
-            BlockEntity blockEntity =
-                    world.getBlockEntity(pos);
+                pos.set(x, y, z);
 
-            if (blockEntity != null) {
-                blockEntity.markRemoved();
+                BlockEntity blockEntity = world.getBlockEntity(pos);
+
+                // Clear inventory contents first so nothing spills
+                // when the block is replaced with air below.
+                if (blockEntity instanceof Inventory inventory) {
+                    inventory.clear();
+                }
+
+                if (blockEntity != null) {
+                    blockEntity.markRemoved();
+                }
+
+                world.setBlockState(
+                        pos,
+                        Blocks.AIR.getDefaultState(),
+                        Block.NOTIFY_LISTENERS | Block.FORCE_STATE
+                );
             }
-
-            // NEW:
-        world.setBlockState(
-                pos,
-                Blocks.AIR.getDefaultState(),
-                Block.NOTIFY_LISTENERS | Block.FORCE_STATE
-        );
         }
     }
+}
 
     private static void showCastle(
             ServerWorld world,
             CastleWorldState.CastleData castle
     ) {
 
-        for (CastleWorldState.SavedBlock block :
-                castle.getBlocks()) {
+        StructureTemplate template = castle.getTemplate(world);
 
-            BlockPos pos =
-                    block.getPos();
-
-            // NEW:
-                world.setBlockState(
-                        pos,
-                        block.getState(),
-                        Block.NOTIFY_LISTENERS | Block.FORCE_STATE
-                );
-
-            /*
-             * Restore block entity NBT.
-             */
-            if (block.hasBlockEntity()) {
-
-                BlockEntity blockEntity =
-                        world.getBlockEntity(pos);
-
-                if (blockEntity != null) {
-
-                    blockEntity.readNbt(
-                        block.getBlockEntityNbt()
-                        );
-
-                    blockEntity.markDirty();
-                }
-            }
+        if (template == null) {
+            System.out.println(
+                    "[PurpleInfenctionMod] Missing template for castle "
+                            + castle.getBox()
+            );
+            return;
         }
+
+        BlockBox box = castle.getBox();
+        BlockPos origin = new BlockPos(box.getMinX(), box.getMinY(), box.getMinZ());
+
+        StructurePlacementData settings = new StructurePlacementData();
+
+        template.place(
+                world,
+                origin,
+                origin,
+                settings,
+                world.getRandom(),
+                Block.NOTIFY_LISTENERS
+        );
     }
 }

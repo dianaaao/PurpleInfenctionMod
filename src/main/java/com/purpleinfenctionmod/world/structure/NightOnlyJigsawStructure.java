@@ -21,8 +21,6 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.StructureAccessor;
 
-import java.util.ArrayList;
-import java.util.List;
 // import java.util.Random;/
 import java.util.Optional;
 import net.minecraft.util.math.random.Random;
@@ -134,7 +132,7 @@ public class NightOnlyJigsawStructure extends Structure{
                 this.projectStartToHeightmap,
                 this.maxDistanceFromCenter
         );
-    }// NEW:
+    }// NEW:@Override
 @Override
 public void postPlace(
         StructureWorldAccess world,
@@ -146,6 +144,26 @@ public void postPlace(
         StructurePiecesList pieces
 ) {
 
+    // Compute a tight bounding box from the actual placed pieces,
+    // instead of using the loose generation box (which can span
+    // the full world height and isn't the real castle footprint).
+    int minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE, minZ = Integer.MAX_VALUE;
+    int maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE, maxZ = Integer.MIN_VALUE;
+
+    for (StructurePiece piece : pieces.pieces()) {
+        BlockBox b = piece.getBoundingBox();
+        minX = Math.min(minX, b.getMinX());
+        minY = Math.min(minY, b.getMinY());
+        minZ = Math.min(minZ, b.getMinZ());
+        maxX = Math.max(maxX, b.getMaxX());
+        maxY = Math.max(maxY, b.getMaxY());
+        maxZ = Math.max(maxZ, b.getMaxZ());
+    }
+
+    BlockBox tightBox = (minX <= maxX)
+            ? new BlockBox(minX, minY, minZ, maxX, maxY, maxZ)
+            : box; // fallback, shouldn't normally happen
+
     System.out.println(
             "[PurpleInfenctionMod] "
                     + "NightOnlyJigsawStructure.postPlace() "
@@ -153,20 +171,15 @@ public void postPlace(
                     + chunkPos.x
                     + ","
                     + chunkPos.z
-                    + " box="
+                    + " tightBox="
+                    + tightBox
+                    + " (loose box was "
                     + box
+                    + ")"
     );
 
-    // NEW:
-        List<BlockBox> pieceBoxes = new ArrayList<>();
-
-        for (StructurePiece piece : pieces.pieces()) {
-        pieceBoxes.add(piece.getBoundingBox());
-        }
-
     CastleNightManager.queueCastle(
-            box,
-            pieceBoxes,
+            tightBox,
             world.getSeed()
     );
 }

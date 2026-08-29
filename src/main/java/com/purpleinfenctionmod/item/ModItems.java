@@ -27,7 +27,13 @@ public class ModItems {
             new Item.Settings().maxDamage(300)
         )
     );
-
+    public static Item CRYSTAL_MAGIC_STAFF = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_magic_staff"),
+        new CrystalMagicStaffItem(
+                new Item.Settings().maxDamage(300)
+        )
+    );
     // public static final Item UPGRADED_RESPIRATOR = Registry.register(
     //     Registries.ITEM,
     //     PurpleInfenctionMod.id("upgraded_respirator"),
@@ -151,6 +157,7 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.add(RESPIRATOR);
             entries.add(CRYSTAL_RESPIRATOR);
+            entries.add(CRYSTAL_MAGIC_STAFF);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.add(CRYSTAL_UPGRADE_TEMPLATE);

@@ -16,7 +16,7 @@
         {
           "type": "minecraft:item",
           "name": "purpleinfenctionmod:crystal_upgrade_template",
-          "weight": 1
+          "weight": 3
 
         },
         {
@@ -24,15 +24,6 @@
           "name": "purpleinfenctionmod:fire_flower",
           "weight": 10
 
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "purpleinfenctionmod:crystal_upgrade_template"
         }
       ]
     }

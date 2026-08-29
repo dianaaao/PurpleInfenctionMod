@@ -12,6 +12,7 @@ import com.purpleinfenctionmod.client.entity.SporeCreatureRenderer;
 import com.purpleinfenctionmod.client.gui.DecontrollHudOverlay;
 import com.purpleinfenctionmod.client.model.RespiratorModel;
 import com.purpleinfenctionmod.client.model.UpgradedRespiratorModel;
+import com.purpleinfenctionmod.client.render.CrystalBoltEntityRenderer;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.item.ModItems;
 import com.purpleinfenctionmod.network.InfectedLookNetworking;
@@ -31,6 +32,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.RotationAxis;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 
 
@@ -38,7 +40,10 @@ import net.minecraft.client.render.entity.PlayerEntityRenderer;
 public class PurpleInfenctionModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-
+        EntityRendererRegistry.register(
+                ModEntities.CRYSTAL_BOLT,
+                CrystalBoltEntityRenderer::new
+        );
         HudRenderCallback.EVENT.register(new DecontrollHudOverlay());
         ShaderDiscontrollHandler.register();
         MouseDiscontrollHandler.register();

@@ -20,7 +20,15 @@ public class ModEntities {
 		FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MushroomMobEntity::new)
 				.dimensions(EntityDimensions.changing(0.6f, 1.95f))
 				.build());
-
+	public static final EntityType<CrystalBoltEntity> CRYSTAL_BOLT = Registry.register(
+        Registries.ENTITY_TYPE,
+        PurpleInfenctionMod.id("crystal_bolt"),
+        FabricEntityTypeBuilder.<CrystalBoltEntity>create(SpawnGroup.MISC, CrystalBoltEntity::new)
+                .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+                .trackRangeBlocks(64)
+                .trackedUpdateRate(10)
+                .build()
+);
     public static final EntityType<RottingSporeFungusEntity> ROTTING_SPORE_FUNGUS = Registry.register(
 	Registries.ENTITY_TYPE,
 	new Identifier(PurpleInfenctionMod.MOD_ID, "rotting_spore_fungus"),

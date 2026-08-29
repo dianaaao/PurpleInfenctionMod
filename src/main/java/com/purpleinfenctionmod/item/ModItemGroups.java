@@ -30,6 +30,7 @@ public class ModItemGroups {
                 entries.add(ModItems.INFECTED_BOWL);
                 entries.add(ModItems.INFECTED_STEW);
                 entries.add(ModItems.RESPIRATOR_FIX);
+                entries.add(ModItems.CRYSTAL_MAGIC_STAFF);
                 
                 // ===== БЛОКИ =====
                 
@@ -47,6 +48,8 @@ public class ModItemGroups {
                 entries.add(ModBlocks.FIRE_FLOWER);
                 entries.add(ModBlocks.INFECTED_GLOW_LICHEN);
                 entries.add(ModBlocks.INFECTED_DRIPLEAF);
+                entries.add(ModBlocks.INFECTED_SMALL_DRIPLEAF);
+
                 
 
                 // ===== СПАВН-ЯЙЦА =====
