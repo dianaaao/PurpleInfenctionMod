@@ -1,6 +1,7 @@
 package com.purpleinfenctionmod.entity;
 
 import com.purpleinfenctionmod.component.ModComponents;
+import com.purpleinfenctionmod.item.ModItems;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

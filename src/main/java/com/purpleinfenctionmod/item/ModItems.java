@@ -175,13 +175,13 @@ public class ModItems {
         )
     );
 
-    public static Item CRYSTAL_MAGIC_STAFF = Registry.register(
-        Registries.ITEM,
-        PurpleInfenctionMod.id("crystal_magic_staff"),
-        new Item(
-                new Item.Settings().maxDamage(300)
-        )
-    );
+    // public static Item CRYSTAL_MAGIC_STAFF = Registry.register(
+    //     Registries.ITEM,
+    //     PurpleInfenctionMod.id("crystal_magic_staff"),
+    //     new Item(
+    //             new Item.Settings().maxDamage(300)
+    //     )
+    // );
 
     public static Item CRYSTAL_SWORD = Registry.register(
         Registries.ITEM,
