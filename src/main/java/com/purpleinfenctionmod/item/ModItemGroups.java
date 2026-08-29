@@ -37,8 +37,8 @@ public class ModItemGroups {
                 entries.add(ModItems.CRYSTAL_BIB);
                 entries.add(ModItems.CRYSTAL_TROUSERS);
                 entries.add(ModItems.CRYSTAL_BOOTS);
-                entries.add(ModItems.CRYSTAL_SWORD);
-                entries.add(ModItems.CRYSTAL_SABER);
+                entries.add(CrystalSwordAndSaber.getEnchantedSword());
+                entries.add(CrystalSwordAndSaber.getEnchantedSaber());
                 entries.add(ModItems.CRYSTAL_MAGIC_STAFF);
                 
                 // ===== БЛОКИ =====

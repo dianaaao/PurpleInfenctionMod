@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "purpleinfenctionmod:arena_pool",
   "fallback": "minecraft:empty",
   "elements": [
@@ -13,19 +12,5 @@
       }
     }
   ]
-=======
-    "name": "purpleinfenctionmod:arena_pool",
-    "fallback": "minecraft:empty",
-    "elements": [
-        {
-            "weight": 1,
-            "element": {
-                "element_type": "minecraft:single_pool_element",
-                "location": "purpleinfenctionmod:arena_",
-                "projection": "rigid",
-                "processors": "minecraft:empty"
-            }
-        }
-    ]
->>>>>>> origin
+
 }
