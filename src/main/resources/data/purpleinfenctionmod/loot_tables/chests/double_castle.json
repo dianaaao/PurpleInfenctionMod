@@ -10,7 +10,12 @@
         {
           "type": "minecraft:item",
           "name": "purpleinfenctionmod:crystal_splinter",
-          "weight": 7
+          "weight": 100
+        },
+        {
+          "type": "minecraft:item",
+          "name": "purpleinfenctionmod:crystal_upgrade_template",
+          "weight": 2
         }
       ]
     }

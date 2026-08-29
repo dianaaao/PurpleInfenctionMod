@@ -44,5 +44,10 @@
     "entity.purpleinfenctionmod.infected_creeper": "Infected Creeper",
 
     "effect.purpleinfenctionmod.disinfectant_effect": "Disinfected",
-    "itemGroup.purpleinfenctionmod.purple_infection": "Purple Infection"
+    "itemGroup.purpleinfenctionmod.purple_infection": "Purple Infection",
+
+    "item.purpleinfenctionmod.respirator_fix": "Respirator Fix",
+    "block.purpleinfenctionmod.infected_oak_planks": "Infected Planks",
+    "block.purpleinfenctionmod.infected_dripleaf": "Infected Dripleaf",
+    "block.purpleinfenctionmod.infected_small_dripleaf": "Infected Small Dripleaf"
 }

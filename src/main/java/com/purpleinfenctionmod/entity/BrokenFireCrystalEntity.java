@@ -1,6 +1,6 @@
 package com.purpleinfenctionmod.entity;
 
-import com.purpleinfenctionmod.item.ModItems;
+import com.purpleinfenctionmod.component.ModComponents;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -89,6 +89,22 @@ public class BrokenFireCrystalEntity extends Entity implements GeoEntity {
             repaired.refreshPositionAndAngles(x, y, z, yaw, 0);
             serverWorld.spawnEntity(repaired);
         }
+
+        // Deactivate infection globally.
+        com.purpleinfenctionmod.world.InfectionWorldState
+                .get(serverWorld)
+                .setCrystalFixed(true);
+
+        // Activate infected power for the player who repaired it.
+        ModComponents.INFECTED_POWER
+                .maybeGet(player)
+                .ifPresent(comp -> comp.setActive(true));
+
+        serverWorld.spawnParticles(
+                net.minecraft.particle.ParticleTypes.END_ROD,
+                x, y + 1, z,
+                30, 0.5, 0.8, 0.5, 0.05
+        );
 
         serverWorld.spawnParticles(
                 net.minecraft.particle.ParticleTypes.END_ROD,

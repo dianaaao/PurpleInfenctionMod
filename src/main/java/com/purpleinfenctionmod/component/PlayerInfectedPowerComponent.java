@@ -16,13 +16,35 @@ public class PlayerInfectedPowerComponent implements InfectedPowerComponent {
 
     private final PlayerEntity player;
 
-    private float bonusMaxHealth = 10.0f;
+    private boolean active = false;
+
+    private float bonusMaxHealth = 20.0f;
     private float lifestealPercent = 0.25f;
     private float absorptionPercent = 0.05f;
-    private float maxAbsorption = 50.0f;
+    private float maxAbsorption = 40.0f;
 
     public PlayerInfectedPowerComponent(PlayerEntity player) {
         this.player = player;
+    }
+
+    @Override
+    public boolean isActive() {
+        return active;
+    }
+
+    @Override
+    public void setActive(boolean active) {
+        this.active = active;
+
+        if (player.getWorld().isClient()) {
+            return;
+        }
+
+        if (active) {
+            applyHealthBonus();
+        } else {
+            removeHealthBonus();
+        }
     }
 
     @Override
@@ -72,7 +94,7 @@ public class PlayerInfectedPowerComponent implements InfectedPowerComponent {
     @Override
     public void onDealDamage(float damageDealt) {
 
-        if (damageDealt <= 0) {
+        if (!active || damageDealt <= 0) {
             return;
         }
 
@@ -104,6 +126,10 @@ public class PlayerInfectedPowerComponent implements InfectedPowerComponent {
 
     public void applyHealthBonus() {
 
+        if (!active) {
+            return;
+        }
+
         EntityAttributeInstance maxHealth =
                 player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
 
@@ -126,8 +152,24 @@ public class PlayerInfectedPowerComponent implements InfectedPowerComponent {
         );
     }
 
+    public void removeHealthBonus() {
+
+        EntityAttributeInstance maxHealth =
+                player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
+
+        if (maxHealth == null) {
+            return;
+        }
+
+        maxHealth.removeModifier(BONUS_HEALTH_MODIFIER_ID);
+    }
+
     @Override
     public void readFromNbt(NbtCompound tag) {
+
+        if (tag.contains("InfectedPowerActive")) {
+            active = tag.getBoolean("InfectedPowerActive");
+        }
 
         if (tag.contains("InfectedPowerBonusHealth")) {
             bonusMaxHealth = tag.getFloat("InfectedPowerBonusHealth");
@@ -148,6 +190,8 @@ public class PlayerInfectedPowerComponent implements InfectedPowerComponent {
 
     @Override
     public void writeToNbt(NbtCompound tag) {
+
+        tag.putBoolean("InfectedPowerActive", active);
 
         tag.putFloat(
                 "InfectedPowerBonusHealth",

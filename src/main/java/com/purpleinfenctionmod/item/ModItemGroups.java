@@ -57,6 +57,8 @@ public class ModItemGroups {
                 entries.add(ModBlocks.FIRE_FLOWER);
                 entries.add(ModBlocks.INFECTED_GLOW_LICHEN);
                 entries.add(ModBlocks.INFECTED_DRIPLEAF);
+                entries.add(ModBlocks.INFECTED_SMALL_DRIPLEAF);
+
                 
 
                 // ===== СПАВН-ЯЙЦА =====
