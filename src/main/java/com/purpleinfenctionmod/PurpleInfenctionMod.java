@@ -6,6 +6,7 @@ import com.purpleinfenctionmod.component.PlayerInfectedPowerComponent;
 import com.purpleinfenctionmod.effect.InfectedLookEffect;
 import com.purpleinfenctionmod.effect.ModEffects;
 import com.purpleinfenctionmod.effect.ModPotions;
+import com.purpleinfenctionmod.entity.InfectedVexEntity;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.entity.MushroomMobEntity;
 import com.purpleinfenctionmod.entity.MushroomPetEntity;
@@ -141,6 +142,8 @@ public class PurpleInfenctionMod implements ModInitializer {
 			ModEntities.MUSHROOM_PET, 
 			MushroomPetEntity.createAttributes()
 		);
+
+		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_VEX, InfectedVexEntity.createInfectedVexAttributes());
     }
 
 

@@ -203,6 +203,9 @@ public class ModItems {
     public static final Item ROTTING_SPORE_FUNGUS_SPAWN_EGG = registerItem("rotting_spore_fungus_spawn_egg",
             new SpawnEggItem(ModEntities.ROTTING_SPORE_FUNGUS, 0xB84D30, 0x3F2F2B, new Item.Settings()));
 
+    public static final Item INFECTED_VEX_SPAWN_EGG = registerItem("infected_vex_spawn_egg",
+        new SpawnEggItem(ModEntities.INFECTED_VEX, 0x0022FF, 0x0022FF, new Item.Settings()));
+
 
     private static Item registerItem(String name, Item item){
         return Registry.register(

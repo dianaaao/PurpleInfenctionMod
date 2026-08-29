@@ -31,6 +31,7 @@ public class ModItemGroups {
                 entries.add(ModItems.INFECTED_STEW);
                 entries.add(ModItems.RESPIRATOR_FIX);
                 entries.add(ModItems.FRAGMENT_OF_OLD_CRYSTAL);
+
                 
                 entries.add(ModItems.CRYSTAL_HELMET);
                 entries.add(ModItems.CRYSTAL_BIB);
@@ -65,6 +66,7 @@ public class ModItemGroups {
                 entries.add(ModItems.INFECTED_ZOMBIE_SPAWN_EGG);
                 entries.add(ModItems.INFECTED_SKELETON_SPAWN_EGG);
                 entries.add(ModItems.INFECTED_CREEPER_SPAWN_EGG);
+                entries.add(ModItems.INFECTED_VEX_SPAWN_EGG);
             })
             .build()
     );

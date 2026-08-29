@@ -87,6 +87,14 @@ public class ModEntities {
                 .trackedUpdateRate(10)
                 .build());
 
+	public static final EntityType<InfectedVexEntity> INFECTED_VEX = Registry.register(
+        Registries.ENTITY_TYPE,
+        new Identifier(PurpleInfenctionMod.MOD_ID, "infected_vex"),
+        FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, InfectedVexEntity::new)
+                .dimensions(EntityDimensions.fixed(0.4f, 0.8f)) // размер как у ванильного Vex
+                .build());
+
+
     public static void register() {
         // регистрация выполняется через статические поля выше
     }

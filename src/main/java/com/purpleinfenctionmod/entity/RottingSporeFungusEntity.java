@@ -199,14 +199,26 @@ public class RottingSporeFungusEntity extends PathAwareEntity implements GeoEnti
         SporeProjectileEntity projectile = new SporeProjectileEntity(serverWorld, this);
         projectile.setStats(getProjectileDamage(), 60 + (currentPhase - 1) * 20, currentPhase - 1);
 
-        double dx = target.getX() - this.getX();
-        double dy = target.getBodyY(0.5) - projectile.getY();
-        double dz = target.getZ() - this.getZ();
+        double startX = this.getX();
+        double startY = this.getBodyY(0.7);
+        double startZ = this.getZ();
+        projectile.setPosition(startX, startY, startZ);
 
-        projectile.setVelocity(dx, dy + Math.sqrt(dx * dx + dz * dz) * 0.1, dz, 1.4f, 4.0f);
+        double dx = target.getX() - startX;
+        double dy = target.getBodyY(0.5) - startY;
+        double dz = target.getZ() - startZ;
+
+        projectile.setVelocity(dx, dy, dz, 1.6f, 1.0f);
 
         serverWorld.spawnEntity(projectile);
         this.triggerAnim("attackController", "attack");
+
+        // ВРЕМЕННАЯ ДИАГНОСТИКА
+        // serverWorld.getServer().getPlayerManager().broadcast(
+        //         net.minecraft.text.Text.literal(String.format(
+        //                 "Boss Y=%.2f, bodyY(0.7)=%.2f, startY=%.2f, target Y=%.2f",
+        //                 this.getY(), this.getBodyY(0.7), startY, target.getBodyY(0.5)
+        //         )), false);
     }
 
     private void performSummon() {
