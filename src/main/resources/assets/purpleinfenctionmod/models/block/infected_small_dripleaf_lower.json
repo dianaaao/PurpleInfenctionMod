@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/small_dripleaf_top",
+  "textures": {
+    "side": "purpleinfenctionmod:block/small_dripleaf_side",
+    "top": "purpleinfenctionmod:block/small_dripleaf_top",
+    "particle": "purpleinfenctionmod:block/small_dripleaf_top"
+  }
+}

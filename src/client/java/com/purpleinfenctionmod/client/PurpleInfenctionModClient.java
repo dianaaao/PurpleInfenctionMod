@@ -5,14 +5,18 @@ import com.purpleinfenctionmod.client.entity.BrokenCrystalRenderer;
 import com.purpleinfenctionmod.client.entity.CrystalRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedCreeperRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedSkeletonRenderer;
+import com.purpleinfenctionmod.client.entity.InfectedVexRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedZombieRenderer;
 import com.purpleinfenctionmod.client.entity.MushroomMobRenderer;
+import com.purpleinfenctionmod.client.entity.MushroomPetRenderer;
 import com.purpleinfenctionmod.client.entity.RottingSporeFungusRenderer;
 import com.purpleinfenctionmod.client.entity.SporeCreatureRenderer;
+import com.purpleinfenctionmod.client.entity.SporeProjectileRenderer;
 import com.purpleinfenctionmod.client.gui.DecontrollHudOverlay;
 import com.purpleinfenctionmod.client.model.RespiratorModel;
 import com.purpleinfenctionmod.client.model.UpgradedRespiratorModel;
 import com.purpleinfenctionmod.entity.ModEntities;
+import com.purpleinfenctionmod.entity.SporeProjectileEntity;
 import com.purpleinfenctionmod.item.ModItems;
 import com.purpleinfenctionmod.network.InfectedLookNetworking;
 
@@ -20,6 +24,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
 import com.purpleinfenctionmod.client.model.HeadMushroomsModel;
+import com.purpleinfenctionmod.client.model.InfectedVexModel;
 import com.purpleinfenctionmod.client.feature.HeadMushroomsFeatureRenderer;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -44,6 +49,18 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         MouseDiscontrollHandler.register();
         BlockRenderLayerMap.INSTANCE.putBlock(
             ModBlocks.INFECTED_SMALL_MUSHROOM,
+            RenderLayer.getCutout()
+        );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.INFECTED_DRIPLEAF,
+            RenderLayer.getCutout()
+        );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.INFECTED_SMALL_DRIPLEAF,
+            RenderLayer.getCutout()
+        );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ModBlocks.INFECTED_DRIPLEAF_STEM,
             RenderLayer.getCutout()
         );
         BlockRenderLayerMap.INSTANCE.putBlock(
@@ -82,7 +99,11 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.INFECTED_CREEPER, InfectedCreeperRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.ROTTING_SPORE_FUNGUS, RottingSporeFungusRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SPORE_PROJECTILE, SporeProjectileRenderer::new);
         EntityRendererRegistry.register(ModEntities.SPORE_CREATURE, SporeCreatureRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(InfectedVexModel.LAYER, InfectedVexModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.INFECTED_VEX, InfectedVexRenderer::new);
 
         ArmorRenderer.register(
             (matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {
@@ -155,6 +176,8 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(HeadMushroomsModel.LAYER, HeadMushroomsModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.OLD_FIRE_CRYSTAL, CrystalRenderer::new);
         EntityRendererRegistry.register(ModEntities.BROKEN_FIRE_CRYSTAL, BrokenCrystalRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.MUSHROOM_PET, MushroomPetRenderer::new);
 
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register(
             (entityType, entityRenderer, registrationHelper, context) -> {

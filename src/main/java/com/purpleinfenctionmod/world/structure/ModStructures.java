@@ -31,11 +31,14 @@ public class ModStructures {
                     () -> NightOnlyJigsawStructure.CODEC
             );
 
+<<<<<<< HEAD
     public static final RegistryKey<Structure> ARENA =
             RegistryKey.of(
                     RegistryKeys.STRUCTURE,
                     new Identifier(PurpleInfenctionMod.MOD_ID, "arena")
             );
+=======
+>>>>>>> origin
 
     public static void registerStructures() {
         PurpleInfenctionMod.LOGGER.info(

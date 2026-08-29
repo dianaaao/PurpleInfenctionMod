@@ -29,22 +29,35 @@ public class ModItemGroups {
                 entries.add(ModItems.DISINFECTANT_POTION);
                 entries.add(ModItems.INFECTED_BOWL);
                 entries.add(ModItems.INFECTED_STEW);
+                entries.add(ModItems.RESPIRATOR_FIX);
+                entries.add(ModItems.FRAGMENT_OF_OLD_CRYSTAL);
+
+                
+                entries.add(ModItems.CRYSTAL_HELMET);
+                entries.add(ModItems.CRYSTAL_BIB);
+                entries.add(ModItems.CRYSTAL_TROUSERS);
+                entries.add(ModItems.CRYSTAL_BOOTS);
+                entries.add(ModItems.CRYSTAL_SWORD);
+                entries.add(ModItems.CRYSTAL_SABER);
+                entries.add(ModItems.CRYSTAL_MAGIC_STAFF);
                 
                 // ===== БЛОКИ =====
                 
-                entries.add(ModBlocks.INFECTED_MUSHROOM_HAT);
                 entries.add(ModBlocks.INFECTED_DIRT);
                 entries.add(ModBlocks.INFECTED_GRASS);
                 entries.add(ModBlocks.INFECTED_COBBLESTONE);
-                entries.add(ModBlocks.FIRE_FLOWER);
-                entries.add(ModBlocks.INFECTED_BROWN_MUSHROOM);
-                entries.add(ModBlocks.INFECTED_GLOW_LICHEN);
-                entries.add(ModBlocks.INFECTED_MUSHROOM_STEM);
-                entries.add(ModBlocks.INFECTED_SMALL_MUSHROOM);
-                entries.add(ModBlocks.INFECTED_OAK_LEAVES);
-                entries.add(ModBlocks.INFECTED_PLANKS);
                 entries.add(ModBlocks.INFECTED_STONE);
                 entries.add(ModBlocks.INFECTED_OAK_LOG);
+                entries.add(ModBlocks.INFECTED_PLANKS);
+                entries.add(ModBlocks.INFECTED_OAK_LEAVES);
+                entries.add(ModBlocks.INFECTED_MUSHROOM_STEM);
+                entries.add(ModBlocks.INFECTED_MUSHROOM_HAT);
+                entries.add(ModBlocks.INFECTED_BROWN_MUSHROOM);
+                entries.add(ModBlocks.INFECTED_SMALL_MUSHROOM);
+                entries.add(ModBlocks.FIRE_FLOWER);
+                entries.add(ModBlocks.INFECTED_GLOW_LICHEN);
+                entries.add(ModBlocks.INFECTED_DRIPLEAF);
+                
 
                 // ===== СПАВН-ЯЙЦА =====
 
@@ -53,6 +66,7 @@ public class ModItemGroups {
                 entries.add(ModItems.INFECTED_ZOMBIE_SPAWN_EGG);
                 entries.add(ModItems.INFECTED_SKELETON_SPAWN_EGG);
                 entries.add(ModItems.INFECTED_CREEPER_SPAWN_EGG);
+                entries.add(ModItems.INFECTED_VEX_SPAWN_EGG);
             })
             .build()
     );

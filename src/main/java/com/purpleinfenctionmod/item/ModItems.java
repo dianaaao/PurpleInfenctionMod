@@ -8,6 +8,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 
@@ -74,10 +76,14 @@ public class ModItems {
         new InfectedGlowBerryItem(
                 new Item.Settings().maxCount(64)
         )
-);
+    );
     
     public static final Item INFECTED_BOWL = registerItem(
         "infected_bowl",
+        new Item(new Item.Settings())
+    );
+    public static final Item RESPIRATOR_FIX = registerItem(
+        "respirator_fix",
         new Item(new Item.Settings())
     );
         
@@ -93,7 +99,7 @@ public class ModItems {
                         .statusEffect(
                             new StatusEffectInstance(
                                 ModEffects.INFECTED_LOOK,
-                                200,
+                                1000,
                                 0
                             ),
                             0.3f
@@ -101,6 +107,84 @@ public class ModItems {
                         .build()
                 )
                 .recipeRemainder(Items.BOWL)
+        )
+    );
+
+    public static final Item FRAGMENT_OF_OLD_CRYSTAL = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("fragment_of_old_crystal"),
+        new Item(
+            new Item.Settings()
+        )
+    );
+
+    public static Item CRYSTAL_BIB = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_bib"),
+        new ArmorItem(
+                ModArmorMaterials.CRYSTAL,
+                ArmorItem.Type.CHESTPLATE,
+                new Item.Settings().maxDamage(300)
+        )
+    );
+
+    public static Item CRYSTAL_BOOTS = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_boots"),
+        new ArmorItem(
+                ModArmorMaterials.CRYSTAL,
+                ArmorItem.Type.BOOTS,
+                new Item.Settings().maxDamage(300)
+        )
+    );
+
+    public static Item CRYSTAL_HELMET = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_helmet"),
+        new ArmorItem(
+                ModArmorMaterials.CRYSTAL,
+                ArmorItem.Type.HELMET,
+                new Item.Settings().maxDamage(300)
+        )
+    );
+
+    public static Item CRYSTAL_TROUSERS = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_trousers"),
+        new ArmorItem(
+                ModArmorMaterials.CRYSTAL,
+                ArmorItem.Type.LEGGINGS,
+                new Item.Settings().maxDamage(300)
+        )
+    );
+
+    public static Item CRYSTAL_SABER = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_saber"),
+        new SwordItem(
+                ToolMaterials.DIAMOND, //TODO: передать оружия, добавить функционал
+                3,
+                -2.4F,
+                new Item.Settings().maxDamage(1561)
+        )
+    );
+
+    public static Item CRYSTAL_MAGIC_STAFF = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_magic_staff"),
+        new Item(
+                new Item.Settings().maxDamage(300)
+        )
+    );
+
+    public static Item CRYSTAL_SWORD = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("crystal_sword"),
+        new SwordItem(
+                ToolMaterials.DIAMOND,
+                3,
+                -2.4F,
+                new Item.Settings().maxDamage(1561)
         )
     );
 
@@ -118,6 +202,9 @@ public class ModItems {
 
     public static final Item ROTTING_SPORE_FUNGUS_SPAWN_EGG = registerItem("rotting_spore_fungus_spawn_egg",
             new SpawnEggItem(ModEntities.ROTTING_SPORE_FUNGUS, 0xB84D30, 0x3F2F2B, new Item.Settings()));
+
+    public static final Item INFECTED_VEX_SPAWN_EGG = registerItem("infected_vex_spawn_egg",
+        new SpawnEggItem(ModEntities.INFECTED_VEX, 0x0022FF, 0x0022FF, new Item.Settings()));
 
 
     private static Item registerItem(String name, Item item){
@@ -147,11 +234,24 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.add(RESPIRATOR);
             entries.add(CRYSTAL_RESPIRATOR);
+
+            entries.add(CRYSTAL_HELMET);
+            entries.add(CRYSTAL_BIB);
+            entries.add(CRYSTAL_TROUSERS);
+            entries.add(CRYSTAL_BOOTS);
+            entries.add(CRYSTAL_SWORD);
+            entries.add(CRYSTAL_SABER);
+            entries.add(CRYSTAL_MAGIC_STAFF);
         });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-            .register(entries -> entries.add(CRYSTAL_UPGRADE_TEMPLATE));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+            entries.add(CRYSTAL_UPGRADE_TEMPLATE);
+            entries.add(RESPIRATOR_FIX);
+        });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
             .register(entries -> entries.add(CRYSTAL_SPLINTER));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
+            .register(entries -> entries.add(FRAGMENT_OF_OLD_CRYSTAL));
+
 
         PurpleInfenctionMod.LOGGER.info("Registering Mod Items for " + PurpleInfenctionMod.MOD_ID);
     }

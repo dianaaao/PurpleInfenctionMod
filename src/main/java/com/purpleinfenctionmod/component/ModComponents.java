@@ -12,12 +12,20 @@ public class ModComponents implements EntityComponentInitializer {
             new Identifier("purpleinfenctionmod", "decontroll"),
             DecontrollComponent.class
         );
+    public static final ComponentKey<InfectedPowerComponent> INFECTED_POWER =
+        ComponentRegistry.getOrCreate(
+            new Identifier("purpleinfenctionmod", "infected_power"),
+            InfectedPowerComponent.class
+        );
 
     @Override
     public void registerEntityComponentFactories(@javax.annotation.Nonnull EntityComponentFactoryRegistry registry) {
         
         if (RespawnCopyStrategy.ALWAYS_COPY!=null && DECONTROLL!=null){
             registry.registerForPlayers(DECONTROLL, PlayerDecontrollComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
+        }
+        if (RespawnCopyStrategy.ALWAYS_COPY != null && INFECTED_POWER != null) {
+            registry.registerForPlayers(INFECTED_POWER, PlayerInfectedPowerComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
         }
     }
 }

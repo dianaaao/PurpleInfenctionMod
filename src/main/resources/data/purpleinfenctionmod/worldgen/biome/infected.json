@@ -23,33 +23,33 @@
     }
   },
   "spawners": {
-    "monster": [
-      {
-        "type": "purpleinfenctionmod:mushroom_mob",
-        "weight": 100,
-        "minCount": 1,
-        "maxCount": 3
-      },
-      {
-        "type": "purpleinfenctionmod:infected_zombie",
-        "weight": 100,
-        "minCount": 1,
-        "maxCount": 3
-      },
-      {
-        "type": "purpleinfenctionmod:infected_skeleton",
-        "weight": 100,
-        "minCount": 1,
-        "maxCount": 3
-      },
-      {
-        "type": "purpleinfenctionmod:infected_creeper",
-        "weight": 100,
-        "minCount": 1,
-        "maxCount": 3
-      }
-    ]
-  },
+  "monster": [
+    {
+      "type": "purpleinfenctionmod:mushroom_mob",
+      "weight": 60,
+      "minCount": 1,
+      "maxCount": 3
+    },
+    {
+      "type": "purpleinfenctionmod:infected_zombie",
+      "weight": 40,
+      "minCount": 5,
+      "maxCount": 10
+    },
+    {
+      "type": "purpleinfenctionmod:infected_skeleton",
+      "weight": 25,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "purpleinfenctionmod:infected_creeper",
+      "weight": 15,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+},
   "spawn_costs": {},
   "carvers": {
     "air": [
@@ -65,11 +65,34 @@
     [],
     [],
     [],
-    [],
+    [
+      "purpleinfenctionmod:ores/coal/coal_lower",
+      "purpleinfenctionmod:ores/coal/coal_upper",
+      "purpleinfenctionmod:ores/diamond/diamond",
+      "purpleinfenctionmod:ores/diamond/diamond_medium",
+      "purpleinfenctionmod:ores/diamond/diamond_large",
+      "purpleinfenctionmod:ores/diamond/diamond_buried",
+      "purpleinfenctionmod:ores/lapis/lapis",
+      "purpleinfenctionmod:ores/lapis/lapis_buried",
+      "purpleinfenctionmod:ores/redstone/redstone",
+      "purpleinfenctionmod:ores/redstone/redstone_buried",
+      "purpleinfenctionmod:ores/iron/iron_upper",
+      "purpleinfenctionmod:ores/iron/iron_middle",
+      "purpleinfenctionmod:ores/iron/iron_small",
+      "purpleinfenctionmod:ores/gold/gold",
+      "purpleinfenctionmod:ores/gold/gold_lower",
+      "purpleinfenctionmod:ores/gold/gold_extra",
+      "purpleinfenctionmod:ores/emerald/emerald",
+      "purpleinfenctionmod:ores/copper/copper",
+      "purpleinfenctionmod:ores/copper/copper_large"
+
+    ],
     [
       "purpleinfenctionmod:infected_glow_lichen",
-      "purpleinfenctionmod:small_mushrooms_undeground",
-      "purpleinfenctionmod:rails"
+      "purpleinfenctionmod:small_mushrooms_underground",
+      "purpleinfenctionmod:rails",
+      "purpleinfenctionmod:infected_big_dripleaf",
+      "purpleinfenctionmod:infected_small_dripleaf"
     ],
     [
       "minecraft:patch_grass_plain"

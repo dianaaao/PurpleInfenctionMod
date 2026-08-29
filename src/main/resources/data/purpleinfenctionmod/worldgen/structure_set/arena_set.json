@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "structures": [
     {
       "structure": "purpleinfenctionmod:arena",
@@ -15,4 +16,22 @@
     ],
     "salt": 482910471
   }
+=======
+	"structures": [
+		{
+		"structure": "purpleinfenctionmod:arena",
+		"weight": 1
+		}
+	],
+	"placement": {
+		"type": "minecraft:random_spread",
+		"spacing": 40,
+		"separation": 16,
+		"count": 1,
+		"prefered_biomes": [
+		"purpleinfenctionmod:infected"
+		],
+		"salt": 482910471
+	}
+>>>>>>> origin
 }

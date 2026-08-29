@@ -6,6 +6,7 @@
     "item.purpleinfenctionmod.infected_skeleton_spawn_egg": "Infected Skeleton Spawn Egg",
     "item.purpleinfenctionmod.infected_creeper_spawn_egg": "Infected Creeper Spawn Egg",
     "item.purpleinfenctionmod.rotting_spore_fungus_spawn_egg": "Rotting Spore Fungus Spawn Egg",
+    "item.purpleinfenctionmod.infected_vex_spawn_egg": "Infected Vex Spawn Egg",
     "item.purpleinfenctionmod.crystal_splinter": "Crystal Splinter",
     "item.purpleinfenctionmod.disinfectant_potion.effect.empty": "Disinfectant Potion",
     "item.purpleinfenctionmod.infected_glow_berry": "Infected Glow Berries",
@@ -19,6 +20,7 @@
     "item.purpleinfectionmod.crystal_sword": "Crystal Sword",
     "item.purpleinfectionmod.crystal_saber": "Crystal Saber",
     "item.purpleinfectionmod.crystal_magic_staff": "Magic Staff",
+    "item.purpleinfectionmod.fragment_of_old_crystal": "Fragment of Old Crystal",
     
     "block.purpleinfenctionmod.infected_grass": "Infected Grass",
     "block.purpleinfenctionmod.infected_dirt": "Infected Dirt",
