@@ -10,6 +10,7 @@ import com.purpleinfenctionmod.entity.InfectedVexEntity;
 import com.purpleinfenctionmod.entity.ModEntities;
 import com.purpleinfenctionmod.entity.MushroomMobEntity;
 import com.purpleinfenctionmod.entity.MushroomPetEntity;
+import com.purpleinfenctionmod.entity.PigeonEntity;
 import com.purpleinfenctionmod.entity.PoisonCloudManager;
 import com.purpleinfenctionmod.entity.RottingSporeFungusEntity;
 import com.purpleinfenctionmod.entity.SporeCreatureEntity;
@@ -144,6 +145,7 @@ public class PurpleInfenctionMod implements ModInitializer {
 		);
 
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_VEX, InfectedVexEntity.createInfectedVexAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.PIGEON, PigeonEntity.createAttributes());
     }
 
 

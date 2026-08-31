@@ -69,6 +69,7 @@ public class ModItemGroups {
                 entries.add(ModItems.INFECTED_SKELETON_SPAWN_EGG);
                 entries.add(ModItems.INFECTED_CREEPER_SPAWN_EGG);
                 entries.add(ModItems.INFECTED_VEX_SPAWN_EGG);
+                entries.add(ModItems.PIGEON_SPAWN_EGG);
             })
             .build()
     );

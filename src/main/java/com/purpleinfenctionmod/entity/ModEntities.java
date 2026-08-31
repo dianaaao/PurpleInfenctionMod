@@ -102,6 +102,13 @@ public class ModEntities {
                 .dimensions(EntityDimensions.fixed(0.4f, 0.8f)) // размер как у ванильного Vex
                 .build());
 
+	public static final EntityType<PigeonEntity> PIGEON = Registry.register(
+        Registries.ENTITY_TYPE,
+        new Identifier(PurpleInfenctionMod.MOD_ID, "pigeon"),
+        FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, PigeonEntity::new)
+                .dimensions(EntityDimensions.changing(0.4f, 0.5f))
+                .build());
+
 
     public static void register() {
         // регистрация выполняется через статические поля выше

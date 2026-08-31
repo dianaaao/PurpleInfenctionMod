@@ -125,9 +125,21 @@ public class CastleNightManager {
             return;
         }
 
+        // НОВОЕ: если сразу несколько замков одновременно догружают свои
+        // чанки (например, при резком росте view distance - было замечено
+        // в логе), раньше все они захватывались (saveFromWorld) в ОДИН
+        // и тот же тик, без ограничения. Теперь захватываем не больше
+        // MAX_TRANSITIONS_PER_TICK замков за тик, остальные подождут
+        // следующий тик - как и с day/night переходами выше.
+        int capturesDone = 0;
+
         synchronized (CastleNightManager.class) {
 
             for (PendingCastle pending : new ArrayList<>(PENDING)) {
+
+                if (capturesDone >= MAX_TRANSITIONS_PER_TICK) {
+                    break;
+                }
 
                 if (pending.seed != world.getSeed()) {
                     // НОВОЕ: раньше это оставляло запись в PENDING навсегда
@@ -168,6 +180,7 @@ public class CastleNightManager {
                 if (!exists) {
 
                     state.captureCastle(pending.identityBox, world);
+                    capturesDone++; // НОВОЕ: считаем к лимиту MAX_TRANSITIONS_PER_TICK
 
                     CastleWorldState.CastleData castle =
                             findCastle(state, pending.identityBox);

@@ -210,8 +210,10 @@ public class ModItems {
             new SpawnEggItem(ModEntities.ROTTING_SPORE_FUNGUS, 0xB84D30, 0x3F2F2B, new Item.Settings()));
 
     public static final Item INFECTED_VEX_SPAWN_EGG = registerItem("infected_vex_spawn_egg",
-        new SpawnEggItem(ModEntities.INFECTED_VEX, 0x0022FF, 0x0022FF, new Item.Settings()));
+        new SpawnEggItem(ModEntities.INFECTED_VEX, 0x0022FF, 0xBF00FF, new Item.Settings()));
 
+    public static final Item PIGEON_SPAWN_EGG = registerItem("pigeon_spawn_egg",
+        new SpawnEggItem(ModEntities.PIGEON, 0x305B56, 0x7A8694, new Item.Settings()));
 
     private static Item registerItem(String name, Item item){
         return Registry.register(

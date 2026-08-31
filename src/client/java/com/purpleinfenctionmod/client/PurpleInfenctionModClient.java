@@ -9,6 +9,7 @@ import com.purpleinfenctionmod.client.entity.InfectedVexRenderer;
 import com.purpleinfenctionmod.client.entity.InfectedZombieRenderer;
 import com.purpleinfenctionmod.client.entity.MushroomMobRenderer;
 import com.purpleinfenctionmod.client.entity.MushroomPetRenderer;
+import com.purpleinfenctionmod.client.entity.PigeonRenderer;
 import com.purpleinfenctionmod.client.entity.RottingSporeFungusRenderer;
 import com.purpleinfenctionmod.client.entity.SporeCreatureRenderer;
 import com.purpleinfenctionmod.client.entity.SporeProjectileRenderer;
@@ -109,6 +110,7 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(InfectedVexModel.LAYER, InfectedVexModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.INFECTED_VEX, InfectedVexRenderer::new);
+        EntityRendererRegistry.register(ModEntities.PIGEON, PigeonRenderer::new);
 
         ArmorRenderer.register(
             (matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {
