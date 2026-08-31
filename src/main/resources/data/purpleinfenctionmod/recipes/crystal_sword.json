@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "C",
+    "S"
+  ],
+  "key": {
+    "C": { "item": "purpleinfenctionmod:crystal_splinter" },
+    "S": { "item": "minecraf:stick" }
+  },
+  "result": {
+    "item": "purpleinfenctionmod:crystal_boots",
+    "count": 1
+  }
+}

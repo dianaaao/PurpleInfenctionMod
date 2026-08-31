@@ -2,33 +2,9 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": 12,
       "entries": [
-        { "type": "minecraft:item", "name": "purpleinfenctionmod:crystal_helmet" }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        { "type": "minecraft:item", "name": "purpleinfenctionmod:crystal_bib" }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        { "type": "minecraft:item", "name": "purpleinfenctionmod:crystal_trousers" }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        { "type": "minecraft:item", "name": "purpleinfenctionmod:crystal_boots" }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        { "type": "minecraft:item", "name": "purpleinfenctionmod:crystal_sword" }
+        { "type": "minecraft:item", "name": "purpleinfenctionmod:crystal_splinter" }
       ]
     },
     {

@@ -7,6 +7,7 @@
     "item.purpleinfenctionmod.infected_creeper_spawn_egg": "Infected Creeper Spawn Egg",
     "item.purpleinfenctionmod.rotting_spore_fungus_spawn_egg": "Rotting Spore Fungus Spawn Egg",
     "item.purpleinfenctionmod.infected_vex_spawn_egg": "Infected Vex Spawn Egg",
+    "item.purpleinfenctionmod.pigeon_spawn_egg": "Pigeon Spawn Egg",
     "item.purpleinfenctionmod.crystal_splinter": "Crystal Splinter",
     "item.purpleinfenctionmod.disinfectant_potion.effect.empty": "Disinfectant Potion",
     "item.purpleinfenctionmod.infected_glow_berry": "Infected Glow Berries",
@@ -35,7 +36,8 @@
     "block.purpleinfenctionmod.infected_brown_mushroom_block": "Infected Brown Mushroom Block",
     "block.purpleinfenctionmod.fire_flower": "Fire Flower",
     "block.purpleinfenctionmod.infected_glow_lichen": "Infected Glow Lichen",
-
+    
+    "entity.purpleinfenctionmod.pigeon": "Pigeon",
     "entity.purpleinfenctionmod.spore_creature": "Spore Creature",
     "entity.purpleinfenctionmod.rotting_spore_fungus": "Rotting Spore Fungus",
     "entity.purpleinfenctionmod.infected_vex": "Infected Vex",

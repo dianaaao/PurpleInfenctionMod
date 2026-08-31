@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C C",
+    "CCC",
+    "CCC"
+  ],
+  "key": {
+    "C": { "item": "purpleinfenctionmod:crystal_splinter" }
+  },
+  "result": {
+    "item": "purpleinfenctionmod:crystal_bib",
+    "count": 1
+  }
+}

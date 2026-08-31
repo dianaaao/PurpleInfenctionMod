@@ -54,6 +54,14 @@
         "minCount": 1,
         "maxCount": 2
       }
+  ],
+  "creature": [
+    {
+      "type": "purpleinfenctionmod:pigeon",
+      "weight": 1000,
+      "minCount": 5,
+      "maxCount": 10
+    }
   ]
 },
   "spawn_costs": {},

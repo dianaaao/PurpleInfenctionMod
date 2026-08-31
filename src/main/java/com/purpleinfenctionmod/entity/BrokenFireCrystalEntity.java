@@ -100,13 +100,6 @@ public class BrokenFireCrystalEntity extends Entity implements GeoEntity {
         ModComponents.INFECTED_POWER
                 .maybeGet(player)
                 .ifPresent(comp -> comp.setActive(true));
-        MushroomPetEntity pet = ModEntities.MUSHROOM_PET.create(serverWorld);
-
-        if (pet != null) {
-            pet.refreshPositionAndAngles(x, y, z, yaw, 0);
-            pet.setOwner(player);
-            serverWorld.spawnEntity(pet);
-        }
         serverWorld.spawnParticles(
                 net.minecraft.particle.ParticleTypes.END_ROD,
                 x, y + 1, z,

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "purpleinfenctionmod:respirator_fix"
+    },
+    {
+      "item": "purpleinfenctionmod:respirator_fix"
+    },
+    {
+      "item": "purpleinfenctionmod:respirator_fix"
+    },
+    {
+      "item": "purpleinfenctionmod:broken_respirator"
+    }
+  ],
+  "result": {
+    "item": "purpleinfenctionmod:respirator",
+    "count": 1
+  }
+}

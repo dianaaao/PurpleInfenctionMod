@@ -22,8 +22,8 @@ public class CrystalSwordAndSaber {
     // через "new ModSwordItem(...)" БЕЗ Registry.register(). Это были
     // предметы-дубли, не привязанные ни к какому Identifier - "мёртвые"
     // объекты, никогда не появляющиеся в игре нормально, при этом с ДРУГИМИ
-    // характеристиками (урон меча 5 вместо 3), чем реально зарегистрированные
-    // версии в ModItems.java. Единственный источник правды по этим предметам -
+    // характеристиками (урон меча 5 вместо 3), чем реал ьно зарегистрированные
+    // версии в ModItems.java. Единственный источникправды по этим предметам -
     // ModItems.CRYSTAL_SWORD и ModItems.CRYSTAL_SABER.
 
     public static ItemStack getEnchantedSword() {
