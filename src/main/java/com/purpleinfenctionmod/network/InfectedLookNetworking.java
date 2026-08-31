@@ -9,38 +9,38 @@ import net.minecraft.util.math.BlockPos;
 
 public class InfectedLookNetworking {
 
-    public static final Identifier CASTLE_TARGET =
+    public static final Identifier ARENA_TARGET =
             new Identifier(
                     "purpleinfenctionmod",
-                    "castle_target"
+                    "arena_target"
             );
 
-    public static final Identifier CLEAR_CASTLE_TARGET =
+    public static final Identifier CLEAR_ARENA_TARGET =
             new Identifier(
                     "purpleinfenctionmod",
-                    "clear_castle_target"
+                    "clear_arena_target"
             );
 
-    public static void sendCastleTarget(
+    public static void sendArenaTarget(
             ServerPlayerEntity player,
-            BlockPos castlePos
+            BlockPos arenaPos
     ) {
         PacketByteBuf buf = PacketByteBufs.create();
-        buf.writeBlockPos(castlePos);
+        buf.writeBlockPos(arenaPos);
 
         ServerPlayNetworking.send(
                 player,
-                CASTLE_TARGET,
+                ARENA_TARGET,
                 buf
         );
     }
 
-    public static void clearCastleTarget(
+    public static void clearArenaTarget(
             ServerPlayerEntity player
     ) {
         ServerPlayNetworking.send(
                 player,
-                CLEAR_CASTLE_TARGET,
+                CLEAR_ARENA_TARGET,
                 PacketByteBufs.empty()
         );
     }

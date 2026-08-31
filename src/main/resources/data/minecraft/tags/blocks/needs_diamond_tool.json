@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "purpleinfenctionmod:ores/infected_gold_ore",
+    "purpleinfenctionmod:ores/infected_diamond_ore",
+    "purpleinfenctionmod:ores/infected_emerald_ore",
+    "purpleinfenctionmod:ores/infected_redstone_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_gold_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_diamond_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_emerald_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_redstone_ore"
+  ]
+}

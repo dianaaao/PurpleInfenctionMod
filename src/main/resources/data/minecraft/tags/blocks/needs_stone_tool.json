@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "purpleinfenctionmod:ores/infected_coal_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_coal_ore"
+  ]
+}

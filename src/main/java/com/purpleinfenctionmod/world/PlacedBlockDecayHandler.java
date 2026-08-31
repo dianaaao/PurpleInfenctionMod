@@ -6,6 +6,7 @@ import com.purpleinfenctionmod.world.biome.ModBiomes;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 
@@ -54,9 +55,18 @@ public class PlacedBlockDecayHandler {
             if (ticksLeft <= 0) {
                 BlockPos pos = entry.getKey();
                 if (!world.isAir(pos)) {
-                    world.removeBlock(pos, false);
-                }
-                iterator.remove();
+                BlockState state = world.getBlockState(pos);
+
+                Block.dropStack(
+                    world,
+                    pos,
+                    new ItemStack(state.getBlock())
+                );
+
+                world.removeBlock(pos, false);
+            }
+
+            iterator.remove();
             } else {
                 entry.setValue(ticksLeft);
             }

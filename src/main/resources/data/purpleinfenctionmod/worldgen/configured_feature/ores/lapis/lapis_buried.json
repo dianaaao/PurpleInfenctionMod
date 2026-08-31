@@ -10,7 +10,7 @@
           "tag": "purpleinfenctionmod:stone_ore_replaceables"
         },
         "state": {
-          "Name": "minecraft:lapis_ore"
+          "Name": "purpleinfenctionmod:ores/infected_lapis_ore"
         }
       },
       {
@@ -19,7 +19,7 @@
           "tag": "purpleinfenctionmod:deepslate_ore_replaceables"
         },
         "state": {
-          "Name": "minecraft:deepslate_lapis_ore"
+          "Name": "purpleinfenctionmod:ores/infected_deepslate_lapis_ore"
         }
       }
     ]

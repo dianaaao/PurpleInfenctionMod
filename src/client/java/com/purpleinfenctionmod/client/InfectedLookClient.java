@@ -6,37 +6,37 @@ import net.minecraft.util.math.BlockPos;
 
 public class InfectedLookClient {
 
-    private static BlockPos castleTarget = null;
+    private static BlockPos arenaTarget = null;
 
     public static void initialize() {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
 
-            if (client.player == null || castleTarget == null) {
+            if (client.player == null || arenaTarget == null) {
                 return;
             }
 
-            lookAtCastle(client);
+            lookAtArena(client);
         });
     }
 
-    public static void setCastleTarget(BlockPos pos) {
-        castleTarget = pos;
+    public static void setArenaTarget(BlockPos pos) {
+        arenaTarget = pos;
     }
 
-    public static void clearCastleTarget() {
-        castleTarget = null;
+    public static void clearArenaTarget() {
+        arenaTarget = null;
     }
 
-    private static void lookAtCastle(MinecraftClient client) {
+    private static void lookAtArena(MinecraftClient client) {
 
-    if (client.player == null || castleTarget == null) {
+    if (client.player == null || arenaTarget == null) {
         return;
     }
 
-    double targetX = castleTarget.getX() + 0.5;
-    double targetY = castleTarget.getY() + 70;
-    double targetZ = castleTarget.getZ() + 0.5;
+    double targetX = arenaTarget.getX() + 0.5;
+    double targetY = arenaTarget.getY() + 70;
+    double targetZ = arenaTarget.getZ() + 0.5;
 
     double dx = targetX - client.player.getX();
     double dy = targetY - client.player.getEyeY();

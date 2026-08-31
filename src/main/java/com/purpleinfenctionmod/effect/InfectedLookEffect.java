@@ -19,16 +19,16 @@ import java.util.UUID;
 
 public class InfectedLookEffect extends StatusEffect {
 
-    private static final TagKey<Structure> CASTLE =
+    private static final TagKey<Structure> ARENA =
             TagKey.of(
                     RegistryKeys.STRUCTURE,
                     new Identifier(
                             "purpleinfenctionmod",
-                            "castle"
+                            "arena"
                     )
             );
 
-    private static final Map<UUID, BlockPos> CASTLE_TARGETS =
+    private static final Map<UUID, BlockPos> ARENA_TARGETS =
             new HashMap<>();
 
     public InfectedLookEffect() {
@@ -59,28 +59,28 @@ public void applyUpdateEffect(
     /*
      * Search only once.
      */
-    if (!CASTLE_TARGETS.containsKey(uuid)) {
+    if (!ARENA_TARGETS.containsKey(uuid)) {
 
-        BlockPos castle = world.locateStructure(
-                CASTLE,
+        BlockPos arena = world.locateStructure(
+                ARENA,
                 player.getBlockPos(),
                 438,
                 false
         );
 
-        if (castle != null) {
+        if (arena != null) {
 
-            CASTLE_TARGETS.put(uuid, castle);
+            ARENA_TARGETS.put(uuid, arena);
 
-            InfectedLookNetworking.sendCastleTarget(
+            InfectedLookNetworking.sendArenaTarget(
                     player,
-                    castle
+                    arena
             );
 
             System.out.println(
                     "[purpleinfenctionmod] "
                             + "infected_look target: "
-                            + castle
+                            + arena
             );
         }
     }
@@ -90,11 +90,11 @@ public void applyUpdateEffect(
 
         UUID uuid = player.getUuid();
 
-        if (CASTLE_TARGETS.remove(uuid) != null) {
+        if (ARENA_TARGETS.remove(uuid) != null) {
 
             if (player instanceof ServerPlayerEntity serverPlayer) {
 
-                InfectedLookNetworking.clearCastleTarget(
+                InfectedLookNetworking.clearArenaTarget(
                         serverPlayer
                 );
             }

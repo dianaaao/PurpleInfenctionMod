@@ -40,6 +40,8 @@ public class ModItemGroups {
                 entries.add(CrystalSwordAndSaber.getEnchantedSword());
                 entries.add(CrystalSwordAndSaber.getEnchantedSaber());
                 entries.add(ModItems.CRYSTAL_MAGIC_STAFF);
+                entries.add(ModItems.BROKEN_RESPIRATOR);
+                entries.add(ModItems.BROKEN_UPDATED_RESPIRATOR);
                 
                 // ===== БЛОКИ =====
                 
@@ -58,6 +60,22 @@ public class ModItemGroups {
                 entries.add(ModBlocks.INFECTED_GLOW_LICHEN);
                 entries.add(ModBlocks.INFECTED_DRIPLEAF);
                 entries.add(ModBlocks.INFECTED_SMALL_DRIPLEAF);
+                entries.add(ModBlocks.INFECTED_COAL_ORE);
+                entries.add(ModBlocks.INFECTED_GOLD_ORE);
+                entries.add(ModBlocks.INFECTED_IRON_ORE);
+                entries.add(ModBlocks.INFECTED_DIAMOND_ORE);
+                entries.add(ModBlocks.INFECTED_COPPER_ORE);
+                entries.add(ModBlocks.INFECTED_LAPIS_ORE);
+                entries.add(ModBlocks.INFECTED_REDSTONE_ORE);
+                entries.add(ModBlocks.INFECTED_EMERALD_ORE);
+                entries.add(ModBlocks.INFECTED_DEEPSLATE_COAL_ORE);
+                entries.add(ModBlocks.INFECTED_DEEPSLATE_GOLD_ORE);
+                entries.add(ModBlocks.INFECTED_DEEPSLATE_IRON_ORE);
+                entries.add(ModBlocks.INFECTED_DEEPSLATE_DIAMOND_ORE);
+                entries.add(ModBlocks.INFECTED_DEEPSLATE_COPPER_ORE);
+                entries.add(ModBlocks.INFECTED_DEEPSLATE_LAPIS_ORE);
+                entries.add(ModBlocks.INFECTED_DEEPSLATE_REDSTONE_ORE);
+                entries.add(ModBlocks.INFECTED_DEEPSLATE_EMERALD_ORE);
 
                 
 
