@@ -179,4 +179,46 @@ public class ModArmorMaterials {
             return 0.1F;
         }
     };
+    public static final ArmorMaterial BROKEN_RESPIRATOR = new ArmorMaterial() {
+
+        @Override
+        public int getDurability(ArmorItem.Type type) {
+            return 1;
+        }
+
+        @Override
+        public int getProtection(ArmorItem.Type type) {
+            return 0;
+        }
+
+        @Override
+        public int getEnchantability() {
+            return 0;
+        }
+
+        @Override
+        public SoundEvent getEquipSound() {
+            return SoundEvents.ITEM_ARMOR_EQUIP_CHAIN;
+        }
+
+        @Override
+        public Ingredient getRepairIngredient() {
+            return Ingredient.EMPTY;
+        }
+
+        @Override
+        public String getName() {
+            return "purpleinfenctionmod:broken";
+        }
+
+        @Override
+        public float getToughness() {
+            return 0.0F;
+        }
+
+        @Override
+        public float getKnockbackResistance() {
+            return 0.0F;
+        }
+    };
 }

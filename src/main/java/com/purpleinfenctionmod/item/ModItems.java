@@ -62,6 +62,24 @@ public class ModItems {
             new Item.Settings()
         )
     );
+    public static final Item BROKEN_RESPIRATOR = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("broken_respirator"),
+        new ArmorItem(
+            ModArmorMaterials.BROKEN_RESPIRATOR,
+            ArmorItem.Type.HELMET,
+            new Item.Settings()
+        )
+    );
+    public static final Item BROKEN_UPDATED_RESPIRATOR = Registry.register(
+        Registries.ITEM,
+        PurpleInfenctionMod.id("broken_updated_respirator"),
+        new ArmorItem(
+            ModArmorMaterials.BROKEN_RESPIRATOR,
+            ArmorItem.Type.HELMET,
+            new Item.Settings()
+        )
+    );
     public static final Item CRYSTAL_UPGRADE_TEMPLATE = Registry.register(
         Registries.ITEM,
         PurpleInfenctionMod.id("crystal_upgrade_template"),

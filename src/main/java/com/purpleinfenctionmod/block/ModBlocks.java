@@ -14,6 +14,7 @@ import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.MushroomBlock;
 import net.minecraft.block.MushroomPlantBlock;
 import net.minecraft.block.PillarBlock;
+import net.minecraft.block.RedstoneOreBlock;
 import net.minecraft.block.SmallDripleafBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -54,33 +55,145 @@ public class ModBlocks {
     public static final Block INFECTED_COBBLESTONE = registerBlock(
         "infected_cobblestone",
         new Block(
-            FabricBlockSettings.copyOf(Blocks.COBBLESTONE).strength(2.0f, 62.9f)
+            FabricBlockSettings.copyOf(Blocks.COBBLESTONE)
         )
     );
     public static final Block INFECTED_PLANKS = registerBlock(
         "infected_oak_planks",
         new Block(
-            FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2.0f, 62.9f)
+            FabricBlockSettings.copyOf(Blocks.OAK_PLANKS)
         )
     );
 
     public static final Block INFECTED_OAK_LOG = registerBlock(
         "infected_oak_log",
         new PillarBlock(
-            FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2.0f, 62.9f)
+            FabricBlockSettings.copyOf(Blocks.OAK_LOG)
         )
     );
 
+    public static final Block INFECTED_IRON_ORE = registerBlock(
+        "ores/infected_iron_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.IRON_ORE)
+            .strength(3.5f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_COAL_ORE = registerBlock(
+        "ores/infected_coal_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.COAL_ORE)
+            .strength(3.5f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_COPPER_ORE = registerBlock(
+        "ores/infected_copper_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.COPPER_ORE)
+            .strength(3.5f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_DIAMOND_ORE = registerBlock(
+        "ores/infected_diamond_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE)
+            .strength(3.5f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_EMERALD_ORE = registerBlock(
+        "ores/infected_emerald_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.EMERALD_ORE)
+            .strength(3.5f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_LAPIS_ORE = registerBlock(
+        "ores/infected_lapis_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.LAPIS_ORE)
+            .strength(3.5f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_REDSTONE_ORE = registerBlock(
+        "ores/infected_redstone_ore",
+        new RedstoneOreBlock(
+            FabricBlockSettings.copyOf(Blocks.REDSTONE_ORE)
+            .strength(3.5f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_GOLD_ORE = registerBlock(
+        "ores/infected_gold_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.GOLD_ORE)
+            .strength(3.5f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_DEEPSLATE_IRON_ORE = registerBlock(
+        "ores/infected_deepslate_iron_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.IRON_ORE)
+            .strength(5.0f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_DEEPSLATE_COAL_ORE = registerBlock(
+        "ores/infected_deepslate_coal_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.COAL_ORE)
+            .strength(5.0f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_DEEPSLATE_COPPER_ORE = registerBlock(
+        "ores/infected_deepslate_copper_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.COPPER_ORE)
+            .strength(5.0f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_DEEPSLATE_DIAMOND_ORE = registerBlock(
+        "ores/infected_deepslate_diamond_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE)
+            .strength(5.0f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_DEEPSLATE_EMERALD_ORE = registerBlock(
+        "ores/infected_deepslate_emerald_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.EMERALD_ORE)
+            .strength(5.0f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_DEEPSLATE_LAPIS_ORE = registerBlock(
+        "ores/infected_deepslate_lapis_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.LAPIS_ORE)
+            .strength(5.0f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_DEEPSLATE_REDSTONE_ORE = registerBlock(
+        "ores/infected_deepslate_redstone_ore",
+        new RedstoneOreBlock(
+            FabricBlockSettings.copyOf(Blocks.REDSTONE_ORE)
+            .strength(5.0f, 3.0f)
+        )
+    );
+    public static final Block INFECTED_DEEPSLATE_GOLD_ORE = registerBlock(
+        "ores/infected_deepslate_gold_ore",
+        new Block(
+            FabricBlockSettings.copyOf(Blocks.GOLD_ORE)
+            .strength(5.0f, 3.0f)
+        )
+    );
     public static final Block INFECTED_STONE = registerBlock(
         "infected_stone",
         new Block(
-            FabricBlockSettings.copyOf(Blocks.STONE).strength(2.0f, 62.9f)
+            FabricBlockSettings.copyOf(Blocks.STONE)
         )
     );
     public static final Block INFECTED_DEEPSLATE = registerBlock(
         "infected_deepslate",
         new Block(
-            FabricBlockSettings.copyOf(Blocks.DEEPSLATE).strength(2.0f, 62.9f)
+            FabricBlockSettings.copyOf(Blocks.DEEPSLATE)
         )
     );
     public static final InfectedCaveVinesBlock INFECTED_CAVE_VINES = Registry.register(
@@ -109,35 +222,35 @@ public static final Block INFECTED_SMALL_DRIPLEAF = registerBlock(
     public static final Block INFECTED_OAK_LEAVES = registerBlock(
         "infected_oak_leaves",
         new LeavesBlock(
-            FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).strength(1.0f, 5.0f)
+            FabricBlockSettings.copyOf(Blocks.OAK_LEAVES)
         )
     );
  
     public static final Block INFECTED_MUSHROOM_STEM = registerBlock(
         "infected_mushroom_stem",
         new PillarBlock(
-            FabricBlockSettings.copyOf(Blocks.MUSHROOM_STEM).strength(2.0f, 62.9f)
+            FabricBlockSettings.copyOf(Blocks.MUSHROOM_STEM)
         )
     );
 
     public static final Block INFECTED_MUSHROOM_HAT = registerBlock(
         "infected_mushroom_hat",
         new MushroomBlock(
-            FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM_BLOCK).strength(2.0f, 62.9f)
+            FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM_BLOCK)
         )   
     );
 
     public static final Block INFECTED_BROWN_MUSHROOM = registerBlock(
         "infected_brown_mushroom_block",
         new MushroomBlock(
-            FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM_BLOCK).strength(2.0f, 62.9f)
+            FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM_BLOCK)
         )   
     );
 
     public static final Block INFECTED_SMALL_MUSHROOM = registerBlock(
         "infected_mushroom",
         new MushroomPlantBlock(
-            FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM).strength(2.0f, 62.9f), null
+            FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM), null
         )   
     );
     public static final Block INFECTED_DRIPLEAF = registerBlock(
@@ -205,6 +318,22 @@ public static final Block INFECTED_SMALL_DRIPLEAF = registerBlock(
             entries.add(INFECTED_GLOW_LICHEN);
             entries.add(INFECTED_DRIPLEAF);
             entries.add(INFECTED_SMALL_DRIPLEAF);
+            entries.add(INFECTED_COAL_ORE);
+            entries.add(INFECTED_GOLD_ORE);
+            entries.add(INFECTED_IRON_ORE);
+            entries.add(INFECTED_DIAMOND_ORE);
+            entries.add(INFECTED_COPPER_ORE);
+            entries.add(INFECTED_LAPIS_ORE);
+            entries.add(INFECTED_REDSTONE_ORE);
+            entries.add(INFECTED_EMERALD_ORE);
+            entries.add(INFECTED_DEEPSLATE_COAL_ORE);
+            entries.add(INFECTED_DEEPSLATE_GOLD_ORE);
+            entries.add(INFECTED_DEEPSLATE_IRON_ORE);
+            entries.add(INFECTED_DEEPSLATE_DIAMOND_ORE);
+            entries.add(INFECTED_DEEPSLATE_COPPER_ORE);
+            entries.add(INFECTED_DEEPSLATE_LAPIS_ORE);
+            entries.add(INFECTED_DEEPSLATE_REDSTONE_ORE);
+            entries.add(INFECTED_DEEPSLATE_EMERALD_ORE);
         });
             
         PurpleInfenctionMod.LOGGER.info("Registering Mod Blocks for " + PurpleInfenctionMod.MOD_ID);

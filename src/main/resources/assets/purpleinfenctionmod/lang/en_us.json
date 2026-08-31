@@ -38,16 +38,47 @@
 
     "entity.purpleinfenctionmod.spore_creature": "Spore Creature",
     "entity.purpleinfenctionmod.rotting_spore_fungus": "Rotting Spore Fungus",
+    "entity.purpleinfenctionmod.infected_vex": "Infected Vex",
+    "entity.purpleinfenctionmod.mushroom_pet": "Mushroom Pet",
     "entity.purpleinfenctionmod.mushroom_mob": "Mushroom Mob",
     "entity.purpleinfenctionmod.infected_zombie": "Infected Zombie",
     "entity.purpleinfenctionmod.infected_skeleton": "Infected Skeleton",
     "entity.purpleinfenctionmod.infected_creeper": "Infected Creeper",
 
     "effect.purpleinfenctionmod.disinfectant_effect": "Disinfected",
+    "effect.purpleinfenctionmod.infected_look": "Infected Look",
     "itemGroup.purpleinfenctionmod.purple_infection": "Purple Infection",
 
     "item.purpleinfenctionmod.respirator_fix": "Respirator Fix",
     "block.purpleinfenctionmod.infected_oak_planks": "Infected Planks",
     "block.purpleinfenctionmod.infected_dripleaf": "Infected Dripleaf",
-    "block.purpleinfenctionmod.infected_small_dripleaf": "Infected Small Dripleaf"
+    "block.purpleinfenctionmod.infected_small_dripleaf": "Infected Small Dripleaf",
+    "block.purpleinfenctionmod.ores.infected_iron_ore": "Infected Iron Ore",
+    "block.purpleinfenctionmod.ores.infected_diamond_ore": "Infected Diamond Ore",
+    "block.purpleinfenctionmod.ores.infected_gold_ore": "Infected Gold Ore",
+    "block.purpleinfenctionmod.ores.infected_emerald_ore": "Infected Emerald Ore",
+    "block.purpleinfenctionmod.ores.infected_copper_ore": "Infected Copper Ore",
+    "block.purpleinfenctionmod.ores.infected_coal_ore": "Infected Coal Ore",
+    "block.purpleinfenctionmod.ores.infected_redstone_ore": "Infected Redstone Ore",
+    "block.purpleinfenctionmod.ores.infected_lapis_ore": "Infected Lapis Ore",
+
+    "block.purpleinfenctionmod.ores.infected_deepslate_iron_ore": "Infected Deepslate Iron Ore",
+    "block.purpleinfenctionmod.ores.infected_deepslate_diamond_ore": "Infected Deepslate Diamond Ore",
+    "block.purpleinfenctionmod.ores.infected_deepslate_gold_ore": "Infected Deepslate Gold Ore",
+    "block.purpleinfenctionmod.ores.infected_deepslate_emerald_ore": "Infected Deepslate Emerald Ore",
+    "block.purpleinfenctionmod.ores.infected_deepslate_copper_ore": "Infected Deepslate Copper Ore",
+    "block.purpleinfenctionmod.ores.infected_deepslate_coal_ore": "Infected Deepslate Coal Ore",
+    "block.purpleinfenctionmod.ores.infected_deepslate_redstone_ore": "Infected Deepslate Redstone Ore",
+    "block.purpleinfenctionmod.ores.infected_deepslate_lapis_ore": "Infected Deepslate Lapis Ore",
+
+    "item.purpleinfenctionmod.fragment_of_old_crystal": "Crystal Fragment Of Old Crystal",
+    "item.purpleinfenctionmod.crystal_helmet": "Crystal Helmet",
+    "item.purpleinfenctionmod.crystal_bib": "Crystal Chestplate",
+    "item.purpleinfenctionmod.crystal_trousers": "Crystal Leggins",
+    "item.purpleinfenctionmod.crystal_boots": "Crystal Boots",
+    "item.purpleinfenctionmod.crystal_sword": "Crystal Sword",
+    "item.purpleinfenctionmod.broken_respirator": "Broken Respirator",
+    "item.purpleinfenctionmod.broken_updated_respirator": "Broken Updated Respirator",
+    "item.purpleinfenctionmod.crystal_magic_staff": "Crystal Magic staff",
+    "item.purpleinfenctionmod.crystal_saber": "Crystal Saber"
 }

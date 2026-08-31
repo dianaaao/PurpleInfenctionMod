@@ -2,6 +2,24 @@
   "replace": false,
   "values": [
     "purpleinfenctionmod:infected_stone",
-    "purpleinfenctionmod:infected_cobblestone"
+    "purpleinfenctionmod:infected_cobblestone",
+    
+    "purpleinfenctionmod:ores/infected_redstone_ore",
+    "purpleinfenctionmod:ores/infected_gold_ore",
+    "purpleinfenctionmod:ores/infected_iron_ore",
+    "purpleinfenctionmod:ores/infected_copper_ore",
+    "purpleinfenctionmod:ores/infected_diamond_ore",
+    "purpleinfenctionmod:ores/infected_emerald_ore",
+    "purpleinfenctionmod:ores/infected_lapis_ore",
+    "purpleinfenctionmod:ores/infected_coal_ore",
+
+    "purpleinfenctionmod:ores/infected_deepslate_redstone_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_gold_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_iron_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_copper_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_diamond_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_emerald_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_lapis_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_coal_ore"
   ]
 }

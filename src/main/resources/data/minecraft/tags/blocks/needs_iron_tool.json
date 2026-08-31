@@ -1,0 +1,12 @@
+
+{
+  "replace": false,
+  "values": [
+    "purpleinfenctionmod:ores/infected_copper_ore",
+    "purpleinfenctionmod:ores/infected_iron_ore",
+    "purpleinfenctionmod:ores/infected_lapis_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_copper_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_iron_ore",
+    "purpleinfenctionmod:ores/infected_deepslate_lapis_ore"
+  ]
+}

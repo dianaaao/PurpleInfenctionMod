@@ -37,13 +37,17 @@ public class CrystalBoltEntityRenderer extends EntityRenderer<CrystalBoltEntity>
     ) {
         matrices.push();
 
-        // Interpolated rotation, based on the entity's actual flight direction,
-        // not the camera — this is what makes it "point" instead of billboard.
-        float renderYaw = MathHelper.lerpAngleDegrees(tickDelta, entity.prevYaw, entity.getYaw());
-        float renderPitch = MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch());
+        float renderYaw = MathHelper.lerpAngleDegrees(
+        tickDelta, entity.prevYaw, entity.getYaw()
+);
 
+        float renderPitch = MathHelper.lerp(
+                tickDelta, entity.prevPitch, entity.getPitch()
+        );
+
+        // Rotate the model so its long axis follows the projectile direction.
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0f - renderYaw));
-        matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(renderPitch));
+        matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(renderPitch));
 
         matrices.scale(0.75f, 0.75f, 0.75f);
 

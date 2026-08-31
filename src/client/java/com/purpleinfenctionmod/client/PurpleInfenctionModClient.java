@@ -196,22 +196,22 @@ public class PurpleInfenctionModClient implements ClientModInitializer {
         InfectedLookClient.initialize();
 
         ClientPlayNetworking.registerGlobalReceiver(
-                InfectedLookNetworking.CASTLE_TARGET,
+                InfectedLookNetworking.ARENA_TARGET,
                 (client, handler, buf, responseSender) -> {
 
-                    var castlePos = buf.readBlockPos();
+                    var arenaPos = buf.readBlockPos();
 
                     client.execute(() -> {
-                        InfectedLookClient.setCastleTarget(castlePos);
+                        InfectedLookClient.setArenaTarget(arenaPos);
                     });
                 }
         );
         ClientPlayNetworking.registerGlobalReceiver(
-        InfectedLookNetworking.CLEAR_CASTLE_TARGET,
+        InfectedLookNetworking.CLEAR_ARENA_TARGET,
         (client, handler, buf, responseSender) -> {
 
             client.execute(() -> {
-                InfectedLookClient.clearCastleTarget();
+                InfectedLookClient.clearArenaTarget();
             });
         }
 );

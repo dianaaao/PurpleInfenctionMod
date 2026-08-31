@@ -46,7 +46,8 @@ public class MushroomPetEntity extends PathAwareEntity implements GeoEntity {
     private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("animation.mushroom_pet.idle");
     private static final RawAnimation MOUTH_OPEN = RawAnimation.begin().thenPlay("animation.mushroom_pet.mouth_open");
 
-    private String ownerName;
+    // private String ownerName;
+    private UUID ownerUuid;
     private final SimpleInventory inventory = new SimpleInventory(27);
 
     public MushroomPetEntity(EntityType<? extends PathAwareEntity> type, World world) {
@@ -62,14 +63,18 @@ public class MushroomPetEntity extends PathAwareEntity implements GeoEntity {
     }
 
     public void setOwner(PlayerEntity player) {
-        this.ownerName = player.getGameProfile().getName();
+        this.ownerUuid = player.getUuid();
     }
 
     public PlayerEntity getOwner() {
-        if (ownerName == null) return null;
+        if (ownerUuid == null) return null;
+
         if (this.getWorld() instanceof net.minecraft.server.world.ServerWorld serverWorld) {
-            return serverWorld.getServer().getPlayerManager().getPlayer(ownerName);
+            return serverWorld.getServer()
+                    .getPlayerManager()
+                    .getPlayer(ownerUuid);
         }
+
         return null;
     }
 
@@ -133,33 +138,42 @@ public class MushroomPetEntity extends PathAwareEntity implements GeoEntity {
     }
 
     @Override
-    public void readCustomDataFromNbt(NbtCompound nbt) {
-        super.readCustomDataFromNbt(nbt);
-        if (nbt.contains("OwnerName")) {
-            this.ownerName = nbt.getString("OwnerName");
-        }
-        if (nbt.contains("Inventory")) {
-            NbtCompound inventoryNbt = nbt.getCompound("Inventory");
-            DefaultedList<ItemStack> stacks = DefaultedList.ofSize(inventory.size(), ItemStack.EMPTY);
-            Inventories.readNbt(inventoryNbt, stacks);
-            for (int i = 0; i < inventory.size(); i++) {
-                inventory.setStack(i, stacks.get(i));
-            }
+public void readCustomDataFromNbt(NbtCompound nbt) {
+    super.readCustomDataFromNbt(nbt);
+
+    if (nbt.containsUuid("OwnerUuid")) {
+        this.ownerUuid = nbt.getUuid("OwnerUuid");
+    }
+
+    if (nbt.contains("Inventory")) {
+        NbtCompound inventoryNbt = nbt.getCompound("Inventory");
+        DefaultedList<ItemStack> stacks =
+                DefaultedList.ofSize(inventory.size(), ItemStack.EMPTY);
+
+        Inventories.readNbt(inventoryNbt, stacks);
+
+        for (int i = 0; i < inventory.size(); i++) {
+            inventory.setStack(i, stacks.get(i));
         }
     }
+}
 
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
-        if (this.ownerName != null) {
-            nbt.putString("OwnerName", this.ownerName);
+
+        if (this.ownerUuid != null) {
+            nbt.putUuid("OwnerUuid", this.ownerUuid);
         }
 
         NbtCompound inventoryNbt = new NbtCompound();
-        DefaultedList<ItemStack> stacks = DefaultedList.ofSize(inventory.size(), ItemStack.EMPTY);
+        DefaultedList<ItemStack> stacks =
+                DefaultedList.ofSize(inventory.size(), ItemStack.EMPTY);
+
         for (int i = 0; i < inventory.size(); i++) {
             stacks.set(i, inventory.getStack(i));
         }
+
         Inventories.writeNbt(inventoryNbt, stacks);
         nbt.put("Inventory", inventoryNbt);
     }
