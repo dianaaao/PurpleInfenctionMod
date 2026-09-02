@@ -8,7 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
@@ -56,18 +55,14 @@ public class ModItems {
     public static final Item BROKEN_RESPIRATOR = Registry.register(
         Registries.ITEM,
         PurpleInfenctionMod.id("broken_respirator"),
-        new ArmorItem(
-            ModArmorMaterials.BROKEN_RESPIRATOR,
-            ArmorItem.Type.HELMET,
+        new Item(
             new Item.Settings()
         )
     );
     public static final Item BROKEN_UPDATED_RESPIRATOR = Registry.register(
         Registries.ITEM,
         PurpleInfenctionMod.id("broken_updated_respirator"),
-        new ArmorItem(
-            ModArmorMaterials.BROKEN_RESPIRATOR,
-            ArmorItem.Type.HELMET,
+        new Item(
             new Item.Settings()
         )
     );

@@ -68,10 +68,7 @@ public class BiomeEffectHandler {
                             headStack.damage(1, player, p -> p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
                             if (headStack.isEmpty()){
                                 ItemStack brokenRespirator = new ItemStack(ModItems.BROKEN_RESPIRATOR);
-                                player.equipStack(
-                                    EquipmentSlot.HEAD,
-                                    brokenRespirator
-                                );
+                                player.giveItemStack(brokenRespirator);
                             }
                             return;
                         }
@@ -81,10 +78,7 @@ public class BiomeEffectHandler {
                             headStack.damage(1, player, p -> p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
                             if (headStack.isEmpty()){
                                 ItemStack brokenRespirator = new ItemStack(ModItems.BROKEN_UPDATED_RESPIRATOR);
-                                player.equipStack(
-                                    EquipmentSlot.HEAD,
-                                    brokenRespirator
-                                );
+                                player.giveItemStack(brokenRespirator);
                             }
                             return;
                         }
