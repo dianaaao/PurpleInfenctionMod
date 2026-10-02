@@ -399,7 +399,7 @@ These problems were gradually resolved: the team planned the sequence of tasks i
 - [Planet Minecraft](https://www.planetminecraft.com/mod/purple-infection-7039491/)
 
 **Репозиторій і збірка**
-- [Репозиторій проєкту на GitHub](https://github.com/ВАШ_АКАУНТ/PurpleInfectionMod) (встав своє посилання)
+- [Репозиторій проєкту на GitHub](https://github.com/dianaaao/PurpleInfenctionMod)
 - [Fabric Loader та інсталятор](https://fabricmc.net/use/)
 
 **Обов'язкові залежності**
@@ -425,7 +425,7 @@ These problems were gradually resolved: the team planned the sequence of tasks i
 - [Planet Minecraft](https://www.planetminecraft.com/mod/purple-infection-7039491/)
 
 **Repository and build**
-- [Project repository on GitHub](https://github.com/YOUR_ACCOUNT/PurpleInfectionMod) (insert your link)
+- [Project repository on GitHub](https://github.com/dianaaao/PurpleInfenctionMod)
 - [Fabric Loader and installer](https://fabricmc.net/use/)
 
 **Required dependencies**
