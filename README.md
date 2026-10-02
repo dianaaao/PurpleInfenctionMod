@@ -1,7 +1,6 @@
 <h1 align="center">PurpleInfectionMod</h1>
 
-![Mod menu](readme_images/mod_showcase.gif)
-<!-- TODO: заміни на реальний GIF/скріншот, коли він буде готовий -->
+![PurpleInfectionMod](readme_images/mod_showcase.png)
 
 <a name="contents"><h3>Зміст</h3></a>
 
@@ -34,6 +33,11 @@
 <h5>Problems during project development</h5>
 
 [Проблеми під час розробки](#problem_project)
+
+# Корисні посилання
+<h5>Useful links</h5>
+
+[Корисні посилання](#links)
 
 # Висновок
 <h5>Conclusion</h5>
@@ -205,8 +209,8 @@ After a successful build, the ready `.jar` file of the mod will appear in the `b
 
 </details>
 
-[Посилання на структуру проєкту (Figma)](#)
-<!-- TODO: додай посилання на Figma-схему, якщо буде створена -->
+<!-- [Посилання на структуру проєкту (Figma)](#)
+TODO: додати посилання на Figma-схему, якщо буде створена -->
 
 [Повернутись до змісту](#contents)
 
@@ -387,14 +391,81 @@ These problems were gradually resolved: the team planned the sequence of tasks i
 
 [Повернутись до змісту](#contents)
 
-<a name="conclusion"><h2>Висновок</h2></a>
+<a name="links"><h2>Корисні посилання</h2></a>
 
-У результаті розробки PurpleInfectionMod було створено повноцінний мод для Minecraft на Fabric мовою Java, що додає власну заражену екосистему: біом, блоки, руди, ворожих і дружніх мобів, боса з фазовою системою, систему захисту через респіратори, кристальну зброю та броню, а також структуру замку-склепу з унікальним сюжетом. У процесі розробки команда здобула практичні навички роботи з Fabric API, GeckoLib, Cardinal Components API, генерацією світу (біоми, фічі, структури), а також з 3D-моделюванням і анімацією. Незважаючи на труднощі з обмеженою кількістю учасників, часом та оптимізацією, вдалося реалізувати більшість запланованого контенту. У результаті вийшов цікавий мод, в який команда із задоволенням грає сама, а отриманий досвід командної розробки на Java відкриває можливості як для подальшого вдосконалення проєкту, так і для потенційного заробітку. У майбутньому команда планує довести ідею до завершення, покращити оптимізацію та, можливо, розробити покращену версію мода.
+**Де завантажити мод**
+- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/purple-infection)
+- [Modrinth](https://modrinth.com/mod/purpleinfectionmod)
+- [Planet Minecraft](https://www.planetminecraft.com/mod/purple-infection-7039491/)
+
+**Репозиторій і збірка**
+- [Репозиторій проєкту на GitHub](https://github.com/ВАШ_АКАУНТ/PurpleInfectionMod) (встав своє посилання)
+- [Fabric Loader та інсталятор](https://fabricmc.net/use/)
+
+**Обов'язкові залежності**
+- [Fabric API](https://modrinth.com/mod/fabric-api)
+- [Cardinal Components API](https://modrinth.com/mod/cardinal-components-api)
+- [GeckoLib](https://modrinth.com/mod/geckolib)
+- [TerraBlender](https://modrinth.com/mod/terrablender)
+
+**Опційні моди**
+- [Sodium](https://modrinth.com/mod/sodium)
+- [JEI](https://modrinth.com/mod/jei)
+- [e4mc](https://modrinth.com/mod/e4mc)
+
+**Автори**
+- [Diana](https://github.com/dianaaao) · [Illya](https://github.com/IllyaEpik) · [David](https://github.com/Davidptn)
 
 <details>
 <summary> English version </summary>
 
-As a result of developing PurpleInfectionMod, a full-fledged Minecraft mod was created on Fabric in Java, adding its own infected ecosystem: a biome, blocks, ores, hostile and friendly mobs, a boss with a phase system, a protection system through respirators, crystal weapons and armor, as well as a crypt-castle structure with a unique storyline. During development, the team gained practical skills in working with the Fabric API, GeckoLib, Cardinal Components API, world generation (biomes, features, structures), as well as 3D modeling and animation. Despite difficulties with a limited number of participants, time, and optimization, most of the planned content was successfully implemented. The result is an interesting mod that the team enjoys playing themselves, and the experience gained in Java team development opens up opportunities both for further improvement of the project and for potential earnings. In the future, the team plans to bring the idea to completion, improve optimization, and possibly develop an improved version of the mod.
+**Where to download the mod**
+- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/purple-infection)
+- [Modrinth](https://modrinth.com/mod/purpleinfectionmod)
+- [Planet Minecraft](https://www.planetminecraft.com/mod/purple-infection-7039491/)
+
+**Repository and build**
+- [Project repository on GitHub](https://github.com/YOUR_ACCOUNT/PurpleInfectionMod) (insert your link)
+- [Fabric Loader and installer](https://fabricmc.net/use/)
+
+**Required dependencies**
+- [Fabric API](https://modrinth.com/mod/fabric-api)
+- [Cardinal Components API](https://modrinth.com/mod/cardinal-components-api)
+- [GeckoLib](https://modrinth.com/mod/geckolib)
+- [TerraBlender](https://modrinth.com/mod/terrablender)
+
+**Optional mods**
+- [Sodium](https://modrinth.com/mod/sodium)
+- [JEI](https://modrinth.com/mod/jei)
+- [e4mc](https://modrinth.com/mod/e4mc)
+
+**Authors**
+- [Diana](https://github.com/dianaaao) · [Illya](https://github.com/IllyaEpik) · [David](https://github.com/Davidptn)
+
+</details>
+
+[Повернутись до змісту](#contents)
+
+<a name="conclusion"><h2>Висновок</h2></a>
+
+У результаті розробки PurpleInfectionMod створено повноцінний мод для Minecraft на Fabric мовою Java. Він додає заражений біом, блоки та руди, заражених і грибних мобів, боса з трьома фазами бою, систему захисту через респіратори, кристальну зброю та броню, а також замок-склеп з унікальною механікою.
+
+**Глибина занурення в Java.** Проєкт став для нас серйозною практикою. Ми працювали з ООП (наслідування ванільних класів мобів, блоків і предметів), реєстрами Minecraft, подіями та колбеками Fabric API, міксинами для втручання у ванільний код, збереженням даних світу через `PersistentState` і NBT, компонентами Cardinal Components, сучасним синтаксисом Java (`switch`-вирази), збіркою через Gradle та командною роботою в Git. Окремо освоїли GeckoLib для 3D-моделей і анімацій та генерацію світу: біоми, фічі, структури.
+
+**Чим корисний проєкт.** Це готовий ігровий контент, у який команда із задоволенням грає сама. Крім того, ми отримали реальний досвід командної розробки, який можна показати в портфоліо. Мод можна опублікувати на Modrinth чи CurseForge, що відкриває шлях до потенційного заробітку.
+
+**Що можна доопрацювати.** Насамперед оптимізацію генерації світу, щоб прибрати просідання продуктивності при створенні нових чанків. Також виправити залишкові помилки в анімаціях і невідповідність моделей хітбоксам, збалансувати бій з босом, додати більше контенту, зокрема сюжетні лінії, нову зброю та структури, замінити фото на GIF чи відео та оновити мод до новіших версій Minecraft.
+
+<details>
+<summary> English version </summary>
+
+As a result of developing PurpleInfectionMod, a full-fledged Minecraft mod was created on Fabric in Java. It adds an infected biome, blocks and ores, infected and mushroom mobs, a three-phase boss, a protection system through respirators, crystal weapons and armor, and a crypt-castle with unique mechanics.
+
+**How deep we went into Java.** The project was serious practice for us. We worked with OOP (inheriting vanilla mob, block and item classes), Minecraft registries, Fabric API events and callbacks, mixins to hook into vanilla code, world data persistence via `PersistentState` and NBT, Cardinal Components, modern Java syntax (`switch` expressions), Gradle builds and teamwork in Git. We also learned GeckoLib for 3D models and animations, and world generation: biomes, features, structures.
+
+**Why the project is useful.** It is ready-to-play content that the team enjoys playing itself. We also gained real team development experience that can be shown in a portfolio. The mod can be published on Modrinth or CurseForge, which opens a path to potential earnings.
+
+**What can be improved.** First of all, world generation optimization to remove performance drops when generating new chunks. We also want to fix remaining animation errors and model/hitbox mismatches, balance the boss fight, add more content (storylines, new weapons and structures), replace the photo with a GIF or video, and update the mod to newer Minecraft versions.
 
 </details>
 
