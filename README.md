@@ -472,6 +472,7 @@ PurpleInfectionMod — це мод для Minecraft 1.20.1 на Fabric мово�
 - **повний цикл випуску мода:** від збірки `.jar` до публікації й оформлення сторінок.
 
 <h3>Результат</h3>
+
 У результаті ми отримали робочий мод, у який команда із задоволенням грає сама. Мод опубліковано на [CurseForge](https://www.curseforge.com/minecraft/mc-mods/purple-infection), [Modrinth](https://modrinth.com/mod/purpleinfectionmod) і [Planet Minecraft](https://www.planetminecraft.com/mod/purple-infection-7039491/), тож ним можуть користуватися й інші гравці. Крім того, ми здобули реальний досвід командної розробки та публікації, який можна показати в портфоліо і який відкриває шлях до потенційного заробітку.
 
 <h3>Плани та ідеї для розвитку</h3>
@@ -480,7 +481,6 @@ PurpleInfectionMod — це мод для Minecraft 1.20.1 на Fabric мово�
 - оптимізувати генерацію світу, щоб прибрати просідання продуктивності при створенні нових чанків;
 - виправити залишкові помилки в анімаціях і невідповідність моделей хітбоксам;
 - збалансувати бій із босом і складність заражених земель;
-- замінити фото в README на GIF чи відео;
 - оновлювати мод до новіших версій Minecraft.
 
 Ідеї, які можна додати в майбутньому:
@@ -522,6 +522,7 @@ We also learned:
 - **the full release cycle:** from building the `.jar` to publishing and setting up the pages.
 
 <h3>Result</h3>
+
 As a result, we got a working mod that the team enjoys playing itself. The mod is published on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/purple-infection), [Modrinth](https://modrinth.com/mod/purpleinfectionmod) and [Planet Minecraft](https://www.planetminecraft.com/mod/purple-infection-7039491/), so other players can use it too. We also gained real experience in team development and publishing, which can be shown in a portfolio and opens a path to potential earnings.
 
 <h3>Plans and ideas for development</h3>
@@ -530,7 +531,6 @@ To bring the project to a better state, we plan to:
 - optimize world generation to remove performance drops when generating new chunks;
 - fix remaining animation errors and model/hitbox mismatches;
 - balance the boss fight and the difficulty of the infected lands;
-- replace the photo in the README with a GIF or video;
 - update the mod to newer Minecraft versions.
 
 Ideas that can be added in the future:
