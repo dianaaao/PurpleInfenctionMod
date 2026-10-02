@@ -448,24 +448,102 @@ These problems were gradually resolved: the team planned the sequence of tasks i
 
 <a name="conclusion"><h2>Висновок</h2></a>
 
-У результаті розробки PurpleInfectionMod створено повноцінний мод для Minecraft на Fabric мовою Java. Він додає заражений біом, блоки та руди, заражених і грибних мобів, боса з трьома фазами бою, систему захисту через респіратори, кристальну зброю та броню, а також замок-склеп з унікальною механікою.
+<h3>Про проєкт</h3>
+PurpleInfectionMod — це мод для Minecraft 1.20.1 на Fabric мовою Java, який додає в гру власну історію та цілий заражений світ. Ідея полягала в тому, щоб зробити не просто набір предметів, а завершений сюжетний досвід: від виживання на заражених землях до бою з босом і відновлення сили древнього кристала.
 
-**Глибина занурення в Java.** Проєкт став для нас серйозною практикою. Ми працювали з ООП (наслідування ванільних класів мобів, блоків і предметів), реєстрами Minecraft, подіями та колбеками Fabric API, міксинами для втручання у ванільний код, збереженням даних світу через `PersistentState` і NBT, компонентами Cardinal Components, сучасним синтаксисом Java (`switch`-вирази), збіркою через Gradle та командною роботою в Git. Окремо освоїли GeckoLib для 3D-моделей і анімацій та генерацію світу: біоми, фічі, структури.
+<h3>Реалізація та функціонал</h3>
+У межах проєкту ми реалізували:
 
-**Чим корисний проєкт.** Це готовий ігровий контент, у який команда із задоволенням грає сама. Крім того, ми отримали реальний досвід командної розробки, який можна показати в портфоліо. Мод можна опублікувати на Modrinth чи CurseForge, що відкриває шлях до потенційного заробітку.
+- **заражену екосистему:** власний біом із правилами поверхні, блоки, руди, рослинність (лози, лишайники) та кастомну генерацію світу;
+- **мобів:** заражені версії ванільних мобів (зомбі, скелет, крипер), грибних мобів і механіку зараження через `InfectionHandler`;
+- **боса Rotting Spore Fungus** із трьома фазами бою, у яких змінюються частота атак і призов міньйонів;
+- **систему захисту:** респіратори та ефекти, що впливають на гравця під час перебування серед спор;
+- **кристальну зброю та броню** і здатність поглинати життєву силу ворогів;
+- **замок-склеп** як окрему структуру з унікальною нічною механікою;
+- **збереження прогресу:** стан кристала зберігається окремо для кожного світу, а "заражена сила" гравця зберігається через компоненти.
 
-**Що можна доопрацювати.** Насамперед оптимізацію генерації світу, щоб прибрати просідання продуктивності при створенні нових чанків. Також виправити залишкові помилки в анімаціях і невідповідність моделей хітбоксам, збалансувати бій з босом, додати більше контенту, зокрема сюжетні лінії, нову зброю та структури, замінити фото на GIF чи відео та оновити мод до новіших версій Minecraft.
+<h3>Робота з Java та новий досвід</h3>
+Проєкт став для нас серйозною практикою. Ми працювали з ООП (наслідування ванільних класів мобів, блоків і предметів), реєстрами Minecraft, подіями та колбеками Fabric API, міксинами для втручання у ванільний код, збереженням даних світу через `PersistentState` і NBT, компонентами Cardinal Components, сучасним синтаксисом Java (`switch`-вирази), збіркою через Gradle і командною роботою в Git.
+
+Окремо ми освоїли:
+- **GeckoLib** для 3D-моделей та анімацій мобів і предметів;
+- **генерацію світу:** біоми, фічі, структури та інтеграцію з TerraBlender;
+- **розподіл ролей у команді:** моделювання, текстури, бекенд, логіка зброї та світ;
+- **повний цикл випуску мода:** від збірки `.jar` до публікації й оформлення сторінок.
+
+<h3>Результат</h3>
+У результаті ми отримали робочий мод, у який команда із задоволенням грає сама. Мод опубліковано на [CurseForge](https://www.curseforge.com/minecraft/mc-mods/purple-infection), [Modrinth](https://modrinth.com/mod/purpleinfectionmod) і [Planet Minecraft](https://www.planetminecraft.com/mod/purple-infection-7039491/), тож ним можуть користуватися й інші гравці. Крім того, ми здобули реальний досвід командної розробки та публікації, який можна показати в портфоліо і який відкриває шлях до потенційного заробітку.
+
+<h3>Плани та ідеї для розвитку</h3>
+Щоб довести проєкт до кращого стану, ми плануємо:
+
+- оптимізувати генерацію світу, щоб прибрати просідання продуктивності при створенні нових чанків;
+- виправити залишкові помилки в анімаціях і невідповідність моделей хітбоксам;
+- збалансувати бій із босом і складність заражених земель;
+- замінити фото в README на GIF чи відео;
+- оновлювати мод до новіших версій Minecraft.
+
+Ідеї, які можна додати в майбутньому:
+
+- нових босів і сюжетні квести, що розкривають, хто насправді пошкодив кристал;
+- нову зброю, броню та зілля, пов'язані з кристалом і спорами;
+- додаткові заражені біоми та структури (маєтки, печери, підземелля);
+- нових мобів та дружніх NPC, які допомагають гравцеві;
+- систему досягнень і прогресу в зараженому світі;
+- більше налаштувань для гравця (складність зараження, режими гри);
+- підтримку інших мод-лоадерів, наприклад NeoForge, і нових мов перекладу.
+
+Попри обмежену кількість активних учасників, брак часу й технічні труднощі, команді вдалося реалізувати більшість запланованого. Ми плануємо довести ідею до завершення та, можливо, випустити покращену версію мода.
 
 <details>
 <summary> English version </summary>
 
-As a result of developing PurpleInfectionMod, a full-fledged Minecraft mod was created on Fabric in Java. It adds an infected biome, blocks and ores, infected and mushroom mobs, a three-phase boss, a protection system through respirators, crystal weapons and armor, and a crypt-castle with unique mechanics.
+<h3>About the project</h3>
+PurpleInfectionMod is a Minecraft 1.20.1 mod built on Fabric in Java that adds its own story and a whole infected world to the game. The idea was to create not just a set of items, but a complete story-driven experience: from surviving in the infected lands to fighting the boss and restoring the power of the ancient crystal.
 
-**How deep we went into Java.** The project was serious practice for us. We worked with OOP (inheriting vanilla mob, block and item classes), Minecraft registries, Fabric API events and callbacks, mixins to hook into vanilla code, world data persistence via `PersistentState` and NBT, Cardinal Components, modern Java syntax (`switch` expressions), Gradle builds and teamwork in Git. We also learned GeckoLib for 3D models and animations, and world generation: biomes, features, structures.
+<h3>Implementation and features</h3>
+Within the project we implemented:
 
-**Why the project is useful.** It is ready-to-play content that the team enjoys playing itself. We also gained real team development experience that can be shown in a portfolio. The mod can be published on Modrinth or CurseForge, which opens a path to potential earnings.
+- **an infected ecosystem:** a custom biome with surface rules, blocks, ores, vegetation (vines, lichens) and custom world generation;
+- **mobs:** infected versions of vanilla mobs (zombie, skeleton, creeper), mushroom mobs and an infection mechanic via `InfectionHandler`;
+- **the Rotting Spore Fungus boss** with three combat phases in which attack frequency and minion summoning change;
+- **a protection system:** respirators and effects that affect the player while among the spores;
+- **crystal weapons and armor** and the ability to absorb enemies' life force;
+- **a crypt-castle** as a separate structure with a unique night mechanic;
+- **progress saving:** the crystal's state is stored separately for each world, and the player's "infected power" is stored via components.
 
-**What can be improved.** First of all, world generation optimization to remove performance drops when generating new chunks. We also want to fix remaining animation errors and model/hitbox mismatches, balance the boss fight, add more content (storylines, new weapons and structures), replace the photo with a GIF or video, and update the mod to newer Minecraft versions.
+<h3>Working with Java and new experience</h3>
+The project was serious practice for us. We worked with OOP (inheriting vanilla mob, block and item classes), Minecraft registries, Fabric API events and callbacks, mixins to hook into vanilla code, world data persistence via `PersistentState` and NBT, Cardinal Components, modern Java syntax (`switch` expressions), Gradle builds and teamwork in Git.
+
+We also learned:
+- **GeckoLib** for 3D models and animations of mobs and items;
+- **world generation:** biomes, features, structures and integration with TerraBlender;
+- **role distribution in a team:** modeling, textures, backend, weapon logic and the world;
+- **the full release cycle:** from building the `.jar` to publishing and setting up the pages.
+
+<h3>Result</h3>
+As a result, we got a working mod that the team enjoys playing itself. The mod is published on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/purple-infection), [Modrinth](https://modrinth.com/mod/purpleinfectionmod) and [Planet Minecraft](https://www.planetminecraft.com/mod/purple-infection-7039491/), so other players can use it too. We also gained real experience in team development and publishing, which can be shown in a portfolio and opens a path to potential earnings.
+
+<h3>Plans and ideas for development</h3>
+To bring the project to a better state, we plan to:
+
+- optimize world generation to remove performance drops when generating new chunks;
+- fix remaining animation errors and model/hitbox mismatches;
+- balance the boss fight and the difficulty of the infected lands;
+- replace the photo in the README with a GIF or video;
+- update the mod to newer Minecraft versions.
+
+Ideas that can be added in the future:
+
+- new bosses and story quests revealing who really damaged the crystal;
+- new weapons, armor and potions tied to the crystal and spores;
+- additional infected biomes and structures (manors, caves, dungeons);
+- new mobs and friendly NPCs that help the player;
+- an achievements and progression system in the infected world;
+- more player settings (infection difficulty, game modes);
+- support for other mod loaders such as NeoForge, and more translation languages.
+
+Despite the limited number of active members, lack of time and technical difficulties, the team managed to implement most of what was planned. We plan to bring the idea to completion and possibly release an improved version of the mod.
 
 </details>
 
