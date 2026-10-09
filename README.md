@@ -99,56 +99,180 @@ But will he be able to cleanse these lands completely — and who really stood b
 
 Мод створений на Fabric (Minecraft 1.20.1) і потребує кількох додаткових бібліотек-модів для коректної роботи.
 
-**1. Збірка мода з коду:**
+## Вимоги
+
+- [JDK 21](https://www.oracle.com/ua/java/technologies/downloads/) — для Minecraft 1.20.1 потрібна саме Java 21
+- [Git](https://git-scm.com/)
+- Minecraft Java Edition версії 1.20.1
+
+Перевірити версію Java можна командою `java -version`.
+
+## 1. Клонування проєкту
+
+```bash
+git clone https://github.com/<your-username>/<repository-name>.git
+cd <repository-name>
+```
+
+## 2. Збірка мода з коду
+
+**Windows:**
+
+```bash
+gradlew.bat build
+```
+
+**Linux / macOS:**
 
 ```bash
 ./gradlew build
 ```
 
+> Перша збірка може тривати кілька хвилин: Gradle завантажує Fabric Loom, мапінги Minecraft та всі залежності. Наступні збірки значно швидші.
+
 Після успішної збірки готовий `.jar`-файл мода з'явиться у папці `build/libs/`.
+Там можуть лежати кілька файлів. Для гри потрібен основний `purpleinfenctionmod-*.jar` без суфіксів `-sources` та `-dev`.
 
-**2. Встановлення в гру:**
+## 3. Запуск для розробки (за бажанням)
 
-1. Встанови [Fabric Loader](https://fabricmc.net/use/) для потрібної версії Minecraft.
-2. Скопіюй зібраний `purpleinfenctionmod-*.jar` у папку `.minecraft/mods`.
-3. Додай у ту саму папку обов'язкові залежності мода:
-   - `fabric-api`
-   - `cardinal-components-api`
-   - `geckolib`
-   - `TerraBlender-fabric`
-4. За бажанням можна додати опційні/сумісні моди:
-   - `sodium-fabric` — оптимізація рендеру
-   - `jei-fabric` — довідник предметів і рецептів
-   - `e4mc-fabric` — покращення з'єднання по мережі
+Щоб швидко перевірити зміни без ручного копіювання `.jar` у гру, запускай Minecraft прямо з проєкту:
+
+```bash
+./gradlew runClient
+```
+
+Для тестування на сервері:
+
+```bash
+./gradlew runServer
+```
+
+## 4. Встановлення в гру
+
+1. Встанови [Fabric Loader](https://fabricmc.net/use/) для Minecraft 1.20.1. У встановлювачі обери вкладку *Client*, версію гри `1.20.1` і натисни *Install*.
+2. Відкрий папку `mods`:
+   - **Windows:** `%appdata%\.minecraft\mods`
+   - **macOS:** `~/Library/Application Support/minecraft/mods`
+   - **Linux:** `~/.minecraft/mods`
+
+   Якщо папки немає, запусти гру з профілем Fabric один раз, і вона створиться автоматично.
+3. Скопіюй зібраний `purpleinfenctionmod-*.jar` у цю папку.
+4. Додай у ту саму папку обов'язкові залежності мода (завантажуй версії для **Fabric 1.20.1**):
+   - [`fabric-api`](https://modrinth.com/mod/fabric-api)
+   - [`cardinal-components-api`](https://modrinth.com/mod/cardinal-components-api)
+   - [`geckolib`](https://modrinth.com/mod/geckolib)
+   - [`TerraBlender-fabric`](https://modrinth.com/mod/terrablender)
+5. За бажанням можна додати опційні/сумісні моди:
+   - [`sodium-fabric`](https://modrinth.com/mod/sodium) — оптимізація рендеру
+   - [`jei-fabric`](https://modrinth.com/mod/jei) — довідник предметів і рецептів
+   - [`e4mc-fabric`](https://modrinth.com/mod/e4mc) — покращення з'єднання по мережі
    - `tl_skin_cape_fabric` — підтримка плащів/скінів
+
+## 5. Запуск гри
+
+1. Відкрий Minecraft Launcher і обери профіль **fabric-loader-1.20.1**.
+2. Натисни **Play**.
+3. Переконайся, що мод завантажився: у головному меню відкрий **Mods** (якщо встановлено Mod Menu) або перевір у грі, що з'явилися додані модом предмети чи блоки.
+
+## Можливі проблеми
+
+| Проблема | Рішення |
+|---|---|
+| `Unsupported class file major version` або схожа помилка при збірці | Використовується не Java 17. Встанови JDK 17 і перевір змінну `JAVA_HOME`. |
+| Гра падає при старті з повідомленням про відсутню залежність | У папці `mods` бракує одного з обов'язкових модів зі списку вище. |
+| Гра падає через несумісність версій | Усі моди мають бути для **Fabric** та **Minecraft 1.20.1**. Версії для Forge не підійдуть. |
+| Мод не з'являється в грі | Перевір, що в `mods` лежить лише один `.jar` мода і що це не `-sources` чи `-dev`. |
 
 <details>
 <summary> English version </summary>
 
-The mod is built on Fabric (Minecraft 1.20.1) and requires several additional library mods to work correctly.
+<a name="launch"><h1>Installation and Launch</h1></a>
 
-**1. Building the mod from source:**
+The mod is built on Fabric (Minecraft 1.20.1) and requires a few additional library mods to work correctly.
+
+## Requirements
+
+- [JDK 21](https://www.oracle.com/ua/java/technologies/downloads/): Minecraft 1.20.1 requires Java 21 specifically
+- [Git](https://git-scm.com/)
+- Minecraft Java Edition 1.20.1
+
+You can check your Java version with `java -version`.
+
+## 1. Cloning the project
+
+```bash
+git clone https://github.com/<your-username>/<repository-name>.git
+cd <repository-name>
+```
+
+## 2. Building the mod from source
+
+**Windows:**
+
+```bash
+gradlew.bat build
+```
+
+**Linux / macOS:**
 
 ```bash
 ./gradlew build
 ```
 
-After a successful build, the ready `.jar` file of the mod will appear in the `build/libs/` folder.
+> The first build may take a few minutes: Gradle downloads Fabric Loom, Minecraft mappings, and all dependencies. Subsequent builds are much faster.
 
-**2. Installing into the game:**
+After a successful build, the finished mod `.jar` file will appear in the `build/libs/` folder.
+There may be several files there. The game needs the main `purpleinfenctionmod-*.jar`, without the `-sources` or `-dev` suffix.
 
-1. Install [Fabric Loader](https://fabricmc.net/use/) for the required Minecraft version.
-2. Copy the built `purpleinfenctionmod-*.jar` into the `.minecraft/mods` folder.
-3. Add the mod's required dependencies to the same folder:
-   - `fabric-api`
-   - `cardinal-components-api`
-   - `geckolib`
-   - `TerraBlender-fabric`
-4. Optionally, you can add compatible/optional mods:
-   - `sodium-fabric` — rendering optimization
-   - `jei-fabric` — item and recipe reference
-   - `e4mc-fabric` — network connection improvements
-   - `tl_skin_cape_fabric` — skin/cape support
+## 3. Running in development mode (optional)
+
+To quickly test changes without manually copying the `.jar` into the game, run Minecraft directly from the project:
+
+```bash
+./gradlew runClient
+```
+
+To test on a server:
+
+```bash
+./gradlew runServer
+```
+
+## 4. Installing into the game
+
+1. Install [Fabric Loader](https://fabricmc.net/use/) for Minecraft 1.20.1. In the installer, choose the *Client* tab, select game version `1.20.1`, and click *Install*.
+2. Open the `mods` folder:
+   - **Windows:** `%appdata%\.minecraft\mods`
+   - **macOS:** `~/Library/Application Support/minecraft/mods`
+   - **Linux:** `~/.minecraft/mods`
+
+   If the folder doesn't exist, launch the game once with the Fabric profile and it will be created automatically.
+3. Copy the built `purpleinfenctionmod-*.jar` into this folder.
+4. Add the mod's required dependencies to the same folder (download the versions for **Fabric 1.20.1**):
+   - [`fabric-api`](https://modrinth.com/mod/fabric-api)
+   - [`cardinal-components-api`](https://modrinth.com/mod/cardinal-components-api)
+   - [`geckolib`](https://modrinth.com/mod/geckolib)
+   - [`TerraBlender-fabric`](https://modrinth.com/mod/terrablender)
+5. Optionally, you can add compatible mods:
+   - [`sodium-fabric`](https://modrinth.com/mod/sodium): rendering optimization
+   - [`jei-fabric`](https://modrinth.com/mod/jei): item and recipe browser
+   - [`e4mc-fabric`](https://modrinth.com/mod/e4mc): improved network connectivity
+   - `tl_skin_cape_fabric`: cape and skin support
+
+## 5. Launching the game
+
+1. Open the Minecraft Launcher and select the **fabric-loader-1.20.1** profile.
+2. Click **Play**.
+3. Make sure the mod has loaded: in the main menu, open **Mods** (if Mod Menu is installed), or check in-game that the items or blocks added by the mod are present.
+
+## Troubleshooting
+
+| Problem | Solution |
+|---|---|
+| `Unsupported class file major version` or a similar error during the build | You are not using Java 17. Install JDK 17 and check your `JAVA_HOME` variable. |
+| The game crashes on startup with a missing dependency message | One of the required mods listed above is missing from the `mods` folder. |
+| The game crashes because of version incompatibility | All mods must be for **Fabric** and **Minecraft 1.20.1**. Forge versions will not work. |
+| The mod does not appear in the game | Make sure only one mod `.jar` is in `mods` and that it is not a `-sources` or `-dev` file. |
 
 </details>
 
