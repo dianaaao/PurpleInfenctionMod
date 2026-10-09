@@ -178,7 +178,7 @@ gradlew.bat build
 
 | Проблема | Рішення |
 |---|---|
-| `Unsupported class file major version` або схожа помилка при збірці | Використовується не Java 17. Встанови JDK 17 і перевір змінну `JAVA_HOME`. |
+| `Unsupported class file major version` або схожа помилка при збірці | Використовується не Java 21. Встанови JDK 21 і перевір змінну `JAVA_HOME`. |
 | Гра падає при старті з повідомленням про відсутню залежність | У папці `mods` бракує одного з обов'язкових модів зі списку вище. |
 | Гра падає через несумісність версій | Усі моди мають бути для **Fabric** та **Minecraft 1.20.1**. Версії для Forge не підійдуть. |
 | Мод не з'являється в грі | Перевір, що в `mods` лежить лише один `.jar` мода і що це не `-sources` чи `-dev`. |
@@ -269,7 +269,7 @@ To test on a server:
 
 | Problem | Solution |
 |---|---|
-| `Unsupported class file major version` or a similar error during the build | You are not using Java 17. Install JDK 17 and check your `JAVA_HOME` variable. |
+| `Unsupported class file major version` or a similar error during the build | You are not using Java 21. Install JDK 21 and check your `JAVA_HOME` variable. |
 | The game crashes on startup with a missing dependency message | One of the required mods listed above is missing from the `mods` folder. |
 | The game crashes because of version incompatibility | All mods must be for **Fabric** and **Minecraft 1.20.1**. Forge versions will not work. |
 | The mod does not appear in the game | Make sure only one mod `.jar` is in `mods` and that it is not a `-sources` or `-dev` file. |
